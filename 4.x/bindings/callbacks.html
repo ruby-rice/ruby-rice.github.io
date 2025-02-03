@@ -360,7 +360,8 @@
 <p>Remember that C style callbacks are simply function pointers, they do not have a place to store any state. Thus when a C style callback is invoked, Rice needs to determine what Ruby <code class="docutils literal notranslate"><span class="pre">Proc</span></code> to call. This is a tricky problem to solve.</p>
 <section id="simple-callback">
 <h4>Simple Callback<a class="headerlink" href="#simple-callback" title="Link to this heading">¶</a></h4>
-<p>In the simplest case, a callback is only used once in a code base. Thus the <code class="docutils literal notranslate"><span class="pre">Proc</span></code> can be associated with the function pointer type. This is exactly what Rice does via the <a class="reference external" href="https://github.com/ruby-rice/rice/blob/master/rice/detail/NativeCallbackSimple.hpp">NativeCallbackSimple</a> template. Each callback signature creates a new C++ class from the NativeCallback template. The created class has a static member field that stores the <code class="docutils literal notranslate"><span class="pre">Proc</span></code>.</p>
+<p>In the simplest case, a callback is only used once in a code base. Thus there is a one-to-one mapping between a callback and its associated Ruby <code class="docutils literal notranslate"><span class="pre">Proc</span></code>.</p>
+<p>This is easy to implement - Rice generates a new C++ class based on the callback’s signature using the <a class="reference external" href="https://github.com/ruby-rice/rice/blob/master/rice/detail/NativeCallbackSimple.hpp">NativeCallbackSimple</a> class template. The generated class has a static member field that stores the <code class="docutils literal notranslate"><span class="pre">Proc</span></code>. Thus every callback is associated with a single instantiation of the <cite>NativeCallbackSimple</cite> template.</p>
 </section>
 <section id="libffi-callback">
 <h4>LibFFI Callback<a class="headerlink" href="#libffi-callback" title="Link to this heading">¶</a></h4>
@@ -369,10 +370,10 @@
 <span class="kt">void</span><span class="w"> </span><span class="nf">setMouseEnterExitCallback</span><span class="p">(</span><span class="n">MouseCallback_T</span><span class="w"> </span><span class="n">onEnterExit</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>The above code uses the same callback type 3 different times, thus the one-to-one mapping between callback type and C++ class is broken. Intead, we want a callback type to map to 3 different Ruby <code class="docutils literal notranslate"><span class="pre">Procs</span></code>.</p>
-<p>In this case, Ruby can use libffi’s <a class="reference external" href="https://github.com/libffi/libffi/blob/master/src/closures.c">closure</a> API. The closure API associates a piece of user data with a callback and then dynamically generates a new function that the callback invokes.</p>
-<p>Since you are working with Ruby, it is highly likely that you have LibFFI installed since the <a class="reference external" href="https://github.com/ruby/fiddle">Fiddle</a> gem requires it. The default build script will check for LibFFI and if it is found compile it into your bindings.</p>
-<p>If you are using CMake, you will need to define a C++ preprocessor define called <code class="docutils literal notranslate"><span class="pre">HAVE_LIBFFI</span></code> and link to libffi.</p>
+<p>The above code uses the same callback type 3 different times, thus the one-to-one mapping between callback type and C++ class is broken. Therefore the simple solution of using a static member variable to store the Ruby proc no longer works. Instead, we need to store 3 different <code class="docutils literal notranslate"><span class="pre">Procs</span></code> and figure out which one to call when the callback is invoked.</p>
+<p>In this case, Rice uses libffi’s <a class="reference external" href="https://github.com/libffi/libffi/blob/master/src/closures.c">closure</a> API. The closure API associates a piece of user data, in this case the <code class="docutils literal notranslate"><span class="pre">Proc</span></code>, with a callback and then dynamically generates a new function which is what is invoked by the callback function.</p>
+<p>Since you are working with Ruby, it is highly likely that LibFFI is already installed since the <a class="reference external" href="https://github.com/ruby/fiddle">Fiddle</a> gem requires it. The default build script will check for LibFFI and if it is found compile it into your bindings.</p>
+<p>If you are using CMake, you will need to add a C++ preprocessor define called <code class="docutils literal notranslate"><span class="pre">HAVE_LIBFFI</span></code> and link to libffi.</p>
 </section>
 </section>
 </section>

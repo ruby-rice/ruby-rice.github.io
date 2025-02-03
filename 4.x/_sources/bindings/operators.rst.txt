@@ -126,7 +126,7 @@ C++ classes that support the ``()`` operator are known as functors. Ruby support
 
 Conversion Operators
 --------------------
-C++ allows uses to create both explicit and implicit converion operators or functions. These are used to convert a class to a different types. For example:
+C++ allows users to define explicit and implicit conversion operators or functions. These are used to convert a class to a different types. For example:
 
 .. code-block:: cpp
 
