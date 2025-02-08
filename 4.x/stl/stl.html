@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
@@ -328,7 +329,7 @@
 <p>Rice makes it easy to manually create Ruby classes for instantiated STL templates. The way to do this varies per STL type, but follows a simple naming scheme - <code class="docutils literal notranslate"><span class="pre">define_pair</span></code>, <code class="docutils literal notranslate"><span class="pre">define_vector</span></code>, etc. Please refer to the documentation for each supported STL type.</p>
 <p>Rice can also automatically generate Ruby classes. These Ruby classes are added to the <code class="docutils literal notranslate"><span class="pre">Rice::Std</span></code> module. Automatic classes work well in cases where Ruby code is accessing, or modifying, wrapped objects created in C++.</p>
 <p>Sometimes Ruby also needs to create new instances of these classes. With manually defined class names, this is easy to do. With generated class names you need to understand how Rice creates class names.</p>
-<p>Starting in version 4.5, Rice makes use of three unicode characters to create class names that “look” like their C++ counterparts. For example, the type <code class="docutils literal notranslate"><span class="pre">std::pair&lt;std::string,</span> <span class="pre">double&gt;</span></code> becomes <code class="docutils literal notranslate"><span class="pre">Rice::Std::Pair≺string≺char≻‚ double≻</span></code>.  Or assume there is a vector containing a custom class``MyNamespace::MyClass``. Then generated name would be <code class="docutils literal notranslate"><span class="pre">Rice::Std::Vector≺MyNamesapce꞉꞉MyClass≻</span></code>.</p>
+<p>Starting in version 4.5, Rice makes use of three unicode characters to create class names that “look” like their C++ counterparts. For example, the type <code class="docutils literal notranslate"><span class="pre">std::pair&lt;std::string,</span> <span class="pre">double&gt;</span></code> becomes <code class="docutils literal notranslate"><span class="pre">Rice::Std::Pair≺string≺char≻‚ double≻</span></code>.  Or assume there is a vector containing a custom class <code class="docutils literal notranslate"><span class="pre">MyNamespace::MyClass</span></code>. Then generated name would be <code class="docutils literal notranslate"><span class="pre">Rice::Std::Vector≺MyNamespace꞉꞉MyClass≻</span></code>.</p>
 <p>The unicode characters are:</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">

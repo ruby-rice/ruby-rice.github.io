@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
@@ -298,7 +299,7 @@
 <p>Both C++ and Ruby support operator overriding, although C++ supports more of them. The sections below describe how to map C++ operators to Ruby operators.</p>
 <section id="arithmetic-operators">
 <h2>Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Link to this heading">¶</a></h2>
-<p>Most overridden C++ arithmetic operators can be overriden in Ruby.</p>
+<p>Most overridden C++ arithmetic operators can be overridden in Ruby.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -307,32 +308,14 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>+</p></td>
+<td><p>+</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>-</p></td>
+<td><p>-</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li></li>
-</ul>
-</td>
-<td><ul class="simple">
-<li></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>*</p></td>
+<td><p>*</p></td>
 </tr>
 <tr class="row-odd"><td><p>/</p></td>
 <td><p>/</p></td>
@@ -362,7 +345,7 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>=</p></td>
-<td><p>Not overridable</p></td>
+<td><p>assign</p></td>
 </tr>
 <tr class="row-odd"><td><p>+=</p></td>
 <td><p>Not overridable</p></td>
@@ -448,7 +431,7 @@
 </section>
 <section id="logical-operators">
 <h2>Logical Operators<a class="headerlink" href="#logical-operators" title="Link to this heading">¶</a></h2>
-<p>Ruby allows the <code class="docutils literal notranslate"><span class="pre">!</span></code> operator to be overriden but not <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> or <cite>||</cite>.</p>
+<p>Ruby allows the <code class="docutils literal notranslate"><span class="pre">!</span></code> operator to be overridden but not <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> or <code class="docutils literal notranslate"><span class="pre">||</span></code>.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
 <thead>
@@ -501,8 +484,8 @@
 </tbody>
 </table>
 </div>
-<p>If a C++ class defines an <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator that returns a reference, then in it should be mapped to two Ruby operators - <code class="docutils literal notranslate"><span class="pre">[]</span></code> and <code class="docutils literal notranslate"><span class="pre">[]=</span></code>.</p>
-<p>C++ classes that support the <code class="docutils literal notranslate"><span class="pre">()</span></code> operator are known as functors. Ruby supports overriding the <code class="docutils literal notranslate"><span class="pre">.()</span></code> operator by defining a <code class="docutils literal notranslate"><span class="pre">call</span></code> function. Note this isn’t quite the same as C++ because it is invoked via <code class="docutils literal notranslate"><span class="pre">.()</span></code> and not <code class="docutils literal notranslate"><span class="pre">()</span></code> - notice the <code class="docutils literal notranslate"><span class="pre">.</span></code> before the <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+<p>If a C++ class defines an <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator that returns a reference, then in it should be mapped to two Ruby operators: <code class="docutils literal notranslate"><span class="pre">[]</span></code> and <code class="docutils literal notranslate"><span class="pre">[]=</span></code>.</p>
+<p>C++ classes that support the <code class="docutils literal notranslate"><span class="pre">()</span></code> operator are known as functors. Ruby supports overriding the <code class="docutils literal notranslate"><span class="pre">.()</span></code> operator by defining a <code class="docutils literal notranslate"><span class="pre">call</span></code> function. Note this isn’t quite the same as C++ because it is invoked via <code class="docutils literal notranslate"><span class="pre">.()</span></code> and not <code class="docutils literal notranslate"><span class="pre">()</span></code> – notice the <code class="docutils literal notranslate"><span class="pre">.</span></code> before the <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
 </section>
 <section id="conversion-operators">
 <h2>Conversion Operators<a class="headerlink" href="#conversion-operators" title="Link to this heading">¶</a></h2>

@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
@@ -295,7 +296,7 @@
           <section id="type-conversions">
 <span id="id1"></span><h1>Type Conversions<a class="headerlink" href="#type-conversions" title="Link to this heading">¶</a></h1>
 <p>Rice refers to types that should be converted (copied) between Ruby and C++ as builtin types. Builtin types are types that directly map from C++ to Ruby. Examples include nullptr, bool, numeric types (integer, float, double, complex), char types and strings.</p>
-<p>Since they are copied, instances of builtin types are disconnected. Therefore, if a Ruby string is converted to a std::string then the two strings are independent and changes in one will <em>not</em> be reflected in the other. Also understand that if you allocate a new char* in C++ and pass it to Ruby, then you will get a memory leak because Ruby will copy the contents on the char* but will <em>not</em> free the original buffer.</p>
+<p>Since they are copied, instances of builtin types are disconnected. Therefore, if a Ruby string is converted to a <code class="docutils literal notranslate"><span class="pre">std::string</span></code> then the two strings are independent and changes in one will <em>not</em> be reflected in the other. Also understand that if you allocate a new <code class="docutils literal notranslate"><span class="pre">char*</span></code> in C++ and pass it to Ruby, then you will get a memory leak because Ruby will copy the contents on the <code class="docutils literal notranslate"><span class="pre">char*</span></code> but will <em>not</em> free the original buffer.</p>
 <p>Rice supports all common builtin types out of the box. In general, to add new C++ types to Ruby you should wrap them by using <code class="docutils literal notranslate"><span class="pre">define_class</span></code>, <code class="docutils literal notranslate"><span class="pre">define_enum</span></code>, etc.  It should be quite rare to add new builtin types.</p>
 <section id="adding-a-builtin-type">
 <h2>Adding a Builtin Type<a class="headerlink" href="#adding-a-builtin-type" title="Link to this heading">¶</a></h2>
@@ -370,7 +371,7 @@
 <p>Instead of using the raw Ruby C API as above, you may prefer to use <code class="docutils literal notranslate"><span class="pre">Rice::Array</span></code> which provides an nice C++ wrapper for Ruby arrays.</p>
 </section>
 <section id="step-3-specialize-from-ruby">
-<span id="from-ruby-specialiazation"></span><h3>Step 3 - Specialize From_Ruby<a class="headerlink" href="#step-3-specialize-from-ruby" title="Link to this heading">¶</a></h3>
+<span id="from-ruby-specialization"></span><h3>Step 3 - Specialize From_Ruby<a class="headerlink" href="#step-3-specialize-from-ruby" title="Link to this heading">¶</a></h3>
 <p>Last, if we want to convert a Ruby array to a  <code class="docutils literal notranslate"><span class="pre">std::deque&lt;int&gt;</span></code>, then we need to write C++ code for that too.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="o">::</span><span class="nn">detail</span>
 <span class="p">{</span>
@@ -426,7 +427,7 @@
 <ul class="simple">
 <li><p>Add an additional constructor that takes a <code class="docutils literal notranslate"><span class="pre">detail::Arg</span></code> pointer and store it in a member variable</p></li>
 <li><p>Add back in the default constructor.</p></li>
-<li><p>In the <code class="docutils literal notranslate"><span class="pre">convert</span></code> method, if the Ruby value is <code class="docutils literal notranslate"><span class="pre">nil</span> <span class="pre">(ie,</span> <span class="pre">Qnil)</span></code> and arg is set then return the default value.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">convert</span></code> method, if the Ruby value is <code class="docutils literal notranslate"><span class="pre">nil</span></code> (ie, <code class="docutils literal notranslate"><span class="pre">Qnil</span></code>) and arg is set then return the default value.</p></li>
 </ul>
 <p>Expanding on our example above:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="o">::</span><span class="nn">detail</span>

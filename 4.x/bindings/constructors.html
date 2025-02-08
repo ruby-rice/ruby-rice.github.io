@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
@@ -348,7 +349,7 @@
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="no">Mat</span><span class="o">.</span><span class="n">new</span>
 </pre></div>
 </div>
-<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> call creates a new <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method on the Ruby Mat class. The <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method is responsible for creating a new C++ <code class="docutils literal notranslate"><span class="pre">Mat</span></code> instance and associating it with the wrapper Ruby object. Thus if you override the <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method you MUST call super:</p>
+<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> call creates a new <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method on the Ruby <code class="docutils literal notranslate"><span class="pre">Mat</span></code> class. The <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method is responsible for creating a new C++ <code class="docutils literal notranslate"><span class="pre">Mat</span></code> instance and associating it with the wrapper Ruby object. Thus if you override the <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method you MUST call <code class="docutils literal notranslate"><span class="pre">super</span></code>:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mat</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span>
 <span class="w">    </span><span class="k">super</span><span class="w">  </span><span class="c1"># &lt;--- You MUST call super first</span>
@@ -377,7 +378,7 @@
 <section id="copy-constructors">
 <span id="id5"></span><h2>Copy Constructors<a class="headerlink" href="#copy-constructors" title="Link to this heading">¶</a></h2>
 <p>Most C++ classes include a copy constructor that takes one argument. These are mapped to Rice like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Mat</span><span class="o">&amp;</span><span class="p">())</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Mat</span><span class="o">&amp;&gt;</span><span class="p">())</span>
 </pre></div>
 </div>
 <p>Rice maps copy constructors to Ruby’s <code class="docutils literal notranslate"><span class="pre">clone</span></code> and <code class="docutils literal notranslate"><span class="pre">dup</span></code> methods:</p>
@@ -386,7 +387,7 @@
 <span class="n">mat3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mat1</span><span class="o">.</span><span class="n">clone</span>
 </pre></div>
 </div>
-<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> call creates a new <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method on the Ruby Mat class. The <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method is responsible for calling the C++ copy constructor and assigning the new C++ instance to the wrapper Ruby object. Thus if you override the <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method you MUST call super:</p>
+<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> call creates a new <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method on the Ruby Mat class. The <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method is responsible for calling the C++ copy constructor and assigning the new C++ instance to the wrapper Ruby object. Thus if you override the <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method you MUST call <code class="docutils literal notranslate"><span class="pre">super</span></code>:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mat</span>
 <span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_copy</span>
 <span class="w">    </span><span class="k">super</span><span class="w">  </span><span class="c1"># &lt;--- You MUST call super first</span>

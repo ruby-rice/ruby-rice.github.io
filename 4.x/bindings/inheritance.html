@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
@@ -325,8 +326,8 @@
 <p>Inheritance becomes much more complex if you want to create Ruby classes that inherit from wrapped C++ classes. This introduces several problems:</p>
 <ul class="simple">
 <li><p>Ruby classes should be able to override C++ virtual methods</p></li>
-<li><p>Overriden virtual methods should be able to call <code class="docutils literal notranslate"><span class="pre">super</span></code> and invoke the overriden C++ method</p></li>
-<li><p>C++ code calling the virtual methods should invoke the overriden version in Ruby</p></li>
+<li><p>Overridden virtual methods should be able to call <code class="docutils literal notranslate"><span class="pre">super</span></code> and invoke the overridden C++ method</p></li>
+<li><p>C++ code calling the virtual methods should invoke the overridden version in Ruby</p></li>
 </ul>
 <p>Rice supports these use cases through the use of <code class="docutils literal notranslate"><span class="pre">Director</span></code> classes. <code class="docutils literal notranslate"><span class="pre">Directors</span></code> are proxies that can correctly dispatch method invocations up or down a Class hierarchy.</p>
 <div class="admonition note">
@@ -400,7 +401,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>It director also implements <code class="docutils literal notranslate"><span class="pre">default_doWork</span></code> which enables Ruby to call the overriden virtual C++ method. The <code class="docutils literal notranslate"><span class="pre">default_</span></code> prefix is a naming convention to help keep straight which methods perform which functions.</p>
+<p>It director also implements <code class="docutils literal notranslate"><span class="pre">default_doWork</span></code> which enables Ruby to call the overridden virtual C++ method. The <code class="docutils literal notranslate"><span class="pre">default_</span></code> prefix is a naming convention to help keep straight which methods perform which functions.</p>
 <p>If Ruby should never call the C++ method then the <code class="docutils literal notranslate"><span class="pre">default_</span></code> implementation should call <code class="docutils literal notranslate"><span class="pre">raisePureVirtual()</span></code>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">default_processWorker</span><span class="p">()</span>
 <span class="p">{</span>

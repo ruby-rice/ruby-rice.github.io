@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
@@ -316,7 +317,7 @@
 </div>
 <p>When Ruby loads the Rice extension above it will throw an exception. The reason is that <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> has not yet been defined to Rice.</p>
 <p>When <code class="docutils literal notranslate"><span class="pre">define_method</span></code> is called, Rice will see that the return type for <code class="docutils literal notranslate"><span class="pre">&amp;Factory::make_fancy_type</span></code> is <code class="docutils literal notranslate"><span class="pre">Fancy_T</span></code>. It will then drill down through the vector to the unique_ptr to the pair to <code class="docutils literal notranslate"><span class="pre">MyClass</span></code>. When it encounters <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> it will check its internal <code class="docutils literal notranslate"><span class="pre">TypeRegistry</span></code> and realize it has not yet been defined and throw a <code class="docutils literal notranslate"><span class="pre">std::runtime_exception</span></code>.</p>
-<p>To fix this requires first definining <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> like this:</p>
+<p>To fix this requires first defining <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> like this:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">setupRice</span><span class="p">()</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MyClass&quot;</span><span class="p">);</span>

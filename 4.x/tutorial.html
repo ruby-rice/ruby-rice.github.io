@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a></li>
@@ -585,7 +586,7 @@ conversion works. When we write:</p>
 </pre></div>
 </div>
 <p>Like a <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> or an <code class="docutils literal notranslate"><span class="pre">Object</span></code>, data stored in a <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> will be marked by the garbage collector as long as the <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> is on the stack.</p>
-<p>Last, <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> inherites from <code class="docutils literal notranslate"><span class="pre">Object</span></code>, so any Object member functions work with <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code>:</p>
+<p>Last, <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> inherits from <code class="docutils literal notranslate"><span class="pre">Object</span></code>, so any Object member functions work with <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="w"> </span><span class="n">object_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;object_id&quot;</span><span class="p">);</span>
 <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">object_id</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 </pre></div>

@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
@@ -375,11 +376,18 @@
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">hello</span></code> function can be called from Ruby like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Test</span><span class="p">.</span><span class="k">new</span>
-<span class="n">test</span><span class="p">.</span><span class="n">hello</span><span class="p">(</span><span class="n">first</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">second</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;World&quot;</span><span class="p">)</span>
-<span class="n">test</span><span class="p">.</span><span class="n">hello</span><span class="p">(</span><span class="n">first</span><span class="o">:</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">)</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">This</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="n">ok</span><span class="w"> </span><span class="n">because</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">second</span><span class="w"> </span><span class="n">parameter</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">default</span><span class="w"> </span><span class="n">value</span>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="nb">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Test</span><span class="o">.</span><span class="n">new</span>
+<span class="nb">test</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">second</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;World&quot;</span><span class="p">)</span>
+<span class="nb">test</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="ss">first</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1"># This is ok because the second parameter has a default value</span>
 </pre></div>
 </div>
+<p>And it can also be called in the traditional manner like this:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="nb">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Test</span><span class="o">.</span><span class="n">new</span>
+<span class="nb">test</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;World&quot;</span><span class="p">)</span>
+<span class="nb">test</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The ability to call the function in two different ways (position and keyword) could cause problems in the future. Imagine that you decide to move the code to Ruby - you will need to chose one of the two forms. That could result in breaking someone else’s code. This risk seems low though, so for the moment Rice only supports defining arguments using the <code class="docutils literal notranslate"><span class="pre">Arg</span></code> class. In the future Rice may introduce a <code class="docutils literal notranslate"><span class="pre">KeyArg</span></code> class to avoid this issue.</p>
 </section>
 <section id="return-self">
 <span id="id4"></span><h2>Return Self<a class="headerlink" href="#return-self" title="Link to this heading">¶</a></h2>
@@ -391,7 +399,7 @@
 </div>
 <p>The above code works because the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> method returns the Array <code class="docutils literal notranslate"><span class="pre">a</span></code>. You can mimic this behavior by the use of lambdas when wrapping C++ classes. For example, Rice wraps <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> like this:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;&gt;</span><span class="p">().</span>
-<span class="n">define_method</span><span class="p">(</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;&amp;</span><span class="w">  </span><span class="c1">// &lt;----- DONT MISS THIS</span>
+<span class="n">define_method</span><span class="p">(</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;&amp;</span><span class="w">  </span><span class="c1">// &lt;----- DON&#39;T MISS THIS</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="n">self</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">self</span><span class="p">;</span><span class="w">  </span><span class="c1">// &lt;------  Allows chaining on calls</span>
@@ -408,8 +416,7 @@
 <span class="w">  </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;to_s&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">Test</span><span class="o">&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">)</span>
 <span class="w">  </span><span class="p">{</span>
 <span class="w">     </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&lt;Test&gt;&quot;</span><span class="p">;</span>
-<span class="w">  </span><span class="p">})</span>
-<span class="p">);</span>
+<span class="w">  </span><span class="p">});</span>
 </pre></div>
 </div>
 <p>We define the <code class="docutils literal notranslate"><span class="pre">to_s</span></code> method to take a single parameter, self, which is an C++ instance of <code class="docutils literal notranslate"><span class="pre">Test</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">self</span></code> is passed by reference - we do not want to create a copy of the Test object!</p>

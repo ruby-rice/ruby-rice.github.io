@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Memory Management</a></li>
@@ -487,7 +488,7 @@
 <span class="w">  </span><span class="o">.</span><span class="n">define_method</span><span class="p">(</span><span class="s2">&quot;get_column&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="no">Database</span><span class="o">::</span><span class="n">getColumn</span><span class="p">,</span><span class="w"> </span><span class="no">Return</span><span class="p">()</span><span class="o">.</span><span class="n">keepAlive</span><span class="p">())</span>
 </pre></div>
 </div>
-<p>Note that Return().keepAlive() will work with external types only. An attempt to use it with builtin type will result in runtime exception.</p>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">Return().keepAlive()</span></code> will work with external types only. An attempt to use it with builtin type will result in runtime exception.</p>
 </section>
 <section id="c-referencing-ruby-objects">
 <h2>C++ Referencing Ruby Objects<a class="headerlink" href="#c-referencing-ruby-objects" title="Link to this heading">¶</a></h2>

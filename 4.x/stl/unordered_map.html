@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
@@ -302,7 +303,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">std::unordered_map</span></code> instances commonly contain C++ classes that have complex copy or move semantics</p></li>
 <li><p>having two disconnected copies of data, one in C++ and one in Ruby, is usually undesirable</p></li>
 </ul>
-<p>Rice will automatically define Ruby classes for each instantation of <code class="docutils literal notranslate"><span class="pre">std::unordered_map</span></code> it finds. You may also manually define Ruby classes via the use of <code class="docutils literal notranslate"><span class="pre">define_unordered_map</span></code> or <code class="docutils literal notranslate"><span class="pre">define_unordered_map_under</span></code> methods. But make sure to define them <em>before</em> Rice automatically creates them.</p>
+<p>Rice will automatically define Ruby classes for each instantiation of <code class="docutils literal notranslate"><span class="pre">std::unordered_map</span></code> it finds. You may also manually define Ruby classes via the use of <code class="docutils literal notranslate"><span class="pre">define_unordered_map</span></code> or <code class="docutils literal notranslate"><span class="pre">define_unordered_map_under</span></code> methods. But make sure to define them <em>before</em> Rice automatically creates them.</p>
 <p>Example:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">makeStringIntMap</span><span class="p">()</span>
 <span class="p">{</span>

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Class Templates" href="class_templates.html" /><link rel="prev" title="Constants" href="constants.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="Arrays and Buffers" href="arrays.html" /><link rel="prev" title="Constants" href="constants.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Iterators - Rice documentation</title>
@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
@@ -294,7 +295,7 @@
         <article role="main" id="furo-main-content">
           <section id="iterators">
 <span id="id1"></span><h1>Iterators<a class="headerlink" href="#iterators" title="Link to this heading">¶</a></h1>
-<p>C++ iterators are used to traverse through elements stored in a container. C++ iterators are external iterators that work in pairs, with a beginning iterator and an ending iterator. For example, std::vector has begin/end, cbegin/cend, rbegin/rend, etc.</p>
+<p>C++ iterators are used to traverse through elements stored in a container. C++ iterators are external iterators that work in pairs, with a beginning iterator and an ending iterator. For example, <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> has begin/end, cbegin/cend, rbegin/rend, etc.</p>
 <section id="enumerable-support-internal-iterators">
 <h2>Enumerable Support (Internal Iterators)<a class="headerlink" href="#enumerable-support-internal-iterators" title="Link to this heading">¶</a></h2>
 <p>Rice makes it easy to add <a class="reference external" href="https://ruby-doc.org/3.2.2/Enumerable.html">Enumerable</a> support to C++ classes. The Enumerable module adds internal iterator support to a Ruby class as long as it defines an <code class="docutils literal notranslate"><span class="pre">each</span></code> instance method.</p>
@@ -317,7 +318,7 @@
 </pre></div>
 </div>
 <p>Notice that we have to tell Rice which overloaded version of <code class="docutils literal notranslate"><span class="pre">push_back</span></code>, <code class="docutils literal notranslate"><span class="pre">begin</span></code> and <code class="docutils literal notranslate"><span class="pre">end</span></code> we want to expose For more information please see <a class="reference internal" href="overloaded_methods.html#overloaded-methods"><span class="std std-ref">Overloaded Methods</span></a>.</p>
-<p>Once the interator is defined you can write standard Ruby code such as:</p>
+<p>Once the iterator is defined you can write standard Ruby code such as:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">intVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">IntVector</span><span class="o">.</span><span class="n">new</span>
 <span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -329,7 +330,7 @@
 </pre></div>
 </div>
 <p>Where result will be <code class="docutils literal notranslate"><span class="pre">[2,</span> <span class="pre">4,</span> <span class="pre">6]</span></code>.</p>
-<p>Let’s say you also want to expose std::vector’s reverse iterator to Ruby using the method name <code class="docutils literal notranslate"><span class="pre">reach</span></code>. This is done by adding a third parameter to the <code class="docutils literal notranslate"><span class="pre">define_iterator</span></code> call, in this case it is set to reach”:</p>
+<p>Let’s say you also want to expose std::vector’s reverse iterator to Ruby using the method name <code class="docutils literal notranslate"><span class="pre">reach</span></code>. This is done by adding a third parameter to the <code class="docutils literal notranslate"><span class="pre">define_iterator</span></code> call, in this case it is set to <code class="docutils literal notranslate"><span class="pre">&quot;reach&quot;</span></code>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">Init_IntVector</span><span class="p">()</span>
 <span class="p">{</span>
@@ -357,7 +358,7 @@
 <section id="enumerator-support-external-iterators">
 <h2>Enumerator Support (External Iterators)<a class="headerlink" href="#enumerator-support-external-iterators" title="Link to this heading">¶</a></h2>
 <p>Ruby supports external iterators via the <a class="reference external" href="https://ruby-doc.org/3.2.2/Enumerator.html">Enumerator</a> class. The <code class="docutils literal notranslate"><span class="pre">define_iterator</span></code> method automatically adds support for Enumerators.</p>
-<p>Enumerators can be created by calling an iterator method without a block, in the same way you can call Array#each or other methods without a block. For example:</p>
+<p>Enumerators can be created by calling an iterator method without a block, in the same way you can call <code class="docutils literal notranslate"><span class="pre">Array#each</span></code> or other methods without a block. For example:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">intVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">IntVector</span><span class="o">.</span><span class="n">new</span>
 <span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -380,12 +381,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="class_templates.html">
+          <a class="next-page" href="arrays.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Class Templates</div>
+                <div class="title">Arrays and Buffers</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>

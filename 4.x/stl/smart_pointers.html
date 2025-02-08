@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
@@ -352,7 +353,7 @@
 <section id="std-shared-ptr">
 <h2>std::shared_ptr<a class="headerlink" href="#std-shared-ptr" title="Link to this heading">¶</a></h2>
 <p>When a native method returns a <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code>, Rice copies it via its move constructor and therefore owns one instance of the shared_pointer. Of course it is likely there are other copies of the <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> owned by other objects.</p>
-<p>Use of the <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> is transparent to Ruby code. As far a Ruby is concerned, its wrapping the type managed by the shareed pointer, thus <code class="docutils literal notranslate"><span class="pre">std::shared_ptr::element_type</span></code>. As a result, there is not a Ruby visible API to the <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code> itself.</p>
+<p>Use of the <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> is transparent to Ruby code. As far a Ruby is concerned, its wrapping the type managed by the shared pointer, thus <code class="docutils literal notranslate"><span class="pre">std::shared_ptr::element_type</span></code>. As a result, there is not a Ruby visible API to the <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code> itself.</p>
 <p>Rice supports <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> out of the box - there is no additional work you have to do except include the “rice/stl.hpp” header. Let’s take a look at an example:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
 <span class="p">{</span>
@@ -417,7 +418,7 @@
 </pre></div>
 </div>
 <p>When <code class="docutils literal notranslate"><span class="pre">myInstance</span></code> goes out of scope and is garbage collected, it will free the <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> it wraps. That may or may not free the underlying C++ MyClass instance depending if there are other <code class="docutils literal notranslate"><span class="pre">std::smart_pointer</span></code> instances managing it.</p>
-<p>Unlike <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code>, you can pass a copy of a <code class="docutils literal notranslate"><span class="pre">std::sharted_ptr</span></code> back to native code via a function parameter. However, Ruby will always mantain one copy of the shared pointer until the wrapper Ruby object is freed.</p>
+<p>Unlike <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code>, you can pass a copy of a <code class="docutils literal notranslate"><span class="pre">std::shared_ptr</span></code> back to native code via a function parameter. However, Ruby will always maintain one copy of the shared pointer until the wrapper Ruby object is freed.</p>
 </section>
 <section id="custom-smart-pointer">
 <h2>Custom Smart Pointer<a class="headerlink" href="#custom-smart-pointer" title="Link to this heading">¶</a></h2>
@@ -463,7 +464,7 @@
 </pre></div>
 </div>
 <p>First we specialize <code class="docutils literal notranslate"><span class="pre">detail::To_Ruby</span></code> for our smart pointer type, in this case <code class="docutils literal notranslate"><span class="pre">std::unique_ptr</span></code>.
-Next we pass the pointer to Rice’s TypeRegistry to look up what Ruby class wraps the C++ class. Then we instantiate a Wrapper_T class from the <code class="docutils literal notranslate"><span class="pre">WrapperSmartPointer</span></code>. Finally we pass the type information and pointer to a helper method that will first create an instance of Wrapper_T and then an a Ruby object to store it.</p>
+Next we pass the pointer to Rice’s TypeRegistry to look up what Ruby class wraps the C++ class. Then we instantiate a Wrapper_T class from the <code class="docutils literal notranslate"><span class="pre">WrapperSmartPointer</span></code>. Finally we pass the type information and pointer to a helper method that will first create an instance of Wrapper_T and then on a Ruby object to store it.</p>
 <p>The second step is to tell Rice how to extract the smart pointer from Ruby.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="o">::</span><span class="nn">detail</span>
 <span class="p">{</span>

@@ -210,6 +210,7 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
@@ -422,7 +423,7 @@ Ruby’s <code class="docutils literal notranslate"><span class="pre">throw</spa
 <span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;*</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">U</span><span class="o">&gt;*</span><span class="p">)(</span><span class="n">user_data</span><span class="p">);</span>
 
 <span class="w">  </span><span class="c1">// This method is being called from Ruby so we cannot let any C++</span>
-<span class="w">  </span><span class="c1">// exceptions propogate back to Ruby</span>
+<span class="w">  </span><span class="c1">// exceptions propagate back to Ruby</span>
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">cpp_protect</span><span class="p">([</span><span class="o">&amp;</span><span class="p">]</span>
 <span class="w">  </span><span class="p">{</span>
 <span class="w">    </span><span class="n">result</span><span class="o">-&gt;</span><span class="k">operator</span><span class="p">[](</span><span class="n">From_Ruby</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">().</span><span class="n">convert</span><span class="p">(</span><span class="n">key</span><span class="p">))</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">From_Ruby</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span><span class="p">().</span><span class="n">convert</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
