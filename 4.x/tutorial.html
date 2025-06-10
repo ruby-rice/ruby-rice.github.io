@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="stl/exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/map.html">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/tuple.html">std::tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/type_index.html">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="migration.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -298,7 +306,7 @@
 <section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading">¶</a></h2>
 <p>First <a class="reference internal" href="introduction.html#installation"><span class="std std-ref">install</span></a> Rice.</p>
-<p>Next, create an extconf.rb file:</p>
+<p>Next, create an <a class="reference internal" href="packaging/extconf.rb.html#extconf-rb"><span class="std std-ref">extconf.rb</span></a> file:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="nb">require</span><span class="w"> </span><span class="s1">&#39;mkmf-rice&#39;</span>
 <span class="n">create_makefile</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
 </pre></div>
@@ -306,9 +314,9 @@
 <p>Note that we use <code class="docutils literal notranslate"><span class="pre">mkmf-rice</span></code> instead of <code class="docutils literal notranslate"><span class="pre">mkmf</span></code>. This ensures that the extension will be linked with the standard C++ library and allows access to the Rice header files.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>For advanced users - instead of using mkmf-rice you can use your own build system such as CMake. In this case you may prefer to download the Rice header file, <a class="reference external" href="https://github.com/ruby-rice/rice/blob/master/include/rice/rice.hpp">rice.hpp</a>, from github and directly include it in your source tree. See the :ref:cmake section for more information.</p>
+<p>Advanced users may wish to use <a class="reference internal" href="packaging/cmake.html#cmake"><span class="std std-ref">CMake</span></a> instead.</p>
 </div>
-<p>Next we create our extension and save it to <code class="docutils literal notranslate"><span class="pre">test.cpp</span></code>:</p>
+<p>Next we create an extension and save it to <code class="docutils literal notranslate"><span class="pre">test.cpp</span></code>:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">Init_test</span><span class="p">()</span>
 <span class="p">{</span>
@@ -354,7 +362,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">rb_*_s_</span></code> indicates the function is a singleton function</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">*_m</span></code> suffix to indicate the function takes variable number of arguments</p></li>
 </ul>
-<p>Also note that we don’t include “ruby.h” directly. Rice has a wrapper for ruby.h that handles some compatibility issues across platforms and Ruby versions. Always include Rice headers before including anything that might include “ruby.h”.</p>
+<p>Also note that we don’t include “ruby.h” directly. Rice has a wrapper for ruby.h that handles some compatibility issues across platforms and Ruby versions. Always include the Rice headers before including anything that might include “ruby.h”.</p>
 </section>
 <section id="defining-methods">
 <span id="id2"></span><h2>Defining methods<a class="headerlink" href="#defining-methods" title="Link to this heading">¶</a></h2>
@@ -412,6 +420,7 @@
 <p class="admonition-title">Note</p>
 <p>If your compiler complains about “no matching overloaded function found” followed by “could not deduce template argument for ‘Function_T” then that means you are working with an overloaded C++ function or method. As a result, you’ll need to give Rice some help as explained in the <a class="reference internal" href="bindings/overloaded_methods.html#overloaded-methods"><span class="std std-ref">Overloaded Methods</span></a> section.</p>
 </div>
+<p>For more information refer to the <a class="reference internal" href="bindings/methods.html#methods"><span class="std std-ref">Functions and Methods</span></a> section.</p>
 </section>
 <section id="defining-methods-with-lambdas">
 <h2>Defining methods with lambdas<a class="headerlink" href="#defining-methods-with-lambdas" title="Link to this heading">¶</a></h2>
@@ -424,6 +433,7 @@
 </pre></div>
 </div>
 <p>Note that we pass self as a reference since we do not want to copy it!</p>
+<p>For more information refer to the <a class="reference internal" href="bindings/methods.html#methods"><span class="std std-ref">Functions and Methods</span></a> section.</p>
 </section>
 <section id="defining-functions">
 <h2>Defining functions<a class="headerlink" href="#defining-functions" title="Link to this heading">¶</a></h2>
@@ -446,6 +456,7 @@ or lambdas:</p>
 <span class="p">}</span>
 </pre></div>
 </div>
+<p>For more information refer to the <a class="reference internal" href="bindings/methods.html#methods"><span class="std std-ref">Functions and Methods</span></a> section.</p>
 </section>
 <section id="wrapping-c-types">
 <h2>Wrapping C++ Types<a class="headerlink" href="#wrapping-c-types" title="Link to this heading">¶</a></h2>
@@ -534,6 +545,7 @@ or lambdas:</p>
 <span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">MyStruct</span><span class="o">.</span><span class="n">read_write</span>
 </pre></div>
 </div>
+<p>For more information refer to the <a class="reference internal" href="bindings/attributes.html#attributes"><span class="std std-ref">Attributes</span></a> section.</p>
 </section>
 <section id="type-conversions">
 <h2>Type conversions<a class="headerlink" href="#type-conversions" title="Link to this heading">¶</a></h2>
@@ -628,7 +640,7 @@ conversion works. When we write:</p>
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>For more information about exceptions please refer to the <a class="reference internal" href="bindings/exceptions.html#exceptions"><span class="std std-ref">Exceptions</span></a> section.</p>
+<p>3 information refer to the <a class="reference internal" href="bindings/exceptions.html#exceptions"><span class="std std-ref">Exceptions</span></a> section.</p>
 </section>
 </section>
 

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="History" href="history.html" /><link rel="prev" title="CMake" href="cmake.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="History" href="history.html" /><link rel="prev" title="CMake" href="packaging/cmake.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Migration - Rice documentation</title>
@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="stl/exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/map.html">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/tuple.html">std::tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/type_index.html">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -295,9 +303,15 @@
         <article role="main" id="furo-main-content">
           <section id="migration">
 <span id="id1"></span><h1>Migration<a class="headerlink" href="#migration" title="Link to this heading">¶</a></h1>
+<section id="version-4-5-to-4-6">
+<h2>Version 4.5 to 4.6<a class="headerlink" href="#version-4-5-to-4-6" title="Link to this heading">¶</a></h2>
+<p>Verison 4.6 has a couple of breaking changes.</p>
+<p>First, all C++ STL classes are now defined in the <code class="docutils literal notranslate"><span class="pre">Std</span></code> module. Therefore the following methods wree removed - <code class="docutils literal notranslate"><span class="pre">define_vector_under</span></code>, <code class="docutils literal notranslate"><span class="pre">define_map_under</span></code> and <code class="docutils literal notranslate"><span class="pre">define_unordered_map_under</span></code>.</p>
+<p>Second, Rice used to automatically convert Ruby Arrays of fundamental types to std::vectors (and similarly Hashes to std::map). Now you must use :ref:Buffers&lt;buffer&gt;` instead.</p>
+</section>
 <section id="version-4-to-4-5">
 <h2>Version 4.* to 4.5<a class="headerlink" href="#version-4-to-4-5" title="Link to this heading">¶</a></h2>
-<p>Rice version 4.5 is significantly more powerful that previous versions. For the most part it is backwards compatible. The exception is if you defined a custom <code class="docutils literal notranslate"><span class="pre">From_Ruby</span></code> instantiation. In that case, you will need to add a <code class="docutils literal notranslate"><span class="pre">convertible</span></code> method. See the <a class="reference internal" href="bindings/type_conversions.html#from-ruby-specialization"><span class="std std-ref">Step 3 - Specialize From_Ruby</span></a> documentation for an example.</p>
+<p>Version 4.5 is significantly more powerful that previous Rice versions. For the most part it is backwards compatible. The exception is if you defined a custom <code class="docutils literal notranslate"><span class="pre">From_Ruby</span></code> instantiation. In that case, you will need to add a <code class="docutils literal notranslate"><span class="pre">convertible</span></code> method. See the <a class="reference internal" href="bindings/type_conversions.html#from-ruby-specialization"><span class="std std-ref">Step 3 - Specialize From_Ruby</span></a> documentation for an example.</p>
 </section>
 <section id="version-3-to-4">
 <h2>Version 3 to 4<a class="headerlink" href="#version-3-to-4" title="Link to this heading">¶</a></h2>
@@ -388,7 +402,7 @@ you should use <code class="docutils literal notranslate"><span class="pre">defi
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="cmake.html">
+          <a class="prev-page" href="packaging/cmake.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
@@ -430,6 +444,7 @@ you should use <code class="docutils literal notranslate"><span class="pre">defi
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Migration</a><ul>
+<li><a class="reference internal" href="#version-4-5-to-4-6">Version 4.5 to 4.6</a></li>
 <li><a class="reference internal" href="#version-4-to-4-5">Version 4.* to 4.5</a></li>
 <li><a class="reference internal" href="#version-3-to-4">Version 3 to 4</a></li>
 <li><a class="reference internal" href="#include-rice-rice-hpp">#include &lt;rice/rice.hpp&gt;</a></li>

@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bindings/arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="map.html">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html">std::tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_index.html">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../migration.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -295,7 +303,7 @@
         <article role="main" id="furo-main-content">
           <section id="overview">
 <span id="stl"></span><h1>Overview<a class="headerlink" href="#overview" title="Link to this heading">¶</a></h1>
-<p>Rice supports the C++ standard template library (STL). To enable STL support include the <code class="docutils literal notranslate"><span class="pre">rice/stl.hpp</span></code> header file after the <code class="docutils literal notranslate"><span class="pre">rice/rice.hpp</span></code> header file.</p>
+<p>Rice supports the C++ standard template library (STL). To enable STL support you MUST include the <code class="docutils literal notranslate"><span class="pre">rice/stl.hpp</span></code> header file after the <code class="docutils literal notranslate"><span class="pre">rice/rice.hpp</span></code> header file.</p>
 <section id="wrapped-versus-builtin-classes">
 <span id="stl-wrapped-builtin"></span><h2>Wrapped Versus BuiltIn Classes<a class="headerlink" href="#wrapped-versus-builtin-classes" title="Link to this heading">¶</a></h2>
 <p>Rice wraps some STL classes and copies others.</p>
@@ -304,7 +312,9 @@
 <li><p>std::exception</p></li>
 <li><p>std::exception_ptr</p></li>
 <li><p>std::map</p></li>
+<li><p>std::multimap</p></li>
 <li><p>std::pair</p></li>
+<li><p>std::set</p></li>
 <li><p>std::shared_ptr</p></li>
 <li><p>std::type_index</p></li>
 <li><p>std::type_info</p></li>
@@ -327,9 +337,9 @@
 <span id="stl-class-names"></span><h2>Automatically Generated Ruby Classes<a class="headerlink" href="#automatically-generated-ruby-classes" title="Link to this heading">¶</a></h2>
 <p>Many STL classes are templates, and thus must be instantiated with concrete types to define actual C++ classes. A <code class="docutils literal notranslate"><span class="pre">std::vector&lt;int&gt;</span></code> is a different class than a <code class="docutils literal notranslate"><span class="pre">std::vector&lt;std::string&gt;</span></code>. This means there can be a large number of STL instantiated classes in a C++ code base.</p>
 <p>Rice makes it easy to manually create Ruby classes for instantiated STL templates. The way to do this varies per STL type, but follows a simple naming scheme - <code class="docutils literal notranslate"><span class="pre">define_pair</span></code>, <code class="docutils literal notranslate"><span class="pre">define_vector</span></code>, etc. Please refer to the documentation for each supported STL type.</p>
-<p>Rice can also automatically generate Ruby classes. These Ruby classes are added to the <code class="docutils literal notranslate"><span class="pre">Rice::Std</span></code> module. Automatic classes work well in cases where Ruby code is accessing, or modifying, wrapped objects created in C++.</p>
+<p>Rice can also automatically generate Ruby classes. These Ruby classes are added to the <code class="docutils literal notranslate"><span class="pre">Std</span></code> module. Automatic classes work well in cases where Ruby code is accessing, or modifying, wrapped objects created in C++.</p>
 <p>Sometimes Ruby also needs to create new instances of these classes. With manually defined class names, this is easy to do. With generated class names you need to understand how Rice creates class names.</p>
-<p>Starting in version 4.5, Rice makes use of three unicode characters to create class names that “look” like their C++ counterparts. For example, the type <code class="docutils literal notranslate"><span class="pre">std::pair&lt;std::string,</span> <span class="pre">double&gt;</span></code> becomes <code class="docutils literal notranslate"><span class="pre">Rice::Std::Pair≺string≺char≻‚ double≻</span></code>.  Or assume there is a vector containing a custom class <code class="docutils literal notranslate"><span class="pre">MyNamespace::MyClass</span></code>. Then generated name would be <code class="docutils literal notranslate"><span class="pre">Rice::Std::Vector≺MyNamespace꞉꞉MyClass≻</span></code>.</p>
+<p>Starting in version 4.5, Rice makes use of unicode characters to create class names that “look” like their C++ counterparts. For example, the type <code class="docutils literal notranslate"><span class="pre">std::pair&lt;std::string,</span> <span class="pre">double&gt;</span></code> becomes <code class="docutils literal notranslate"><span class="pre">Std::Pair≺string‚ double≻</span></code>.  Or assume there is a vector containing a custom class <code class="docutils literal notranslate"><span class="pre">MyNamespace::MyClass</span></code>. Then generated name would be <code class="docutils literal notranslate"><span class="pre">Std::Vector≺MyNamespace꞉꞉MyClass≻</span></code>.</p>
 <p>The unicode characters are:</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -363,14 +373,16 @@
 </table>
 </div>
 <p>To use this class in Ruby:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Rice</span><span class="o">::</span><span class="no">Std</span><span class="o">::</span><span class="no">Pair</span><span class="err">≺</span><span class="n">string</span><span class="err">≺</span><span class="n">char</span><span class="err">≻‚</span><span class="w"> </span><span class="n">double</span><span class="err">≻</span><span class="o">.</span><span class="n">new</span>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">pair</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Std</span><span class="o">::</span><span class="no">Pair</span><span class="err">≺</span><span class="n">string</span><span class="err">‚</span><span class="w"> </span><span class="n">double</span><span class="err">≻</span><span class="o">.</span><span class="n">new</span>
 </pre></div>
 </div>
-<p>Note manual class names can be defined <em>after</em> auto generated class names. Rice only registers one class with Ruby, but it has two constants pointing at it. For example if you call <code class="docutils literal notranslate"><span class="pre">define_pair&lt;std::pair&lt;std::string,</span> <span class="pre">double&gt;&gt;(StringDoublePair)</span></code> after the pair has been registered, in Ruby you will have two constants pointing to the class:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="no">Rice</span><span class="o">::</span><span class="no">Std</span><span class="o">::</span><span class="no">Pair</span><span class="err">≺</span><span class="n">string</span><span class="err">≺</span><span class="n">char</span><span class="err">≻‚</span><span class="w"> </span><span class="n">double</span><span class="err">≻</span>
+<p>Note manual class names can be defined <em>after</em> auto generated class names. Rice only registers one class with Ruby, but it has two constants pointing at it. For example if you call <code class="docutils literal notranslate"><span class="pre">define_pair&lt;std::string,</span> <span class="pre">double&gt;(StringDoublePair)</span></code> after the pair has been registered, in Ruby you will have two constants pointing to the class:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="no">Std</span><span class="o">::</span><span class="no">Pair</span><span class="err">≺</span><span class="n">string</span><span class="err">‚</span><span class="w"> </span><span class="n">double</span><span class="err">≻</span>
 <span class="no">Object</span><span class="o">::</span><span class="no">StringDoublePair</span>
 </pre></div>
 </div>
+<p>However, the name of the class itself will be defined by however it was first defined. In the case above, the class name will be <code class="docutils literal notranslate"><span class="pre">Std::Pair≺string‚ double≻</span></code>.</p>
+<p>In general, it is recommended to use auto-defined STL class names.</p>
 </section>
 </section>
 

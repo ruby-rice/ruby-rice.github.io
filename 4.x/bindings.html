@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="stl/exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/map.html">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stl/tuple.html">std::tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/type_index.html">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="migration.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -294,19 +302,20 @@
         </div>
         <article role="main" id="furo-main-content">
           <section id="bindings">
-<span id="id1"></span><h1>Bindings<a class="headerlink" href="#bindings" title="Link to this heading">¶</a></h1>
+<h1>Bindings<a class="headerlink" href="#bindings" title="Link to this heading">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="bindings/constructors.html">Constructors</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bindings/constructors.html#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constructors.html#default-constructor">Default Constructor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constructors.html#custom-constructors">Custom Constructors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constructors.html#copy-constructors">Copy Constructors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constructors.html#move-constructors">Move Constructors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/constructors.html#multiple-constructors">Multiple Constructors</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bindings/methods.html">Functions and Methods</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bindings/methods.html#default-arguments">Default Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/methods.html#output-parameters">Output Parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/methods.html#return">Return</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/methods.html#keyword-arguments">Keyword Arguments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/methods.html#return-self">Return Self</a></li>
@@ -337,9 +346,11 @@
 <li class="toctree-l2"><a class="reference internal" href="bindings/iterators.html#enumerator-support-external-iterators">Enumerator Support (External Iterators)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bindings/arrays.html">Arrays and Buffers</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bindings/arrays.html#array-of-objects">Array of Objects</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/arrays.html#array-of-pointers">Array of Pointers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bindings/buffers.html">Buffers</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bindings/buffers.html#fundamental-types">Fundamental Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/buffers.html#array-of-objects">Array of Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/buffers.html#array-of-pointers">Array of Pointers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/buffers.html#out-parameters">Out Parameters</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bindings/class_templates.html">Class Templates</a><ul>
@@ -352,14 +363,9 @@
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html#bitwise-operators">Bitwise Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html#comparison-relational-operators">Comparison (Relational) Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html#logical-operators">Logical Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/operators.html#increment-decrement-operators">Increment / Decrement Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html#other-operators">Other Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html#conversion-operators">Conversion Operators</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html#c-to-ruby">C++ to Ruby</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html#ruby-to-c">Ruby to C++</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html#c-referencing-ruby-objects">C++ Referencing Ruby Objects</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bindings/exceptions.html">Exceptions</a><ul>
@@ -377,12 +383,19 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bindings/type_verification.html">Type Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html#c-to-ruby">C++ to Ruby</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html#ruby-to-c">Ruby to C++</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html#c-referencing-ruby-objects">C++ Referencing Ruby Objects</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="bindings/inheritance.html">Inheritance</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bindings/inheritance.html#directors">Directors</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bindings/callbacks.html">Callbacks</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bindings/callbacks.html#c-style-callbacks">C Style Callbacks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/callbacks.html#user-data">User Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/callbacks.html#associating-callbacks-with-procs">Associating Callbacks with Procs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bindings/instance_registry.html">Instance Registry</a><ul>

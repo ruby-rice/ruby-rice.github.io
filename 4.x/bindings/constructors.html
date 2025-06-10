@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../stl/exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/map.html">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/tuple.html">std::tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/type_index.html">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../migration.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -296,17 +304,79 @@
           <section id="constructors">
 <span id="id1"></span><h1>Constructors<a class="headerlink" href="#constructors" title="Link to this heading">¶</a></h1>
 <p>In the <a class="reference internal" href="../tutorial.html#tutorial"><span class="std std-ref">Tutorial</span></a> we touched upon how to wrap C++ constructors. Now let’s go into more depth.</p>
-<p>C++ supports several types of constructors, including:</p>
+<p>Unlike Ruby, C++ supports several types of constructors, including:</p>
 <ul class="simple">
 <li><p>Default constructors</p></li>
+<li><p>Custom constructors</p></li>
 <li><p>Copy constructors</p></li>
 <li><p>Move constructors</p></li>
-<li><p>Custom constructors</p></li>
 </ul>
-<p>In addition, unlike a Ruby class, a C++ class may include many constructors.</p>
-<section id="example">
-<span id="id2"></span><h2>Example<a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
-<p>For example, consider this simplified version of <a class="reference external" href="https://docs.opencv.org/4.x/d3/d63/classcv_1_1Mat.html">OpenCV’s Mat</a> class:</p>
+<p>In addition, a C++ class may have multiple constructors.</p>
+<section id="default-constructor">
+<span id="id2"></span><h2>Default Constructor<a class="headerlink" href="#default-constructor" title="Link to this heading">¶</a></h2>
+<p>Most C++ classes include a default constructor that takes no arguments. These are mapped to Rice like this:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Mat</span><span class="o">&gt;</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>This defines a constructor that takes no arguments. It can be invoked from Ruby using the following code:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="no">Mat</span><span class="o">.</span><span class="n">new</span>
+</pre></div>
+</div>
+<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> call creates a new <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method on the Ruby <code class="docutils literal notranslate"><span class="pre">Mat</span></code> class. The <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method is responsible for creating a new C++ <code class="docutils literal notranslate"><span class="pre">Mat</span></code> instance and associating it with the wrapper Ruby object. Thus if you override the <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method you MUST call <code class="docutils literal notranslate"><span class="pre">super</span></code>:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mat</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span>
+<span class="w">    </span><span class="k">super</span><span class="w">  </span><span class="c1"># &lt;--- You MUST call super first</span>
+<span class="w">    </span><span class="o">...</span><span class="n">your</span><span class="w"> </span><span class="n">code</span><span class="o">..</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-constructors">
+<span id="id3"></span><h2>Custom Constructors<a class="headerlink" href="#custom-constructors" title="Link to this heading">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Mat</span></code> class defines two custom constructors:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Mat</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span>
+<span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Mat</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>These are invoked from Ruby like this:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="no">Mat</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Std</span><span class="o">::</span><span class="no">Vector</span><span class="o">&lt;</span><span class="n">int</span><span class="o">&gt;.</span><span class="n">new</span>
+<span class="no">Mat</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly to default constructors, calling <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> will creates a new <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method on the corresponding Ruby class.</p>
+</section>
+<section id="copy-constructors">
+<span id="id4"></span><h2>Copy Constructors<a class="headerlink" href="#copy-constructors" title="Link to this heading">¶</a></h2>
+<p>Most C++ classes include a copy constructor that takes one argument. These are mapped to Rice like this:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Mat</span><span class="o">&amp;&gt;</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Rice maps copy constructors to Ruby’s <code class="docutils literal notranslate"><span class="pre">clone</span></code> and <code class="docutils literal notranslate"><span class="pre">dup</span></code> methods:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Mat</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<span class="n">mat2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mat1</span><span class="o">.</span><span class="n">dup</span>
+<span class="n">mat3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mat1</span><span class="o">.</span><span class="n">clone</span>
+</pre></div>
+</div>
+<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> call creates a new <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method on the Ruby Mat class. The <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method is responsible for calling the C++ copy constructor and assigning the new C++ instance to the wrapper Ruby object. Thus if you override the <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method you MUST call <code class="docutils literal notranslate"><span class="pre">super</span></code>:</p>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mat</span>
+<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_copy</span>
+<span class="w">    </span><span class="k">super</span><span class="w">  </span><span class="c1"># &lt;--- You MUST call super first</span>
+<span class="w">    </span><span class="o">...</span><span class="n">your</span><span class="w"> </span><span class="n">code</span><span class="o">..</span>
+<span class="w">  </span><span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</section>
+<section id="move-constructors">
+<span id="id5"></span><h2>Move Constructors<a class="headerlink" href="#move-constructors" title="Link to this heading">¶</a></h2>
+<p>Rice does not support move constructors because there is no clean mapping of them to Ruby.</p>
+</section>
+<section id="multiple-constructors">
+<span id="id6"></span><h2>Multiple Constructors<a class="headerlink" href="#multiple-constructors" title="Link to this heading">¶</a></h2>
+<p>As seen in the examples above, a C++ clas can have multiple constructors. For example, consider this simplified version of <a class="reference external" href="https://docs.opencv.org/4.x/d3/d63/classcv_1_1Mat.html">OpenCV’s Mat</a> class:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mat</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -338,68 +408,6 @@
 </div>
 <p>Notice that the Constructor template requires the full list of argument types needed by the constructor.</p>
 <p>For more information on how Rice decides which constructor to call, please see the <a class="reference internal" href="overloaded_methods.html#overloaded-methods"><span class="std std-ref">overloaded methods</span></a> section.</p>
-</section>
-<section id="default-constructor">
-<span id="id3"></span><h2>Default Constructor<a class="headerlink" href="#default-constructor" title="Link to this heading">¶</a></h2>
-<p>Most C++ classes include a default constructor that takes no arguments. These are mapped to Rice like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Mat</span><span class="o">&gt;</span><span class="p">())</span>
-</pre></div>
-</div>
-<p>This defines a constructor that takes no arguments. It can be invoked from Ruby using the following code:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="no">Mat</span><span class="o">.</span><span class="n">new</span>
-</pre></div>
-</div>
-<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> call creates a new <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method on the Ruby <code class="docutils literal notranslate"><span class="pre">Mat</span></code> class. The <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method is responsible for creating a new C++ <code class="docutils literal notranslate"><span class="pre">Mat</span></code> instance and associating it with the wrapper Ruby object. Thus if you override the <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method you MUST call <code class="docutils literal notranslate"><span class="pre">super</span></code>:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mat</span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize</span>
-<span class="w">    </span><span class="k">super</span><span class="w">  </span><span class="c1"># &lt;--- You MUST call super first</span>
-<span class="w">    </span><span class="o">...</span><span class="n">your</span><span class="w"> </span><span class="n">code</span><span class="o">..</span>
-<span class="w">  </span><span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-</section>
-<section id="custom-constructors">
-<span id="id4"></span><h2>Custom Constructors<a class="headerlink" href="#custom-constructors" title="Link to this heading">¶</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">Mat</span></code> class defines two custom constructors:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Mat</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span>
-<span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Mat</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="p">())</span>
-</pre></div>
-</div>
-<p>These are invoked from Ruby like this:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="no">Mat</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-
-<span class="n">vec</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Std</span><span class="o">::</span><span class="no">Vector</span><span class="o">&lt;</span><span class="n">int</span><span class="o">&gt;.</span><span class="n">new</span>
-<span class="no">Mat</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">vec</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>Similarly to default constructors, calling <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> will creates a new <code class="docutils literal notranslate"><span class="pre">initialize</span></code> method on the corresponding Ruby class.</p>
-</section>
-<section id="copy-constructors">
-<span id="id5"></span><h2>Copy Constructors<a class="headerlink" href="#copy-constructors" title="Link to this heading">¶</a></h2>
-<p>Most C++ classes include a copy constructor that takes one argument. These are mapped to Rice like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="k">const</span><span class="w"> </span><span class="n">Mat</span><span class="o">&amp;&gt;</span><span class="p">())</span>
-</pre></div>
-</div>
-<p>Rice maps copy constructors to Ruby’s <code class="docutils literal notranslate"><span class="pre">clone</span></code> and <code class="docutils literal notranslate"><span class="pre">dup</span></code> methods:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">mat1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Mat</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
-<span class="n">mat2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mat1</span><span class="o">.</span><span class="n">dup</span>
-<span class="n">mat3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mat1</span><span class="o">.</span><span class="n">clone</span>
-</pre></div>
-</div>
-<p>Under the hood, the <code class="docutils literal notranslate"><span class="pre">define_constructor</span></code> call creates a new <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method on the Ruby Mat class. The <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method is responsible for calling the C++ copy constructor and assigning the new C++ instance to the wrapper Ruby object. Thus if you override the <code class="docutils literal notranslate"><span class="pre">initialize_copy</span></code> method you MUST call <code class="docutils literal notranslate"><span class="pre">super</span></code>:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Mat</span>
-<span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_copy</span>
-<span class="w">    </span><span class="k">super</span><span class="w">  </span><span class="c1"># &lt;--- You MUST call super first</span>
-<span class="w">    </span><span class="o">...</span><span class="n">your</span><span class="w"> </span><span class="n">code</span><span class="o">..</span>
-<span class="w">  </span><span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
-</div>
-</section>
-<section id="move-constructors">
-<span id="id6"></span><h2>Move Constructors<a class="headerlink" href="#move-constructors" title="Link to this heading">¶</a></h2>
-<p>Rice does not currently support move constructors. Of course, you can roll your own support as needed.</p>
 </section>
 </section>
 
@@ -459,11 +467,11 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">Constructors</a><ul>
-<li><a class="reference internal" href="#example">Example</a></li>
 <li><a class="reference internal" href="#default-constructor">Default Constructor</a></li>
 <li><a class="reference internal" href="#custom-constructors">Custom Constructors</a></li>
 <li><a class="reference internal" href="#copy-constructors">Copy Constructors</a></li>
 <li><a class="reference internal" href="#move-constructors">Move Constructors</a></li>
+<li><a class="reference internal" href="#multiple-constructors">Multiple Constructors</a></li>
 </ul>
 </li>
 </ul>

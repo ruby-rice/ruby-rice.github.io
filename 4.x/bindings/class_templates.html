@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="C++ Operators" href="operators.html" /><link rel="prev" title="Arrays and Buffers" href="arrays.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="C++ Operators" href="operators.html" /><link rel="prev" title="Buffers" href="buffers.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Class Templates - Rice documentation</title>
@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buffers.html">Buffers</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../stl/exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/map.html">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/tuple.html">std::tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/type_index.html">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../migration.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -295,7 +303,7 @@
         <article role="main" id="furo-main-content">
           <section id="class-templates">
 <span id="id1"></span><h1>Class Templates<a class="headerlink" href="#class-templates" title="Link to this heading">¶</a></h1>
-<p>C++ libraries often times make heavy use of class templates. A class template is not a type, nor an object, but instead is used to create classes. Examples include STL containers such as <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> or <code class="docutils literal notranslate"><span class="pre">std::map</span></code>. In addition, many libraries define their own custom class templates.</p>
+<p>Some C++ libraries make heavy use of class templates. A class template is not a type, nor an object, but instead is blueprint used to create classes. Examples include STL containers such as <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> or <code class="docutils literal notranslate"><span class="pre">std::map</span></code>. In addition, many libraries define their own custom class templates.</p>
 <p>Since class templates are not types and cannot be instantiated, they cannot be wrapped by Rice. Instead class templates must be turned into classes so that they can be wrapped. For example, <code class="docutils literal notranslate"><span class="pre">std::vector&lt;int&gt;</span></code> is a class type that Rice can wrap.</p>
 <section id="wrapping-class-templates">
 <h2>Wrapping Class Templates<a class="headerlink" href="#wrapping-class-templates" title="Link to this heading">¶</a></h2>
@@ -381,7 +389,7 @@
 <span class="p">});</span>
 </pre></div>
 </div>
-<p>Once you have created a class builder function it then becomes easy to create new C++ classes from class templates and wrap them in Ruby.</p>
+<p>Once you have created a class builder function it is easy to create new C++ classes from class templates and wrap them in Ruby.</p>
 </section>
 </section>
 
@@ -399,14 +407,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="arrays.html">
+          <a class="prev-page" href="buffers.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Arrays and Buffers</div>
+                <div class="title">Buffers</div>
                 
               </div>
             </a>

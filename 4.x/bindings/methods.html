@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../stl/exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/map.html">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stl/tuple.html">std::tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/type_index.html">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../stl/unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../migration.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -324,7 +332,7 @@
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>The syntax is <code class="docutils literal notranslate"><span class="pre">Arg(nameOfParameter)[</span> <span class="pre">=</span> <span class="pre">defaultValue]</span></code>. The name of the parameter is not important here (it is for readability), but the value set via <code class="docutils literal notranslate"><span class="pre">operator=</span></code> must match the type of the parameter. As such it may be necessary to explicitly cast the default value.</p>
+<p>The syntax is <code class="docutils literal notranslate"><span class="pre">Arg(nameOfParameter)[</span> <span class="pre">=</span> <span class="pre">defaultValue]</span></code>. If using <a class="reference internal" href="#keyword-arguments"><span class="std std-ref">Keyword Arguments</span></a>, then the name of the parameter must match the name of the Ruby parameter. Otherwise it is not important. In either case, the value set by the <code class="docutils literal notranslate"><span class="pre">operator=</span></code> must match the type of the parameter. As such it may be necessary to explicitly cast the default value.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span>
 <span class="w">   </span><span class="o">&amp;</span><span class="n">Test</span><span class="o">::</span><span class="n">hello</span><span class="p">,</span>
 <span class="w">   </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;first&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">)</span><span class="s">&quot;world&quot;</span>
@@ -344,11 +352,15 @@
 </pre></div>
 </div>
 </section>
+<section id="output-parameters">
+<h2>Output Parameters<a class="headerlink" href="#output-parameters" title="Link to this heading">¶</a></h2>
+<p>Some C/C++ APIs use output parameter to return multiple values from a functiom. To wrap these functions you can use either <a class="reference internal" href="buffers.html#out-parameters"><span class="std std-ref">Buffers</span></a> or <a class="reference internal" href="../stl/tuple.html#out-parameters-tuple"><span class="std std-ref">Tuples</span></a>.</p>
+</section>
 <section id="return">
 <span id="id2"></span><h2>Return<a class="headerlink" href="#return" title="Link to this heading">¶</a></h2>
 <p>Similarly to the <code class="docutils literal notranslate"><span class="pre">Arg</span></code> class, Rice also supports a <code class="docutils literal notranslate"><span class="pre">Return</span></code> class that let’s you tell Rice how to handle returned values from C++. This is particularly important in correctly managing memory (see <a class="reference internal" href="memory_management.html#cpp-to-ruby"><span class="std std-ref">C++ to Ruby</span></a>).</p>
-<p>It is also helpful in dealing with Ruby’s VALUE type which represent Ruby objects. Most of the time Rice will automatically handle VALUE instances, but if a native method takes a VALUE argument or returns a VALUE instance then you have tell Rice about it.</p>
-<p>This is because VALUE is a typedef for <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">long</span></code> - under the hood it is really a pointer to a Ruby object. However, to Rice it is just an integer that needs to be converted to a Ruby numeric value. As a result, if a method takes a VALUE parameter then Rice will convert it to a C++ unsigned long long value instead of  passing it through. Similarly, if a method returns a VALUE then Rice will also convert it to a numeric Ruby object as opposed to simply returning it.</p>
+<p>It is also helpful in dealing with Ruby’s VALUE type which represent Ruby objects. Most of the time Rice will automatically handle VALUE instances, but if a native method takes a VALUE argument or returns a VALUE instance then you have tell Rice.</p>
+<p>This is because VALUE is a typedef for <code class="docutils literal notranslate"><span class="pre">unsigned</span> <span class="pre">long</span> <span class="pre">long</span></code> - but under the hood it is really a pointer to a Ruby object. However, to Rice it is just an integer that needs to be converted to a Ruby numeric value. As a result, if a method takes a VALUE parameter then Rice will convert it to a C++ unsigned long long value instead of  passing it through. Similarly, if a method returns a VALUE then Rice will also convert it to a numeric Ruby object as opposed to simply returning it.</p>
 <p>To avoid this incorrect conversion, use the <code class="docutils literal notranslate"><span class="pre">setValue()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Arg</span></code> and <code class="docutils literal notranslate"><span class="pre">Return</span></code> classes. For example:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">VALUE</span><span class="w"> </span><span class="nf">some_function</span><span class="p">(</span><span class="n">VALUE</span><span class="w"> </span><span class="n">ary</span><span class="p">)</span>
 <span class="p">{</span>
@@ -357,7 +369,7 @@
 <span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">new_ary</span><span class="p">;</span>
 <span class="p">}</span>
 
-<span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;some_function&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">some_function</span><span class="p">,</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;ary&quot;</span><span class="p">).</span><span class="n">setValue</span><span class="p">(),</span><span class="w"> </span><span class="n">Return</span><span class="p">.</span><span class="n">setValue</span><span class="p">());</span>
+<span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;some_function&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">some_function</span><span class="p">,</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;ary&quot;</span><span class="p">).</span><span class="n">setValue</span><span class="p">(),</span><span class="w"> </span><span class="n">Return</span><span class="p">().</span><span class="n">setValue</span><span class="p">());</span>
 </pre></div>
 </div>
 <p>Note that you can mix <code class="docutils literal notranslate"><span class="pre">Arg</span></code> and <code class="docutils literal notranslate"><span class="pre">Return</span></code> objects in any order. For example this also works:</p>
@@ -387,7 +399,7 @@
 <span class="nb">test</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The ability to call the function in two different ways (position and keyword) could cause problems in the future. Imagine that you decide to move the code to Ruby - you will need to chose one of the two forms. That could result in breaking someone else’s code. This risk seems low though, so for the moment Rice only supports defining arguments using the <code class="docutils literal notranslate"><span class="pre">Arg</span></code> class. In the future Rice may introduce a <code class="docutils literal notranslate"><span class="pre">KeyArg</span></code> class to avoid this issue.</p>
+<p>The ability to call the function in two different ways (position and keyword) could cause problems in your extensions if you change its API in the future. Imagine that you decide to move some code from C++ to Ruby - you will need to chose one of the two forms. That could result in breaking code that uses your extension because some users may have used positional arguments and others keyword arguments. However, this seems quite low risk though so Rice only supports defining arguments using the <code class="docutils literal notranslate"><span class="pre">Arg</span></code> class. In the future Rice may introduce a <code class="docutils literal notranslate"><span class="pre">KeyArg</span></code> class to avoid this issue.</p>
 </section>
 <section id="return-self">
 <span id="id4"></span><h2>Return Self<a class="headerlink" href="#return-self" title="Link to this heading">¶</a></h2>
@@ -398,7 +410,7 @@
 </pre></div>
 </div>
 <p>The above code works because the <code class="docutils literal notranslate"><span class="pre">&lt;&lt;</span></code> method returns the Array <code class="docutils literal notranslate"><span class="pre">a</span></code>. You can mimic this behavior by the use of lambdas when wrapping C++ classes. For example, Rice wraps <code class="docutils literal notranslate"><span class="pre">std::vector</span></code> like this:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;&gt;</span><span class="p">().</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">define_vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;</span><span class="p">().</span>
 <span class="n">define_method</span><span class="p">(</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="kt">int32_t</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int32_t</span><span class="o">&gt;&amp;</span><span class="w">  </span><span class="c1">// &lt;----- DON&#39;T MISS THIS</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="n">self</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
@@ -481,6 +493,7 @@
             <ul>
 <li><a class="reference internal" href="#">Functions and Methods</a><ul>
 <li><a class="reference internal" href="#default-arguments">Default Arguments</a></li>
+<li><a class="reference internal" href="#output-parameters">Output Parameters</a></li>
 <li><a class="reference internal" href="#return">Return</a></li>
 <li><a class="reference internal" href="#keyword-arguments">Keyword Arguments</a></li>
 <li><a class="reference internal" href="#return-self">Return Self</a></li>

@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="std::optional" href="optional.html" /><link rel="prev" title="std::exception_ptr" href="exception_ptr.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="std::multimap" href="multimap.html" /><link rel="prev" title="std::exception_ptr" href="exception_ptr.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>std::map - Rice documentation</title>
@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bindings/arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html">std::tuple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_index.html">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../migration.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -303,44 +311,26 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">std::map</span></code> instances commonly contain C++ classes that have complex copy or move semantics</p></li>
 <li><p>having two disconnected copies of data, one in C++ and one in Ruby, is usually undesirable</p></li>
 </ul>
-<p>Rice will automatically define Ruby classes for each instantiation of <code class="docutils literal notranslate"><span class="pre">std::map</span></code> it finds. You may also manually define Ruby classes via the use of <code class="docutils literal notranslate"><span class="pre">define_map</span></code> or <code class="docutils literal notranslate"><span class="pre">define_map_under</span></code> methods. But make sure to define them <em>before</em> Rice automatically creates them.</p>
-<p>Example:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">makeStringIntMap</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="w"> </span><span class="p">{{</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">}};</span>
-<span class="p">}</span>
-
-<span class="n">define_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="s">&quot;StringIntMap&quot;</span><span class="p">);</span>
-<span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;make_string_int_map&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">makeStringIntMap</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>Once you have defined this Ruby class, you can create a new instance like this:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">StringMap</span><span class="o">.</span><span class="n">new</span>
-<span class="n">map</span><span class="o">[</span><span class="s2">&quot;value 1&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="n">map</span><span class="o">[</span><span class="s2">&quot;value 2&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-</pre></div>
-</div>
-<section id="hash-to-map">
-<h2>Hash to Map<a class="headerlink" href="#hash-to-map" title="Link to this heading">¶</a></h2>
+<p>Rice will automatically define Ruby classes for each instantiation of <code class="docutils literal notranslate"><span class="pre">std::map</span></code> it finds. You may also manually define Ruby classes via the use of the <code class="docutils literal notranslate"><span class="pre">define_map</span></code> method. Map classes are added to the <code class="docutils literal notranslate"><span class="pre">Std</span></code> module.</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
 <p>For C++ methods that take map arguments, you can instantiate a new map from Ruby (see <a class="reference internal" href="stl.html#stl-class-names"><span class="std std-ref">Automatically Generated Ruby Classes</span></a>).</p>
 <p>For example, assume this C++ code:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">passMap</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stringIntMap</span><span class="p">)</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">passMap</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">map</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="p">}</span>
 
-<span class="n">define_map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="s">&quot;StringIntMap&quot;</span><span class="p">);</span>
 <span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;pass_map&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">passMap</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>One way to call it from Ruby is like this:</p>
-<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">StringIntMap</span><span class="o">.</span><span class="n">new</span>
-<span class="n">map</span><span class="o">[</span><span class="s2">&quot;thrity seven&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">37</span>
+<div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="n">map</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Std</span><span class="o">::</span><span class="no">Map</span><span class="err">≺</span><span class="n">string</span><span class="err">‚</span><span class="w"> </span><span class="n">int</span><span class="err">≻</span><span class="o">.</span><span class="n">new</span>
+<span class="n">map</span><span class="o">[</span><span class="s2">&quot;thirty seven&quot;</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">37</span>
 <span class="n">pass_map</span><span class="p">(</span><span class="n">map</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>In this case, Ruby is wrapping a C++ map. Therefore any changes made to the map in C++ will be visible to Ruby.</p>
-<p>However, it is often more convenient to pass a Ruby hash instead. This is especially true if you are using Rice’s <a class="reference internal" href="stl.html#stl-class-names"><span class="std std-ref">automatic</span></a> stl classes.</p>
-<p>Therefore Rice also supports this usage:</p>
+<p>A second way to call the method is to pass a Ruby Hash:</p>
 <div class="highlight-ruby notranslate"><div class="highlight"><pre><span></span><span class="nb">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s2">&quot;three&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;five&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;nine&quot;</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="mi">9</span><span class="p">}</span>
 <span class="n">pass_map</span><span class="p">(</span><span class="nb">hash</span><span class="p">)</span>
 </pre></div>
@@ -370,12 +360,12 @@
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="optional.html">
+          <a class="next-page" href="multimap.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">std::optional</div>
+                <div class="title">std::multimap</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
@@ -421,7 +411,7 @@
           <div class="toc-tree">
             <ul>
 <li><a class="reference internal" href="#">std::map</a><ul>
-<li><a class="reference internal" href="#hash-to-map">Hash to Map</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
 <li><a class="reference internal" href="#ruby-api">Ruby API</a></li>
 </ul>
 </li>

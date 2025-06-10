@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="std::type_info" href="type_info.html" /><link rel="prev" title="std::string_view" href="string_view.html" />
+<link rel="index" title="Index" href="../genindex.html" /><link rel="search" title="Search" href="../search.html" /><link rel="next" title="std::type_info" href="type_info.html" /><link rel="prev" title="std::tuple" href="tuple.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>std::type_index - Rice documentation</title>
@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -210,14 +210,14 @@
 <li class="toctree-l2"><a class="reference internal" href="../bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/iterators.html">Iterators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bindings/arrays.html">Arrays and Buffers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/operators.html">C++ Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/exceptions.html">Exceptions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/types_overview.html">Types Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/type_conversions.html">Type Conversions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/type_verification.html">Type Verification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../bindings/instance_registry.html">Instance Registry</a></li>
@@ -229,12 +229,15 @@
 <li class="toctree-l2"><a class="reference internal" href="exception.html">std::exception</a></li>
 <li class="toctree-l2"><a class="reference internal" href="exception_ptr.html">std::exception_ptr</a></li>
 <li class="toctree-l2"><a class="reference internal" href="map.html">std::map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multimap.html">std::multimap</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optional.html">std::optional</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pair.html">std::pair</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference_wrapper.html">std::reference_wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="set.html">std::set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="smart_pointers.html">Smart Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string.html">std::string</a></li>
 <li class="toctree-l2"><a class="reference internal" href="string_view.html">std::string_view</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tuple.html">std::tuple</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">std::type_index</a></li>
 <li class="toctree-l2"><a class="reference internal" href="type_info.html">std::type_info</a></li>
 <li class="toctree-l2"><a class="reference internal" href="unordered_map.html">std::unordered_map</a></li>
@@ -246,10 +249,15 @@
 <li class="toctree-l2"><a class="reference internal" href="../api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../cmake.html">CMake</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/packaging.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/extconf.rb.html">extconf.rb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../packaging/cmake.html">CMake</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../migration.html">Migration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -287,7 +295,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -295,9 +303,16 @@
         <article role="main" id="furo-main-content">
           <section id="std-type-index">
 <span id="id1"></span><h1>std::type_index<a class="headerlink" href="#std-type-index" title="Link to this heading">¶</a></h1>
-<p>Introduced in C++11, <code class="docutils literal notranslate"><span class="pre">std::reference_wrapper</span></code> wraps C++ references in a copyable, assignable object. This allows them to be stored in containers such as std::vector or other types such as std::variant.</p>
-<p>Since Ruby does not have an equivalent type, Rice unwraps <code class="docutils literal notranslate"><span class="pre">std::reference_wrapper</span></code> instances. If the <code class="docutils literal notranslate"><span class="pre">std::reference_wrapper</span></code> points to a Builtin type, then it will be converted to the appropriate Ruby type. It it points to a non Builtin type, then the value will be wrapped by Ruby.</p>
-<p>When passing a Ruby instance to <code class="docutils literal notranslate"><span class="pre">std::reference_wrapper</span></code>, Rice will convert a Ruby type into the appropriate C++ type and store it inside the wrapper. Note this can be dangerous because Rice must maintain the original memory location for the reference to remain valid. For wrapped types this means the reference will remain valid as long as the wrapping Ruby object is valid and not garbage collected. For BuiltIn types, Rice only guarantees the reference to be valid through the lifetime of a method call. Thus if called C++ code stores the reference, and later tries to use it, an exception will happen.</p>
+<p>Introduced in C++11, <code class="docutils literal notranslate"><span class="pre">std::type_index</span></code> is a wrapper class around a <code class="docutils literal notranslate"><span class="pre">std::type_info</span></code> object, that can be used as index in associative and unordered associative containers.</p>
+<p>Ruby does not have a concept of a type_index. Therefore, Rice wraps <code class="docutils literal notranslate"><span class="pre">std::type_index</span></code> which means that data is not copied between C++ and Ruby.</p>
+<section id="ruby-api">
+<h2>Ruby API<a class="headerlink" href="#ruby-api" title="Link to this heading">¶</a></h2>
+<p>The Ruby API for <code class="docutils literal notranslate"><span class="pre">std::type_index</span></code> is:</p>
+<ul class="simple">
+<li><p>TypeIndex#hash_code (see <a class="reference external" href="https://cppreference.com/w/cpp/types/type_index/hash_code.html">hash_code</a>)</p></li>
+<li><p>TypeIndex#name (see <a class="reference external" href="https://cppreference.com/w/cpp/types/type_index/name.html">name</a>)</p></li>
+</ul>
+</section>
 </section>
 
         </article>
@@ -314,14 +329,14 @@
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="string_view.html">
+          <a class="prev-page" href="tuple.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">std::string_view</div>
+                <div class="title">std::tuple</div>
                 
               </div>
             </a>
@@ -343,8 +358,27 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">std::type_index</a><ul>
+<li><a class="reference internal" href="#ruby-api">Ruby API</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
