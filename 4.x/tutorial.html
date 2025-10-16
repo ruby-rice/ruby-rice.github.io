@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Bindings" href="bindings.html" /><link rel="prev" title="Why Rice?" href="why_rice.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="next" title="Types" href="types.html" /><link rel="prev" title="Introduction" href="introduction.html" />
 
     <!-- Generated with Sphinx 8.1.3 and Furo 2024.08.06 -->
         <title>Tutorial - Rice documentation</title>
@@ -200,30 +200,43 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="why_rice.html">Why Rice?</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Tutorial</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="bindings.html">Bindings</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Bindings</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="types.html">Types</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Types</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="types/overview.html">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types/conversion.html">Type Conversions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types/wrapping.html">Type Wrapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types/strings.html">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types/naming.html">Auto Generated Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types/converters.html">Type Converters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types/verification.html">Type Verification</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="bindings.html">Bindings</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Bindings</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constructors.html">Constructors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/methods.html">Functions and Methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/overloaded_methods.html">Overloaded Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/overloaded_methods.html#getters-and-setters">Getters and Setters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/overloaded_methods.html#template-parameter">Template Parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/overloaded_methods.html#using">Using</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/overloaded_methods.html#typedef">Typedef</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/overloaded_methods.html#method-resolution">Method Resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/overloaded_methods.html#type-mapping">Type Mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/attributes.html">Attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/constants.html">Constants</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/iterators.html">Iterators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bindings/pointers.html">Pointers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/buffers.html">Buffers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/class_templates.html">Class Templates</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/operators.html">C++ Operators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/exceptions.html">Exceptions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/types_overview.html">Types Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/type_conversions.html">Type Conversions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bindings/type_verification.html">Type Verification</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/memory_management.html">Memory Management</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/inheritance.html">Inheritance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/callbacks.html">Callbacks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bindings/instance_registry.html">Instance Registry</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="stl.html">STL</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of STL</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="stl.html">STL</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of STL</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="stl/stl.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/complex.html">std::complex</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stl/exception.html">std::exception</a></li>
@@ -245,19 +258,31 @@
 <li class="toctree-l2"><a class="reference internal" href="stl/vector.html">std::vector</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api.html">C++ API</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" role="switch" type="checkbox"/><label for="toctree-checkbox-3"><div class="visually-hidden">Toggle navigation of C++ API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/overview.html">Ruby C++ API</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="cpp_api.html">C++ API</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of C++ API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="cpp_api/overview.html">Ruby C++ API</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" role="switch" type="checkbox"/><label for="toctree-checkbox-4"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="introspection_api.html">Introspection API</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Introspection API</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="introspection_api/overview.html">Ruby Introspection API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introspection_api/registries.html">Rice::Registries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introspection_api/native_registry.html">Rice::NativeRegistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introspection_api/type_registry.html">Rice::TypeRegistry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introspection_api/native.html">Rice::Native</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introspection_api/parameter.html">Rice::Parameter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="introspection_api/arg.html">Rice::Arg</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="packaging.html">Packaging</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" role="switch" type="checkbox"/><label for="toctree-checkbox-6"><div class="visually-hidden">Toggle navigation of Packaging</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="packaging/packaging.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging/extconf.rb.html">extconf.rb</a></li>
 <li class="toctree-l2"><a class="reference internal" href="packaging/cmake.html">CMake</a></li>
+<li class="toctree-l2"><a class="reference internal" href="packaging/rbs.html">RBS Signature Files</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="migration.html">Migration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why_rice.html">Why Rice?</a></li>
 <li class="toctree-l1"><a class="reference internal" href="history.html">History</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" role="switch" type="checkbox"/><label for="toctree-checkbox-5"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="architecture.html">Architecture</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" role="switch" type="checkbox"/><label for="toctree-checkbox-7"><div class="visually-hidden">Toggle navigation of Architecture</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="architecture/enumerators.html">Enumerators</a></li>
 </ul>
 </li>
@@ -396,6 +421,7 @@
 <span class="n">Object</span><span class="w"> </span><span class="nf">test_initialize</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">self</span><span class="p">)</span>
 <span class="p">{</span>
 <span class="w">  </span><span class="n">self</span><span class="p">.</span><span class="n">iv_set</span><span class="p">(</span><span class="s">&quot;@foo&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">self</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="n">Object</span><span class="w"> </span><span class="nf">test_hello</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="cm">/* self */</span><span class="p">)</span>
@@ -566,49 +592,12 @@ conversion works. When we write:</p>
 </pre></div>
 </div>
 <p>We get the expected result.</p>
-<p>Rice includes default specializations for many C++ types. To define your own conversion, please refer to the <a class="reference internal" href="bindings/type_conversions.html"><span class="doc">Type Conversions</span></a> section.</p>
-</section>
-<section id="conversions-for-wrapped-c-types">
-<h2>Conversions for wrapped C++ types<a class="headerlink" href="#conversions-for-wrapped-c-types" title="Link to this heading">¶</a></h2>
-<p>Take another look at the wrapper we wrote for the <code class="docutils literal notranslate"><span class="pre">Test</span></code> class:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span>
-<span class="kt">void</span><span class="w"> </span><span class="n">Init_test</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="w">  </span><span class="n">Data_Type</span><span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rb_cTest</span><span class="w"> </span><span class="o">=</span>
-<span class="w">    </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
-<span class="w">    </span><span class="p">.</span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Test</span><span class="o">&gt;</span><span class="p">())</span>
-<span class="w">    </span><span class="p">.</span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Test</span><span class="o">::</span><span class="n">hello</span><span class="p">);</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p>When we called <code class="docutils literal notranslate"><span class="pre">define_class&lt;Test&gt;</span></code>, it created a Class for us and automatically registered the new Class with the type system.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> class can be used to wrap a C++ object in a Ruby object:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Data_Object</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Foo</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>We can then convert it back to C++:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Foo</span><span class="w"> </span><span class="o">*</span><span class="n">f</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">From_Ruby</span><span class="o">&lt;</span><span class="n">Foo</span><span class="w"> </span><span class="o">*&gt;::</span><span class="n">convert</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
-</pre></div>
-</div>
-<p>The <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> class is a wrapper for the <code class="docutils literal notranslate"><span class="pre">TypedData_Wrap_Struct</span></code> and the <code class="docutils literal notranslate"><span class="pre">TypedData_Get_Struct</span></code> macros in C extensions. It can be used to wrap or unwrap any class that has been previously defined using a <code class="docutils literal notranslate"><span class="pre">Data_Type</span></code>.</p>
-<p>A <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> functions like a smart pointer:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Data_Object</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="w"> </span><span class="n">foo</span><span class="p">(</span><span class="n">obj</span><span class="p">);</span>
-<span class="n">foo</span><span class="o">-&gt;</span><span class="n">foo</span><span class="p">();</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="o">*</span><span class="n">foo</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</pre></div>
-</div>
-<p>Like a <code class="docutils literal notranslate"><span class="pre">VALUE</span></code> or an <code class="docutils literal notranslate"><span class="pre">Object</span></code>, data stored in a <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> will be marked by the garbage collector as long as the <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> is on the stack.</p>
-<p>Last, <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code> inherits from <code class="docutils literal notranslate"><span class="pre">Object</span></code>, so any Object member functions work with <code class="docutils literal notranslate"><span class="pre">Data_Object</span></code>:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Object</span><span class="w"> </span><span class="n">object_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;object_id&quot;</span><span class="p">);</span>
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">object_id</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
-</pre></div>
-</div>
+<p>Rice includes default specializations for many C++ types. To define your own conversion, please refer to the <a class="reference internal" href="types/conversion.html"><span class="doc">Type Conversions</span></a> section.</p>
 </section>
 <section id="exceptions">
 <h2>Exceptions<a class="headerlink" href="#exceptions" title="Link to this heading">¶</a></h2>
 <p>Rice automatically handles exceptions. For example, suppose a member function of our example class can throw an exception:</p>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyException</span>
-<span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">MyException</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">exception</span>
 <span class="p">{</span>
 <span class="p">};</span>
 
@@ -640,7 +629,11 @@ conversion works. When we write:</p>
 <span class="k">end</span>
 </pre></div>
 </div>
-<p>3 information refer to the <a class="reference internal" href="bindings/exceptions.html#exceptions"><span class="std std-ref">Exceptions</span></a> section.</p>
+<p>For more information refer to the <a class="reference internal" href="bindings/exceptions.html#exceptions"><span class="std std-ref">Exceptions</span></a> section.</p>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">¶</a></h2>
+<p>Hopefully this tutorial will help get you started wrapping C++ libraries for use in Ruby. For much more detailed information refer to the Bindings topic.</p>
 </section>
 </section>
 
@@ -649,23 +642,23 @@ conversion works. When we write:</p>
       <footer>
         
         <div class="related-pages">
-          <a class="next-page" href="bindings.html">
+          <a class="next-page" href="types.html">
               <div class="page-info">
                 <div class="context">
                   <span>Next</span>
                 </div>
-                <div class="title">Bindings</div>
+                <div class="title">Types</div>
               </div>
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
             </a>
-          <a class="prev-page" href="why_rice.html">
+          <a class="prev-page" href="introduction.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Why Rice?</div>
+                <div class="title">Introduction</div>
                 
               </div>
             </a>
@@ -708,8 +701,8 @@ conversion works. When we write:</p>
 <li><a class="reference internal" href="#wrapping-c-types">Wrapping C++ Types</a></li>
 <li><a class="reference internal" href="#defining-attributes">Defining attributes</a></li>
 <li><a class="reference internal" href="#type-conversions">Type conversions</a></li>
-<li><a class="reference internal" href="#conversions-for-wrapped-c-types">Conversions for wrapped C++ types</a></li>
 <li><a class="reference internal" href="#exceptions">Exceptions</a></li>
+<li><a class="reference internal" href="#next-steps">Next Steps</a></li>
 </ul>
 </li>
 </ul>
