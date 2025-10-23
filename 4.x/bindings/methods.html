@@ -221,6 +221,7 @@
 <li class="toctree-l2"><a class="reference internal" href="overloaded_methods.html#typedef">Typedef</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overloaded_methods.html#method-resolution">Method Resolution</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overloaded_methods.html#type-mapping">Type Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvl.html">Global Virtual Machine Lock (GVL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="attributes.html">Attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
 <li class="toctree-l2"><a class="reference internal" href="constants.html">Constants</a></li>
@@ -459,6 +460,10 @@
 <p>We define the <code class="docutils literal notranslate"><span class="pre">to_s</span></code> method to take a single parameter, self, which is an C++ instance of <code class="docutils literal notranslate"><span class="pre">Test</span></code>. Note that <code class="docutils literal notranslate"><span class="pre">self</span></code> is passed by reference - we do not want to create a copy of the Test object!</p>
 <p>The lambda function can take any number of additional parameters. It can be either a stateless or stateful lambda.</p>
 </section>
+<section id="global-vm-lock-gvl">
+<h2>Global VM Lock (GVL)<a class="headerlink" href="#global-vm-lock-gvl" title="Link to this heading">¶</a></h2>
+<p>Refer to the <a class="reference internal" href="gvl.html#gvl"><span class="std std-ref">Global Virtual Machine Lock (GVL)</span></a> section to learn how to call C++ code without holding Ruby’s GVL.</p>
+</section>
 </section>
 
         </article>
@@ -523,6 +528,7 @@
 <li><a class="reference internal" href="#keyword-arguments">Keyword Arguments</a></li>
 <li><a class="reference internal" href="#return-self">Return Self</a></li>
 <li><a class="reference internal" href="#lambda-functions">Lambda Functions</a></li>
+<li><a class="reference internal" href="#global-vm-lock-gvl">Global VM Lock (GVL)</a></li>
 </ul>
 </li>
 </ul>
