@@ -178,7 +178,7 @@
           <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
         </button>
       </div>
-      <label class="toc-overlay-icon toc-header-icon no-toc" for="__toc">
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
         <div class="visually-hidden">Toggle table of contents sidebar</div>
         <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
       </label>
@@ -215,12 +215,6 @@
 <li class="toctree-l2"><a class="reference internal" href="constructors.html">Constructors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="methods.html">Functions and Methods</a></li>
 <li class="toctree-l2 current current-page"><a class="current reference internal" href="#">Overloaded Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#getters-and-setters">Getters and Setters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#template-parameter">Template Parameter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using">Using</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#typedef">Typedef</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#method-resolution">Method Resolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#type-mapping">Type Mapping</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gvl.html">Global Virtual Machine Lock (GVL)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="attributes.html">Attributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="enums.html">Enums</a></li>
@@ -321,7 +315,7 @@
               <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
             </button>
           </div>
-          <label class="toc-overlay-icon toc-content-icon no-toc" for="__toc">
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
             <div class="visually-hidden">Toggle table of contents sidebar</div>
             <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
           </label>
@@ -331,9 +325,8 @@
 <span id="id1"></span><h1>Overloaded Methods<a class="headerlink" href="#overloaded-methods" title="Link to this heading">¶</a></h1>
 <p>C++ supports overloading constructors, methods and functions. Starting with version 4.5, Rice supports C++ method overloading.</p>
 <p>When you try to wrap an overloaded function the C++ compiler will throw an error message that says something like “no matching overloaded function found.”</p>
-</section>
 <section id="getters-and-setters">
-<h1>Getters and Setters<a class="headerlink" href="#getters-and-setters" title="Link to this heading">¶</a></h1>
+<h2>Getters and Setters<a class="headerlink" href="#getters-and-setters" title="Link to this heading">¶</a></h2>
 <p>For example, consider this C++ class with a getter and setter that have the same name:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">Container</span>
 <span class="p">{</span>
@@ -363,7 +356,7 @@
 <p>You need to tell the C++ compiler which overloaded method to use. There are several ways to do this as explained below.</p>
 </section>
 <section id="template-parameter">
-<h1>Template Parameter<a class="headerlink" href="#template-parameter" title="Link to this heading">¶</a></h1>
+<h2>Template Parameter<a class="headerlink" href="#template-parameter" title="Link to this heading">¶</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">define_method</span></code> is a template function, therefore one solution is to specify which method you are trying to call like this:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">Class</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Container&quot;</span><span class="p">)</span>
 <span class="w"> </span><span class="p">.</span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Container</span><span class="o">&gt;</span><span class="p">())</span>
@@ -375,7 +368,7 @@
 <code class="docutils literal notranslate"><span class="pre">&lt;size_t(Container::*)()&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;void(Container::*)(size_t)&gt;</span></code> are C++ pointers to member functions.</p>
 </section>
 <section id="using">
-<h1>Using<a class="headerlink" href="#using" title="Link to this heading">¶</a></h1>
+<h2>Using<a class="headerlink" href="#using" title="Link to this heading">¶</a></h2>
 <p>Another solution is provided by the C++ keyword <code class="docutils literal notranslate"><span class="pre">using</span></code>, like this:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">using</span><span class="w"> </span><span class="n">Getter_T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kt">size_t</span><span class="p">(</span><span class="n">Container</span><span class="o">::*</span><span class="p">)();</span>
 <span class="k">using</span><span class="w"> </span><span class="n">Setter_T</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="kt">void</span><span class="p">(</span><span class="n">Container</span><span class="o">::*</span><span class="p">)(</span><span class="kt">size_t</span><span class="p">);</span>
@@ -398,7 +391,7 @@
 </div>
 </section>
 <section id="typedef">
-<h1>Typedef<a class="headerlink" href="#typedef" title="Link to this heading">¶</a></h1>
+<h2>Typedef<a class="headerlink" href="#typedef" title="Link to this heading">¶</a></h2>
 <p>If you like old school, obtuse C syntax, then use <code class="docutils literal notranslate"><span class="pre">typedef</span></code> like this:</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span>
 <span class="kt">void</span><span class="w"> </span><span class="n">Init_Container</span><span class="p">()</span>
@@ -415,7 +408,7 @@
 </div>
 </section>
 <section id="method-resolution">
-<h1>Method Resolution<a class="headerlink" href="#method-resolution" title="Link to this heading">¶</a></h1>
+<h2>Method Resolution<a class="headerlink" href="#method-resolution" title="Link to this heading">¶</a></h2>
 <p>Ruby does not natively support method overloading. Thus Rice implements overloading support itself. It does this by maintaining a global registry (see <a class="reference external" href="https://github.com/ruby-rice/rice/blob/master/rice/detail/NativeRegistry.hpp">NativeRegistry</a>) of methods keyed on class and method name. For the example above, the key would be <code class="docutils literal notranslate"><span class="pre">Container::capacity</span></code> and the value is an array of two <a class="reference external" href="https://github.com/ruby-rice/rice/blob/master/rice/detail/NativeFunction.hpp">NativeFunction</a> instances, where each <code class="docutils literal notranslate"><span class="pre">NativeFunction</span></code> instance maps to one C++ member function.</p>
 <p>At runtime, Rice evaluates the method parameters sent from Ruby to the <code class="docutils literal notranslate"><span class="pre">intersects</span></code> method and determines the best match. It does this by looping over the native <code class="docutils literal notranslate"><span class="pre">NativeFunction</span></code> instances and calls their <code class="docutils literal notranslate"><span class="pre">matches</span></code> method. The matches method, in turn, loops over the passed-in parameters and sends them to its array of <code class="docutils literal notranslate"><span class="pre">From_Ruby</span></code> instances (for more information see the <a class="reference internal" href="../types/conversion.html#type-conversion"><span class="std std-ref">type conversion</span></a> section).</p>
 <p>Each <code class="docutils literal notranslate"><span class="pre">From_Ruby</span></code> instance defines a <code class="docutils literal notranslate"><span class="pre">convertible</span></code> method that returns one of five results:</p>
@@ -429,7 +422,7 @@
 <p>Based on the results for each parameter, each overloaded C++ method is sorted from best match to worst match. The best matching function is then called.</p>
 </section>
 <section id="type-mapping">
-<h1>Type Mapping<a class="headerlink" href="#type-mapping" title="Link to this heading">¶</a></h1>
+<h2>Type Mapping<a class="headerlink" href="#type-mapping" title="Link to this heading">¶</a></h2>
 <p>The following table shows how Ruby types are mapped to C++ types. E is exact, C is cast and N is narrow.</p>
 <div class="table-wrapper docutils container">
 <table class="docutils align-default">
@@ -579,6 +572,7 @@
 <p>If multiple matches are possible, the first one wins. That means the order in which native functions are defined using <code class="docutils literal notranslate"><span class="pre">define_method</span></code> is important.</p>
 <p>Note Rice will <em>not</em> convert a float to an integer type.</p>
 </section>
+</section>
 
         </article>
       </div>
@@ -623,8 +617,32 @@
         
       </footer>
     </div>
-    <aside class="toc-drawer no-toc">
+    <aside class="toc-drawer">
       
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">Overloaded Methods</a><ul>
+<li><a class="reference internal" href="#getters-and-setters">Getters and Setters</a></li>
+<li><a class="reference internal" href="#template-parameter">Template Parameter</a></li>
+<li><a class="reference internal" href="#using">Using</a></li>
+<li><a class="reference internal" href="#typedef">Typedef</a></li>
+<li><a class="reference internal" href="#method-resolution">Method Resolution</a></li>
+<li><a class="reference internal" href="#type-mapping">Type Mapping</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
       
       
     </aside>
