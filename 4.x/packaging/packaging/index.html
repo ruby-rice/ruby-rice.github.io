@@ -3383,7 +3383,7 @@
 </code></pre></div>
 <p>The second option is to simply copy them from <a href="https://github.com/ruby-rice/rice/tree/master/include/rice">github</a> and copy them into your repo. Remember the provided link points to the master branch - you should pick a specific release tag and use those instead.</p>
 <h2 id="compiler-settings">Compiler Settings<a class="headerlink" href="#compiler-settings" title="Permanent link">&para;</a></h2>
-<p>Rice extensions requires several compiler settings to be set. These are captured in the <a href="https://github.com/ruby-rice/rice/blob/master/test/CMakePresets.json">CMakePresets.json</a> file for all supported platforms.</p>
+<p>Rice extensions requires several compiler settings to be set. These are captured in the <a href="https://github.com/ruby-rice/rice/blob/master/CMakePresets.json">CMakePresets.json</a> file for all supported platforms.</p>
 <p>For Clang and GCC:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>-std<span class="o">=</span>c++17<span class="w"> </span>-Wa,-mbig-obj<span class="w"> </span>-ftemplate-backtrace-limit<span class="o">=</span><span class="m">0</span>
 </code></pre></div>

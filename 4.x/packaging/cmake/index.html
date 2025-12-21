@@ -3021,6 +3021,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#findruby-imported-targets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FindRuby Imported Targets
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#findruby-variables" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3033,6 +3044,28 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rice-cmake-target" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rice CMake Target
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Example
+      
+    </span>
+  </a>
   
 </li>
       
@@ -3362,7 +3395,7 @@
 <li>Parallelizes builds resulting in <em>much</em> faster compilation times compared to <code>make</code></li>
 </ul>
 <h2 id="cmakepresetsjson">CMakePresets.json<a class="headerlink" href="#cmakepresetsjson" title="Permanent link">&para;</a></h2>
-<p>Rice includes a <code>CMakePresets.json</code> file (in the <code>test</code> directory) that provides pre-configured build settings for various platforms and compilers. Using presets is highly recommended as they encode the correct compiler flags for each platform.</p>
+<p>Rice includes a <code>CMakePresets.json</code> file that provides pre-configured build settings for various platforms and compilers. Using presets is highly recommended as they encode the correct compiler flags for each platform.</p>
 <p>The available presets include:</p>
 <ul>
 <li><code>linux-debug</code> / <code>linux-release</code> - Linux with GCC</li>
@@ -3416,7 +3449,7 @@
 <a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">            </span><span class="s2">&quot;MyExtension.cpp&quot;</span><span class="p">)</span>
 <a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>
 <a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="c"># Link to Ruby using the modern imported target</span>
-<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MyExtension</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">Ruby::Ruby</span><span class="p">)</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MyExtension</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">Ruby::Module</span><span class="p">)</span>
 <a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>
 <a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="c"># Add in Rice headers</span>
 <a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a><span class="nb">target_include_directories</span><span class="p">(</span><span class="s">MyExtension</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">&lt;path-to-rice-headers&gt;</span><span class="p">)</span>
@@ -3426,7 +3459,7 @@
 <a id="__codelineno-3-31" name="__codelineno-3-31" href="#__codelineno-3-31"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MyExtension</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">&lt;library-name&gt;</span><span class="p">)</span>
 </code></pre></div>
 <p>Currently you will need to manually specify where the Rice <a href="../packaging/#header-files">header files</a> are located.</p>
-<p>Note that using the <code>Ruby::Ruby</code> imported target (available in CMake 3.18+) is preferred over manually specifying include directories and libraries, as it automatically sets up all necessary include paths and link libraries.</p>
+<p>Note that using the <code>Ruby::Module</code> imported target is preferred over manually specifying include directories and libraries, as it automatically sets up all necessary include paths and compiler settings for building Ruby extensions.</p>
 <h2 id="compiler-settings">Compiler Settings<a class="headerlink" href="#compiler-settings" title="Permanent link">&para;</a></h2>
 <p>See <a href="../packaging/#compiler-settings">compiler settings</a> for details about compiler settings.</p>
 <h2 id="findruby">FindRuby<a class="headerlink" href="#findruby" title="Permanent link">&para;</a></h2>
@@ -3455,6 +3488,36 @@
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="nb">find_package</span><span class="p">(</span><span class="s">Ruby</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
 </code></pre></div>
 <p>Rice's <code>FindRuby.cmake</code> is also useful for older versions of CMake that lack good Ruby support.</p>
+<h3 id="findruby-imported-targets">FindRuby Imported Targets<a class="headerlink" href="#findruby-imported-targets" title="Permanent link">&para;</a></h3>
+<p>Rice's <code>FindRuby.cmake</code> provides modern CMake imported targets:</p>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Ruby::Interpreter</code></td>
+<td>Ruby interpreter executable</td>
+</tr>
+<tr>
+<td><code>Ruby::Module</code></td>
+<td>For building Ruby extension modules. Use this for gems with native extensions. On Unix, does not link to libruby (symbols resolved at load time). Includes hidden visibility settings.</td>
+</tr>
+<tr>
+<td><code>Ruby::Ruby</code></td>
+<td>For embedding Ruby in C/C++ applications. Links to libruby.</td>
+</tr>
+</tbody>
+</table>
+<p>Embedding Ruby (including Rice's C++ test runner) requires a shared Ruby library to be available.
+Extension-only modules should link <code>Ruby::Module</code> and can build on macOS/Linux without a shared
+libruby.</p>
+<p>For building Ruby extensions, use <code>Ruby::Module</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MyExtension</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">Ruby::Module</span><span class="p">)</span>
+</code></pre></div>
 <h3 id="findruby-variables">FindRuby Variables<a class="headerlink" href="#findruby-variables" title="Permanent link">&para;</a></h3>
 <p>The following CMake variables are set by FindRuby:</p>
 <table>
@@ -3523,6 +3586,25 @@
 </tr>
 </tbody>
 </table>
+<h2 id="rice-cmake-target">Rice CMake Target<a class="headerlink" href="#rice-cmake-target" title="Permanent link">&para;</a></h2>
+<p>Rice provides the <code>Rice::Rice</code> imported target for including Rice headers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MyExtension</span><span class="w"> </span><span class="s">PRIVATE</span><span class="w"> </span><span class="s">Rice::Rice</span><span class="p">)</span>
+</code></pre></div>
+<p>This target:</p>
+<ul>
+<li>Adds Rice include directories</li>
+<li>Requires C++17 or higher</li>
+</ul>
+<h2 id="complete-example">Complete Example<a class="headerlink" href="#complete-example" title="Permanent link">&para;</a></h2>
+<p>For a complete, real-world example of using CMake with Rice, see <a href="https://github.com/ruby-rice/BitmapPlusPlus-ruby/blob/main/ext/CMakeLists.txt">BitmapPlusPlus-ruby</a>.</p>
+<p>This example demonstrates:</p>
+<ul>
+<li>Fetching Rice via <code>FetchContent</code></li>
+<li>Using <code>Ruby::Module</code> for extension modules</li>
+<li>Using <code>Rice::Rice</code> for Rice headers</li>
+<li>Setting the correct extension suffix</li>
+<li>Configuring output directories</li>
+</ul>
 
 
 
