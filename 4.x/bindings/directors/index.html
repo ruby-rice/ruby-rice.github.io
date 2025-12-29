@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ruby-rice.github.io/rice/types/strings/">
+        <link rel="canonical" href="https://ruby-rice.github.io/rice/bindings/directors/">
       
       
-        <link rel="prev" href="../wrapping/">
+        <link rel="prev" href="../callbacks/">
       
       
-        <link rel="next" href="../naming/">
+        <link rel="next" href="../gvl/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Strings - Rice - Ruby Interface for C++</title>
+        <title>Directors - Rice - Ruby Interface for C++</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#strings" class="md-skip">
+        <a href="#directors" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Strings
+              Directors
             
           </span>
         </div>
@@ -256,13 +256,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../types/overview/" class="md-tabs__link">
           
   
   
@@ -278,11 +276,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../bindings/overview/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -731,6 +731,259 @@
       
   
   
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Type Conversion
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/conversion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Conversion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/wrapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wrapping Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/strings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/naming/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Naming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/converters/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Converters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../types/verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Type Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
     
   
   
@@ -750,17 +1003,17 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
             
   
   
   <span class="md-ellipsis">
     
   
-    Type Conversion
+    Wrapping C++
   
 
     
@@ -771,12 +1024,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Type Conversion
+    Wrapping C++
   
 
           </label>
@@ -817,270 +1070,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../conversion/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Type Conversion
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../wrapping/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Wrapping Types
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Strings
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../naming/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Type Naming
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../converters/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Custom Converters
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../verification/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Type Verification
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
-        
-          
-          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
-            
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Wrapping C++
-  
-
-    
-  </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Wrapping C++
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../bindings/overview/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../bindings/classes/" class="md-nav__link">
+      <a href="../classes/" class="md-nav__link">
         
   
   
@@ -1108,7 +1098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/constructors/" class="md-nav__link">
+      <a href="../constructors/" class="md-nav__link">
         
   
   
@@ -1136,7 +1126,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/methods/" class="md-nav__link">
+      <a href="../methods/" class="md-nav__link">
         
   
   
@@ -1164,7 +1154,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/overloaded_methods/" class="md-nav__link">
+      <a href="../overloaded_methods/" class="md-nav__link">
         
   
   
@@ -1192,7 +1182,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/attributes/" class="md-nav__link">
+      <a href="../attributes/" class="md-nav__link">
         
   
   
@@ -1220,7 +1210,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/constants/" class="md-nav__link">
+      <a href="../constants/" class="md-nav__link">
         
   
   
@@ -1248,7 +1238,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/iterators/" class="md-nav__link">
+      <a href="../iterators/" class="md-nav__link">
         
   
   
@@ -1276,7 +1266,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/enums/" class="md-nav__link">
+      <a href="../enums/" class="md-nav__link">
         
   
   
@@ -1304,7 +1294,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/operators/" class="md-nav__link">
+      <a href="../operators/" class="md-nav__link">
         
   
   
@@ -1332,7 +1322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/exceptions/" class="md-nav__link">
+      <a href="../exceptions/" class="md-nav__link">
         
   
   
@@ -1360,7 +1350,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/callbacks/" class="md-nav__link">
+      <a href="../callbacks/" class="md-nav__link">
         
   
   
@@ -1385,6 +1375,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1395,11 +1387,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_13" checked>
         
           
           <label class="md-nav__link" for="__nav_4_13" id="__nav_4_13_label" tabindex="0">
@@ -1420,7 +1412,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_13_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_4_13">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1435,10 +1427,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../bindings/directors/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Directors
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1454,6 +1473,87 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ruby-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ruby Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ruby Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-subclassing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Subclassing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overriding-virtual-methods-with-super" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Overriding Virtual Methods with Super
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pure-virtual-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pure Virtual Methods
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#polymorphism-from-c" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Polymorphism from C++
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1466,7 +1566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/gvl/" class="md-nav__link">
+      <a href="../gvl/" class="md-nav__link">
         
   
   
@@ -1494,7 +1594,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/class_templates/" class="md-nav__link">
+      <a href="../class_templates/" class="md-nav__link">
         
   
   
@@ -1522,7 +1622,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/references/" class="md-nav__link">
+      <a href="../references/" class="md-nav__link">
         
   
   
@@ -1550,7 +1650,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/pointers/" class="md-nav__link">
+      <a href="../pointers/" class="md-nav__link">
         
   
   
@@ -1578,7 +1678,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/buffers/" class="md-nav__link">
+      <a href="../buffers/" class="md-nav__link">
         
   
   
@@ -1606,7 +1706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/memory_management/" class="md-nav__link">
+      <a href="../memory_management/" class="md-nav__link">
         
   
   
@@ -1634,7 +1734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../bindings/instance_registry/" class="md-nav__link">
+      <a href="../instance_registry/" class="md-nav__link">
         
   
   
@@ -3403,11 +3503,173 @@
   
 
 
-<h1 id="strings">Strings<a class="headerlink" href="#strings" title="Permanent link">&para;</a></h1>
-<p>Ruby and C++ handle strings very differently. In Ruby, every string is associated with an encoding, such as UTF-8. Strings with encodings of binary, or USASCII-8bit, are treated as byte arrays</p>
-<p>In contrast, C++ has no concept of encodings. It is up to the progammer to figure out how data is stored in a string.</p>
-<p>Rice handles this difference by converting strings between the language as-is. In other words, it simply copies bytes from a Ruby string to a C++ string and vice versa. Thus any C++ string returned to Ruby will have its encoding set to binary.</p>
-<p>If you know that a C++ API requires a certain encoding, such as UTF-8, then first convert the string in Ruby before passing it to C++. Or, if you know a C++ string is in a specific encoding then call <code>String::force_encoding</code> in Ruby.</p>
+<h1 id="directors">Directors<a class="headerlink" href="#directors" title="Permanent link">&para;</a></h1>
+<p>Inheritance becomes much more complex if you want to create Ruby classes that inherit from wrapped C++ classes. This introduces several problems:</p>
+<ul>
+<li>Ruby classes should be able to override C++ virtual methods</li>
+<li>Overridden virtual methods should be able to call <code>super</code> and invoke the overridden C++ method</li>
+<li>C++ code calling the virtual methods should invoke the overridden version in Ruby</li>
+</ul>
+<p>Rice supports these use cases through the use of <code>Director</code> classes. <code>Directors</code> are proxies that correctly dispatch method invocations up or down a Class hierarchy.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The name Director comes from SWIG - for more information see <a href="https://www.swig.org/Doc4.0/SWIGPlus.html#SWIGPlus_director_classes_introduction">https://www.swig.org/Doc4.0/SWIGPlus.html#SWIGPlus_director_classes_introduction</a>.</p>
+</div>
+<p>Take the following class:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">VirtualBase</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="n">VirtualBase</span><span class="p">();</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">doWork</span><span class="p">();</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="k">virtual</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">processWorker</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">};</span>
+</code></pre></div>
+<p>Due to the abstract nature of this class, we cannot directly wrap it in Rice, as any C++ compiler will complain about trying to instantiate a virtual class. Even without the pure virtual function, any call to <code>VirtualBase::doWork</code> will stop at the C++ level and execution will not pass down into any Ruby subclasses.</p>
+<p>To properly wrap both of these methods, use a <code>Rice::Director</code> subclass as a proxy and use this new proxy class as the type to wrap with <code>define_class</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rice/rice.hpp&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">VirtualBaseProxy</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">VirtualBase</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Rice</span><span class="o">::</span><span class="n">Director</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">VirtualBaseProxy</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Rice</span><span class="o">::</span><span class="n">Director</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">doWork</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSelf</span><span class="p">().</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;do_work&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">From_Ruby</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">().</span><span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">default_doWork</span><span class="p">()</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">VirtualBase</span><span class="o">::</span><span class="n">doWork</span><span class="p">();</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>
+<a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">processWorker</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSelf</span><span class="p">().</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;process_worker&quot;</span><span class="p">);</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">From_Ruby</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">().</span><span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>
+<a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">default_processWorker</span><span class="p">()</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">      </span><span class="n">raisePureVirtual</span><span class="p">();</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">};</span>
+</code></pre></div>
+<p>There is a lot going on here, so we'll go through each part.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">VirtualBaseProxy</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Virtualbase</span><span class="p">,</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Rice</span><span class="o">::</span><span class="n">Director</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>First, the class needs to subclass both the virtual class in question and <code>Rice::Director</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="n">VirtualBaseProxy</span><span class="p">(</span><span class="n">Object</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">Rice</span><span class="o">::</span><span class="n">Director</span><span class="p">(</span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div>
+<p>For <code>Rice::Director</code> to work its magic, every instance of this class needs to have a handle to its Ruby instance. The constructor must take a <code>Rice::Object</code> as the first argument and pass it to <code>Rice::Director</code>.</p>
+<p>Next we implement <code>doWork</code>. The director class overrides it by forwarding the invocation to the Ruby instance.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">doWork</span><span class="p">()</span><span class="w"> </span><span class="k">override</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">      </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getSelf</span><span class="p">().</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;do_work&quot;</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">From_Ruby</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">().</span><span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="nf">default_doWork</span><span class="p">()</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">VirtualBase</span><span class="o">::</span><span class="n">doWork</span><span class="p">();</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">    </span><span class="p">}</span>
+</code></pre></div>
+<p>The director also implements <code>default_doWork</code> which enables Ruby to call the overridden virtual C++ method. The <code>default_</code> prefix is a naming convention to help keep straight which methods perform which functions.</p>
+<p>If Ruby should never call the C++ method then the <code>default_</code> implementation should call <code>raisePureVirtual()</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">default_processWorker</span><span class="p">()</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="n">raisePureVirtual</span><span class="p">();</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
+</code></pre></div>
+<p>The method <code>raisePureVirtual()</code> exists to allow wrapping a pure virtual method into Ruby (and ensuring compilation is possible) while also making sure any users of this extension get an exception if they try to call an unimplemented C++ method.</p>
+<p>After defining the Director class is C++ it's time to wrap it for use in Ruby:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">Init_virtual</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">VirtualBase</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;VirtualBase&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="p">.</span><span class="n">define_director</span><span class="o">&lt;</span><span class="n">VirtualBaseProxy</span><span class="o">&gt;</span><span class="p">()</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="p">.</span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">VirtualBaseProxy</span><span class="p">,</span><span class="w"> </span><span class="n">Rice</span><span class="o">::</span><span class="n">Object</span><span class="o">&gt;</span><span class="p">())</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="p">.</span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;do_work&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">VirtualBaseProxy</span><span class="o">::</span><span class="n">default_doWork</span><span class="p">)</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">.</span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;process_worker&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">VirtualBaseProxy</span><span class="o">::</span><span class="n">default_processWorker</span><span class="p">);</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="p">}</span>
+</code></pre></div>
+<p>There are a couple of new things in this code.</p>
+<p>First, note the addition of the <code>define_director</code> call which takes the <code>VirtualBaseProxy</code> as a template parameter.</p>
+<p>Second, the <code>Constructor</code> template parameter must include the <code>VirtualBaseProxy</code> class to allow proper object construction and destruction of the derived objects.</p>
+<p>Third, the <code>define_method</code> calls should point to the <code>default_*</code> implementations.</p>
+<h2 id="ruby-usage">Ruby Usage<a class="headerlink" href="#ruby-usage" title="Permanent link">&para;</a></h2>
+<p>Once the Director class is wrapped, Ruby classes can inherit from it and override virtual methods.</p>
+<h3 id="basic-subclassing">Basic Subclassing<a class="headerlink" href="#basic-subclassing" title="Permanent link">&para;</a></h3>
+<p>Create a Ruby class that inherits from the wrapped C++ class and implements the pure virtual method:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyWorker</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">VirtualBase</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">process_worker</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="mi">42</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="k">end</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="n">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">MyWorker</span><span class="o">.</span><span class="n">new</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="n">worker</span><span class="o">.</span><span class="n">process_worker</span><span class="w">  </span><span class="c1"># =&gt; 42</span>
+</code></pre></div>
+<h3 id="overriding-virtual-methods-with-super">Overriding Virtual Methods with Super<a class="headerlink" href="#overriding-virtual-methods-with-super" title="Permanent link">&para;</a></h3>
+<p>Ruby subclasses can override virtual methods and call <code>super</code> to invoke the original C++ implementation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyWorker</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">VirtualBase</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">do_work</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">super</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="w">  </span><span class="c1"># Calls C++ VirtualBase::doWork(), then doubles the result</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="k">end</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">worker</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">MyWorker</span><span class="o">.</span><span class="n">new</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="n">worker</span><span class="o">.</span><span class="n">do_work</span><span class="w">  </span><span class="c1"># =&gt; C++ result * 2</span>
+</code></pre></div>
+<h3 id="pure-virtual-methods">Pure Virtual Methods<a class="headerlink" href="#pure-virtual-methods" title="Permanent link">&para;</a></h3>
+<p>If a Ruby subclass calls <code>super</code> on a pure virtual method, Rice raises a <code>NotImplementedError</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyWorker</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">VirtualBase</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">process_worker</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">super</span><span class="w">  </span><span class="c1"># Raises NotImplementedError</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="k">end</span>
+</code></pre></div>
+<h3 id="polymorphism-from-c">Polymorphism from C++<a class="headerlink" href="#polymorphism-from-c" title="Permanent link">&para;</a></h3>
+<p>The real power of Directors is that C++ code calling virtual methods will correctly invoke the Ruby implementations. For example, if you have a C++ class that processes workers:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Handler</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="p">{</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Worker</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">workers</span><span class="p">;</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">addWorker</span><span class="p">(</span><span class="n">Worker</span><span class="o">*</span><span class="w"> </span><span class="n">worker</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">workers</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">worker</span><span class="p">);</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">processWorkers</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">start</span><span class="p">)</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">start</span><span class="p">;</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">auto</span><span class="o">*</span><span class="w"> </span><span class="n">worker</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">workers</span><span class="p">)</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">      </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">worker</span><span class="o">-&gt;</span><span class="n">process</span><span class="p">(</span><span class="n">result</span><span class="p">);</span><span class="w">  </span><span class="c1">// Calls Ruby override!</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a><span class="p">};</span>
+</code></pre></div>
+<p>Ruby subclasses passed to C++ will have their overridden methods called:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Doubler</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">Worker</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="n">num</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="k">end</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">class</span><span class="w"> </span><span class="nc">Adder</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="no">Worker</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">  </span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">num</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="k">end</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="k">end</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="n">handler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Handler</span><span class="o">.</span><span class="n">new</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="n">handler</span><span class="o">.</span><span class="n">add_worker</span><span class="p">(</span><span class="no">Doubler</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="n">handler</span><span class="o">.</span><span class="n">add_worker</span><span class="p">(</span><span class="no">Adder</span><span class="o">.</span><span class="n">new</span><span class="p">)</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="n">handler</span><span class="o">.</span><span class="n">process_workers</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w">  </span><span class="c1"># =&gt; (5 * 2) + 10 = 20</span>
+</code></pre></div>
+<p>This enables true polymorphism where C++ code can work with Ruby-defined subclasses seamlessly.</p>
 
 
 
