@@ -10,7 +10,7 @@
       
       
       
-        <link rel="canonical" href="https://ruby-rice.github.io/rice/stl/smart_pointers/">
+        <link rel="canonical" href="https://ruby-rice.github.io/rice/stl/shared_ptr/">
       
       
         <link rel="prev" href="../set/">
@@ -27,7 +27,7 @@
     
     
       
-        <title>Smart Pointers - Rice - Ruby Interface for C++</title>
+        <title>std::shared_ptr - Rice - Ruby Interface for C++</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#smart-pointers" class="md-skip">
+        <a href="#stdshared_ptr" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Smart Pointers
+              std::shared_ptr
             
           </span>
         </div>
@@ -2013,7 +2013,7 @@
   <span class="md-ellipsis">
     
   
-    Smart Pointers
+    std::shared_ptr
   
 
     
@@ -2031,7 +2031,7 @@
   <span class="md-ellipsis">
     
   
-    Smart Pointers
+    std::shared_ptr
   
 
     
@@ -2057,10 +2057,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#stdunique_ptr" class="md-nav__link">
+  <a href="#ruby-api" class="md-nav__link">
     <span class="md-ellipsis">
       
-        std::unique_ptr
+        Ruby API
       
     </span>
   </a>
@@ -2068,10 +2068,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#stdshared_ptr" class="md-nav__link">
+  <a href="#example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        std::shared_ptr
+        Example
       
     </span>
   </a>
@@ -2079,10 +2079,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#custom-smart-pointer" class="md-nav__link">
+  <a href="#ownership" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Custom Smart Pointer
+        Ownership
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#passing-to-c-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passing to C++ Methods
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type Registration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
       
     </span>
   </a>
@@ -2225,6 +2258,34 @@
     
   
     std::type_info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../unique_ptr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    std::unique_ptr
   
 
     
@@ -3446,6 +3507,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/smart_pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Smart Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3473,203 +3562,144 @@
   
 
 
-<h1 id="smart-pointers">Smart Pointers<a class="headerlink" href="#smart-pointers" title="Permanent link">&para;</a></h1>
-<p>Smart pointers are key tool in modern C++ to write memory safe code. Rice provides support for <code>std::unique_ptr</code> and <code>std::shared_ptr</code>. Rice can also be easily extended to support custom smart pointer types.</p>
-<h2 id="stdunique_ptr">std::unique_ptr<a class="headerlink" href="#stdunique_ptr" title="Permanent link">&para;</a></h2>
-<p>When a native method returns a <code>std::unique_ptr</code>, Rice copies it via its move constructor. Therefore, Rice takes ownership of the <code>std::unique_ptr</code>, which in turns owns its underlying object.</p>
-<p>Use of the <code>std::unique_ptr</code> is transparent to Ruby code. As far a Ruby is concerned, its wrapping the type managed by the unique pointer, thus <code>std::unique_ptr::element_type</code>. As a result, there is not a Ruby visible API to the <code>std::unique_ptr</code> itself.</p>
-<p>Rice supports <code>std::unique_ptr</code> out of the box - there is no additional work you have to do except include the "rice/stl.hpp" header. Let's take a look at an example:</p>
+<h1 id="stdshared_ptr">std::shared_ptr<a class="headerlink" href="#stdshared_ptr" title="Permanent link">&para;</a></h1>
+<p>Rice provides full support for <code>std::shared_ptr</code>, allowing C++ shared pointers to be used seamlessly from Ruby.</p>
+<h2 id="ruby-api">Ruby API<a class="headerlink" href="#ruby-api" title="Permanent link">&para;</a></h2>
+<p>When Rice wraps a <code>std::shared_ptr&lt;T&gt;</code>, it creates a Ruby class under the <code>Std</code> module. The class exposes the following methods:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>empty?</code></td>
+<td>Returns true if the shared pointer is null</td>
+</tr>
+<tr>
+<td><code>get</code></td>
+<td>Returns the managed object</td>
+</tr>
+<tr>
+<td><code>swap</code></td>
+<td>Swaps the managed object with another shared_ptr</td>
+</tr>
+<tr>
+<td><code>use_count</code></td>
+<td>Returns the number of shared_ptr instances managing the object</td>
+</tr>
+</tbody>
+</table>
+<p>For non-void types, a constructor is also defined that takes ownership of a raw pointer.</p>
+<p>Additionally, for non-fundamental and non-void types, Rice sets up forwarding so that methods and attributes defined on <code>T</code> can be called directly on the shared pointer wrapper.</p>
+<p>Note: Methods or attributes that have the same name on both the smart pointer wrapper and the managed type (e.g., <code>swap</code>) are not forwarded. To call the managed object's version, use <code>ptr.get.method_name</code>.</p>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
 <a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="o">:</span>
 <a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">setFlag</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">};</span>
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="k">class</span><span class="w"> </span><span class="nc">Factory</span>
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">{</span>
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">transfer</span><span class="p">()</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="p">};</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="kt">int</span><span class="w"> </span><span class="nf">extractFlagUniquePtrRef</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">myClass</span><span class="p">)</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="p">{</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">myClass</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">;</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="p">}</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setupRice</span><span class="p">()</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="p">{</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MyClass&quot;</span><span class="p">).</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;set_flag&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">setFlag</span><span class="p">);</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
-<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">Factory</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Factory&quot;</span><span class="p">).</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Factory</span><span class="o">&gt;</span><span class="p">()).</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;transfer&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Factory</span><span class="o">::</span><span class="n">transfer</span><span class="p">);</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>
-<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">  </span><span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;extract_flag_unique_ptr_ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">extractFlagUniquePtrRef</span><span class="p">);</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="p">}</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">setFlag</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">getFlag</span><span class="p">()</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">};</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">class</span><span class="w"> </span><span class="nc">Factory</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">share</span><span class="p">()</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">instance_</span><span class="p">)</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="w">      </span><span class="n">instance_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">instance_</span><span class="p">;</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">instance_</span><span class="p">;</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a><span class="p">};</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setupRice</span><span class="p">()</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="p">{</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MyClass&quot;</span><span class="p">).</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;flag=&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">setFlag</span><span class="p">).</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;flag&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">getFlag</span><span class="p">);</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">Factory</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Factory&quot;</span><span class="p">).</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a><span class="w">    </span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Factory</span><span class="o">&gt;</span><span class="p">()).</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;share&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Factory</span><span class="o">::</span><span class="n">share</span><span class="p">);</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a><span class="p">}</span>
 </code></pre></div>
-<p>And in Ruby:</p>
+<p>In Ruby:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Factory</span><span class="o">.</span><span class="n">new</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">my_instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factor</span><span class="o">.</span><span class="n">transfer</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">my_instance</span><span class="o">.</span><span class="n">set_flag</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extract_flag_unique_ptr_ref</span><span class="p">(</span><span class="n">my_instance</span><span class="p">)</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">my_instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="o">.</span><span class="n">share</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Check the shared pointer</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">empty?</span><span class="w">     </span><span class="c1"># =&gt; false</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">use_count</span><span class="w">  </span><span class="c1"># =&gt; 1</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="c1"># Methods are forwarded to the managed object</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="n">my_instance</span><span class="o">.</span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">flag</span><span class="w">       </span><span class="c1"># =&gt; 5</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="c1"># Can also access via get</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">flag</span><span class="w">   </span><span class="c1"># =&gt; 5</span>
 </code></pre></div>
-<p>When <code>myInstance</code> goes out of scope and is garbage collected, it will free the <code>std::unique_ptr</code> it wraps which will in turn free the C++ MyClass instance that it manages.</p>
-<p>Note Rice does not support transferring ownership of the <code>std::unique_ptr</code> back to C++ by passing it as a function parameter to a native function. In other words, once a <code>std::unique_ptr</code> is transferred to Ruby it will be freed by Ruby. You can, however, pass back a reference as shown in the example above. Note that passing a reference to <code>std::unique_ptr</code> does <em>not</em> not transer its ownership.</p>
-<h2 id="stdshared_ptr">std::shared_ptr<a class="headerlink" href="#stdshared_ptr" title="Permanent link">&para;</a></h2>
-<p>When a native method returns a <code>std::shared_ptr</code>, Rice copies it via its move constructor and therefore owns one instance of the shared_pointer. Of course it is likely there are other copies of the <code>std::shared_ptr</code> owned by other objects.</p>
-<p>Use of the <code>std::shared_ptr</code> is transparent to Ruby code. As far a Ruby is concerned, its wrapping the type managed by the shared pointer, thus <code>std::shared_ptr::element_type</code>. As a result, there is not a Ruby visible API to the <code>std::unique_ptr</code> itself.</p>
-<p>Rice supports <code>std::shared_ptr</code> out of the box - there is no additional work you have to do except include the "rice/stl.hpp" header. Let's take a look at an example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
-<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">setFlag</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
-<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">};</span>
+<h2 id="ownership">Ownership<a class="headerlink" href="#ownership" title="Permanent link">&para;</a></h2>
+<p>When a native method returns a <code>std::shared_ptr</code> by value, Rice copies it to maintain standard shared pointer semantics. This increments the reference count, and Ruby then shares ownership with any other <code>std::shared_ptr</code> instances in C++ code.</p>
+<p>When the Ruby object is garbage collected, it releases its reference to the <code>std::shared_ptr</code>, decrementing the reference count. The underlying C++ object is freed only when all shared pointer instances are destroyed.</p>
+<p>If a method returns a <code>std::shared_ptr</code> by reference or pointer (which would be unusual), Rice's usual reference/pointer semantics apply instead.</p>
+<h2 id="passing-to-c-methods">Passing to C++ Methods<a class="headerlink" href="#passing-to-c-methods" title="Permanent link">&para;</a></h2>
+<p>Rice automatically determines whether to pass the <code>std::shared_ptr</code> itself or the underlying raw pointer based on what the C++ method expects. This happens efficiently in C++ without requiring a round-trip through Ruby.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Method that takes a shared_ptr</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">processShared</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">getFlag</span><span class="p">();</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c1">// Method that takes a raw pointer</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="kt">int</span><span class="w"> </span><span class="nf">processRaw</span><span class="p">(</span><span class="n">MyClass</span><span class="o">*</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="p">{</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">getFlag</span><span class="p">();</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">}</span>
 <a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>
-<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="k">class</span><span class="w"> </span><span class="nc">Factory</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setupRice</span><span class="p">()</span>
 <a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="p">{</span>
-<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">share</span><span class="p">()</span>
-<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">instance_</span><span class="p">)</span>
-<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="w">      </span><span class="n">instance_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_shared</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
-<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">instance_</span><span class="p">;</span>
-<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">  </span><span class="p">}</span>
-<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>
-<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="kr">inline</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">instance_</span><span class="p">;</span>
-<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="p">};</span>
-<a id="__codelineno-2-28" name="__codelineno-2-28" href="#__codelineno-2-28"></a>
-<a id="__codelineno-2-29" name="__codelineno-2-29" href="#__codelineno-2-29"></a><span class="kt">int</span><span class="w"> </span><span class="nf">extractFlagSharedPtr</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">myClass</span><span class="p">)</span>
-<a id="__codelineno-2-30" name="__codelineno-2-30" href="#__codelineno-2-30"></a><span class="p">{</span>
-<a id="__codelineno-2-31" name="__codelineno-2-31" href="#__codelineno-2-31"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">myClass</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">;</span>
-<a id="__codelineno-2-32" name="__codelineno-2-32" href="#__codelineno-2-32"></a><span class="p">}</span>
-<a id="__codelineno-2-33" name="__codelineno-2-33" href="#__codelineno-2-33"></a>
-<a id="__codelineno-2-34" name="__codelineno-2-34" href="#__codelineno-2-34"></a><span class="kt">int</span><span class="w"> </span><span class="nf">extractFlagSharedPtrRef</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">myClass</span><span class="p">)</span>
-<a id="__codelineno-2-35" name="__codelineno-2-35" href="#__codelineno-2-35"></a><span class="p">{</span>
-<a id="__codelineno-2-36" name="__codelineno-2-36" href="#__codelineno-2-36"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">myClass</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">;</span>
-<a id="__codelineno-2-37" name="__codelineno-2-37" href="#__codelineno-2-37"></a><span class="p">}</span>
-<a id="__codelineno-2-38" name="__codelineno-2-38" href="#__codelineno-2-38"></a>
-<a id="__codelineno-2-39" name="__codelineno-2-39" href="#__codelineno-2-39"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setupRice</span><span class="p">()</span>
-<a id="__codelineno-2-40" name="__codelineno-2-40" href="#__codelineno-2-40"></a><span class="p">{</span>
-<a id="__codelineno-2-41" name="__codelineno-2-41" href="#__codelineno-2-41"></a><span class="w">  </span><span class="n">embed_ruby</span><span class="p">();</span>
-<a id="__codelineno-2-42" name="__codelineno-2-42" href="#__codelineno-2-42"></a>
-<a id="__codelineno-2-43" name="__codelineno-2-43" href="#__codelineno-2-43"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MyClass&quot;</span><span class="p">).</span>
-<a id="__codelineno-2-44" name="__codelineno-2-44" href="#__codelineno-2-44"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;set_flag&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">setFlag</span><span class="p">);</span>
-<a id="__codelineno-2-45" name="__codelineno-2-45" href="#__codelineno-2-45"></a>
-<a id="__codelineno-2-46" name="__codelineno-2-46" href="#__codelineno-2-46"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">Factory</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Factory&quot;</span><span class="p">).</span>
-<a id="__codelineno-2-47" name="__codelineno-2-47" href="#__codelineno-2-47"></a><span class="w">    </span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Factory</span><span class="o">&gt;</span><span class="p">()).</span>
-<a id="__codelineno-2-48" name="__codelineno-2-48" href="#__codelineno-2-48"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;share&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Factory</span><span class="o">::</span><span class="n">share</span><span class="p">);</span>
-<a id="__codelineno-2-49" name="__codelineno-2-49" href="#__codelineno-2-49"></a>
-<a id="__codelineno-2-50" name="__codelineno-2-50" href="#__codelineno-2-50"></a><span class="w">  </span><span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;extract_flag_shared_ptr&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">extractFlagSharedPtr</span><span class="p">);</span>
-<a id="__codelineno-2-51" name="__codelineno-2-51" href="#__codelineno-2-51"></a><span class="w">  </span><span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;extract_flag_shared_ptr_ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">extractFlagSharedPtrRef</span><span class="p">);</span>
-<a id="__codelineno-2-52" name="__codelineno-2-52" href="#__codelineno-2-52"></a><span class="p">}</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MyClass&quot;</span><span class="p">).</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;flag&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">getFlag</span><span class="p">);</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">  </span><span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;process_shared&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">processShared</span><span class="p">);</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="w">  </span><span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;process_raw&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">processRaw</span><span class="p">);</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a><span class="p">}</span>
 </code></pre></div>
-<p>And in Ruby:</p>
+<p>In Ruby, you simply pass the shared pointer wrapper to either method:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Factory</span><span class="o">.</span><span class="n">new</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">my_instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factor</span><span class="o">.</span><span class="n">share</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">my_instance</span><span class="o">.</span><span class="n">set_flag</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extract_flag_shared_ptr</span><span class="p">(</span><span class="n">my_instance</span><span class="p">)</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">extract_flag_shared_ptr_ref</span><span class="p">(</span><span class="n">my_instance</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">my_instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="o">.</span><span class="n">share</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="c1"># Rice passes the std::shared_ptr to C++</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">process_shared</span><span class="p">(</span><span class="n">my_instance</span><span class="p">)</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1"># Rice extracts the raw pointer and passes it to C++</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">process_raw</span><span class="p">(</span><span class="n">my_instance</span><span class="p">)</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="c1"># This also works but is less efficient because it goes through Ruby</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="n">process_raw</span><span class="p">(</span><span class="n">my_instance</span><span class="o">.</span><span class="n">get</span><span class="p">)</span>
 </code></pre></div>
-<p>When <code>myInstance</code> goes out of scope and is garbage collected, it will free the <code>std::shared_ptr</code> it wraps. That may or may not free the underlying C++ MyClass instance depending if there are other <code>std::smart_pointer</code> instances managing it.</p>
-<p>Unlike <code>std::unique_ptr</code>, you can pass a copy of a <code>std::shared_ptr</code> back to native code via a function parameter. However, Ruby will always maintain one copy of the shared pointer until the wrapper Ruby object is freed.</p>
-<h2 id="custom-smart-pointer">Custom Smart Pointer<a class="headerlink" href="#custom-smart-pointer" title="Permanent link">&para;</a></h2>
-<p>It is possible to extend Rice to support additional smart pointer types. Start by looking at <code>stl/smart_ptr.hpp</code>. It defines the following template class that is used to store smart pointers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="o">::</span><span class="nn">detail</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">SmartPointer_T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="p">...</span><span class="n">Parameter_Ts</span><span class="o">&gt;</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">WrapperSmartPointer</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">Wrapper</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">    </span><span class="n">WrapperSmartPointer</span><span class="p">(</span><span class="n">SmartPointer_T</span><span class="o">&lt;</span><span class="n">Parameter_Ts</span><span class="p">...</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">);</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="nf">get</span><span class="p">()</span><span class="w"> </span><span class="k">override</span><span class="p">;</span>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">    </span><span class="n">SmartPointer_T</span><span class="o">&lt;</span><span class="n">Parameter_Ts</span><span class="p">...</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">();</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="k">private</span><span class="o">:</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">    </span><span class="n">SmartPointer_T</span><span class="o">&lt;</span><span class="n">Parameter_Ts</span><span class="p">...</span><span class="o">&gt;</span><span class="w"> </span><span class="n">data_</span><span class="p">;</span>
-<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">  </span><span class="p">};</span>
-<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="p">}</span>
+<h2 id="type-registration">Type Registration<a class="headerlink" href="#type-registration" title="Permanent link">&para;</a></h2>
+<p>Rice automatically registers <code>std::shared_ptr&lt;T&gt;</code> types when they are used. You can also explicitly register them:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Rice</span><span class="o">::</span><span class="n">define_shared_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
 </code></pre></div>
-<p>Assuming that your smart pointer fits into the template class, you need to tell Rice three things:</p>
-<ul>
-<li>How to wrap it in a Ruby object</li>
-<li>How to extract it from a Ruby object</li>
-<li>How to access its managed type</li>
-</ul>
-<p>Let's start by telling Rice how to wrap the smart pointer. Here is how that is done for <code>std::unique_ptr</code>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="o">::</span><span class="nn">detail</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">To_Ruby</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
-<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">    </span><span class="n">VALUE</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">      </span><span class="n">std</span><span class="o">::</span><span class="n">pair</span><span class="o">&lt;</span><span class="n">VALUE</span><span class="p">,</span><span class="w"> </span><span class="n">rb_data_type_t</span><span class="o">*&gt;</span><span class="w"> </span><span class="n">rubyTypeInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">Registries</span><span class="o">::</span><span class="n">instance</span><span class="p">.</span><span class="n">types</span><span class="p">.</span><span class="n">getType</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="o">*</span><span class="n">data</span><span class="p">);</span>
-<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>
-<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="c1">// Use custom wrapper type</span>
-<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="n">Wrapper_T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WrapperSmartPointer</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
-<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">wrap</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">Wrapper_T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rubyTypeInfo</span><span class="p">.</span><span class="n">first</span><span class="p">,</span><span class="w"> </span><span class="n">rubyTypeInfo</span><span class="p">.</span><span class="n">second</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
-<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="p">};</span>
-<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
-</code></pre></div>
-<p>First we specialize <code>detail::To_Ruby</code> for our smart pointer type, in this case <code>std::unique_ptr</code>.
-Next we pass the pointer to Rice's TypeRegistry to look up what Ruby class wraps the C++ class. Then we instantiate a Wrapper_T class from the <code>WrapperSmartPointer</code>. Finally we pass the type information and pointer to a helper method that will first create an instance of Wrapper_T and then on a Ruby object to store it.</p>
-<p>The second step is to tell Rice how to extract the smart pointer from Ruby.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="o">::</span><span class="nn">detail</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="k">template</span><span class="w"> </span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">From_Ruby</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;&gt;</span>
-<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">static</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">convert</span><span class="p">(</span><span class="n">VALUE</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">      </span><span class="n">Wrapper</span><span class="o">*</span><span class="w"> </span><span class="n">wrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">detail</span><span class="o">::</span><span class="n">getWrapper</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">Data_Type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">ruby_data_type</span><span class="p">());</span>
-<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
-<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">      </span><span class="k">using</span><span class="w"> </span><span class="n">Wrapper_T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">WrapperSmartPointer</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">&gt;</span><span class="p">;</span>
-<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">      </span><span class="n">Wrapper_T</span><span class="o">*</span><span class="w"> </span><span class="n">smartWrapper</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">dynamic_cast</span><span class="o">&lt;</span><span class="n">Wrapper_T</span><span class="o">*&gt;</span><span class="p">(</span><span class="n">wrapper</span><span class="p">);</span>
-<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">smartWrapper</span><span class="p">)</span>
-<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Invalid smart pointer wrapper&quot;</span><span class="p">;</span>
-<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">        </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="n">message</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
-<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="n">smartWrapper</span><span class="o">-&gt;</span><span class="n">data</span><span class="p">();</span>
-<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="w">  </span><span class="p">};</span>
-<a id="__codelineno-6-20" name="__codelineno-6-20" href="#__codelineno-6-20"></a><span class="p">}</span>
-</code></pre></div>
-<p>Similarly to above, we specialize <code>detail::From_Ruby</code> for our smart pointer type, in this case <code>std::unique_ptr</code>.</p>
-<p>Next we use a helper method to get back a pointer to the <code>Wrapper</code> instance we created in the <code>detail::To_Ruby</code> method. Note <code>detail::Wrapper</code> is the base class for our custom wrapper type, so we have to typecast it to <code>Wrapper_T</code>. Finally we call its <code>data()</code> method to access to stored smart pointer.</p>
-<p>Last, we have to tell Rice how to verify the type our smart pointer contains. That is done like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="w">  </span><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="o">::</span><span class="nn">detail</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">      </span><span class="k">static</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">verify</span><span class="p">()</span>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">      </span><span class="p">{</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Type</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;::</span><span class="n">verify</span><span class="p">();</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">      </span><span class="p">}</span>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="p">};</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="p">}</span>
-</code></pre></div>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<p>To learn how to implement support for a custom smart pointer type, see <a href="../../architecture/smart_pointers/">Smart Pointer Architecture</a>.</p>
 
 
 

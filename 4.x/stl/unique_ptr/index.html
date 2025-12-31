@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ruby-rice.github.io/rice/architecture/method_binding/">
+        <link rel="canonical" href="https://ruby-rice.github.io/rice/stl/unique_ptr/">
       
       
-        <link rel="prev" href="../type_binding/">
+        <link rel="prev" href="../type_info/">
       
       
-        <link rel="next" href="../overload_resolution/">
+        <link rel="next" href="../unordered_map/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Method Binding - Rice - Ruby Interface for C++</title>
+        <title>std::unique_ptr - Rice - Ruby Interface for C++</title>
       
     
     
@@ -78,7 +78,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#method-binding" class="md-skip">
+        <a href="#stdunique_ptr" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Method Binding
+              std::unique_ptr
             
           </span>
         </div>
@@ -296,11 +296,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="../../stl/stl/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../stl/" class="md-tabs__link">
           
   
   
@@ -376,13 +378,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="../overview/" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../../architecture/overview/" class="md-tabs__link">
           
   
   
@@ -1659,24 +1659,29 @@
       
   
   
+    
   
   
+  
     
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -1694,7 +1699,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1712,7 +1717,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/stl/" class="md-nav__link">
+      <a href="../stl/" class="md-nav__link">
         
   
   
@@ -1740,7 +1745,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/complex/" class="md-nav__link">
+      <a href="../complex/" class="md-nav__link">
         
   
   
@@ -1768,7 +1773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/exception/" class="md-nav__link">
+      <a href="../exception/" class="md-nav__link">
         
   
   
@@ -1796,7 +1801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/exception_ptr/" class="md-nav__link">
+      <a href="../exception_ptr/" class="md-nav__link">
         
   
   
@@ -1824,7 +1829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/map/" class="md-nav__link">
+      <a href="../map/" class="md-nav__link">
         
   
   
@@ -1852,7 +1857,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/multimap/" class="md-nav__link">
+      <a href="../multimap/" class="md-nav__link">
         
   
   
@@ -1880,7 +1885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/optional/" class="md-nav__link">
+      <a href="../optional/" class="md-nav__link">
         
   
   
@@ -1908,7 +1913,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/pair/" class="md-nav__link">
+      <a href="../pair/" class="md-nav__link">
         
   
   
@@ -1936,7 +1941,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/reference_wrapper/" class="md-nav__link">
+      <a href="../reference_wrapper/" class="md-nav__link">
         
   
   
@@ -1964,7 +1969,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/set/" class="md-nav__link">
+      <a href="../set/" class="md-nav__link">
         
   
   
@@ -1992,7 +1997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/shared_ptr/" class="md-nav__link">
+      <a href="../shared_ptr/" class="md-nav__link">
         
   
   
@@ -2020,7 +2025,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/string/" class="md-nav__link">
+      <a href="../string/" class="md-nav__link">
         
   
   
@@ -2048,7 +2053,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/string_view/" class="md-nav__link">
+      <a href="../string_view/" class="md-nav__link">
         
   
   
@@ -2076,7 +2081,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/tuple/" class="md-nav__link">
+      <a href="../tuple/" class="md-nav__link">
         
   
   
@@ -2104,7 +2109,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/type_index/" class="md-nav__link">
+      <a href="../type_index/" class="md-nav__link">
         
   
   
@@ -2132,7 +2137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/type_info/" class="md-nav__link">
+      <a href="../type_info/" class="md-nav__link">
         
   
   
@@ -2157,10 +2162,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../stl/unique_ptr/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    std::unique_ptr
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2176,6 +2208,81 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ruby-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ruby API
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ownership
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#type-registration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Type Registration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2188,7 +2295,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/unordered_map/" class="md-nav__link">
+      <a href="../unordered_map/" class="md-nav__link">
         
   
   
@@ -2216,7 +2323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/variant/" class="md-nav__link">
+      <a href="../variant/" class="md-nav__link">
         
   
   
@@ -2244,7 +2351,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stl/vector/" class="md-nav__link">
+      <a href="../vector/" class="md-nav__link">
         
   
   
@@ -3175,29 +3282,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -3215,7 +3317,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3233,7 +3335,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overview/" class="md-nav__link">
+      <a href="../../architecture/overview/" class="md-nav__link">
         
   
   
@@ -3261,7 +3363,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../type_binding/" class="md-nav__link">
+      <a href="../../architecture/type_binding/" class="md-nav__link">
         
   
   
@@ -3286,37 +3388,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Method Binding
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../architecture/method_binding/" class="md-nav__link">
         
   
   
@@ -3332,154 +3407,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#native-hierarchy" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Native Hierarchy
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Native Hierarchy">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#native-base-class" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Native Base Class
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#method-resolution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Method Resolution
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Method Resolution">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overload-resolution-example" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overload Resolution Example
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#invocation-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Invocation Flow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#parameter-handling" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Parameter Handling
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameter Handling">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#default-arguments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Default Arguments
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#keyword-arguments" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Keyword Arguments
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#registration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Registration
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#see-also" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        See Also
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3492,7 +3419,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../overload_resolution/" class="md-nav__link">
+      <a href="../../architecture/overload_resolution/" class="md-nav__link">
         
   
   
@@ -3520,7 +3447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../registries/" class="md-nav__link">
+      <a href="../../architecture/registries/" class="md-nav__link">
         
   
   
@@ -3548,7 +3475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../enumerators/" class="md-nav__link">
+      <a href="../../architecture/enumerators/" class="md-nav__link">
         
   
   
@@ -3576,7 +3503,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../smart_pointers/" class="md-nav__link">
+      <a href="../../architecture/smart_pointers/" class="md-nav__link">
         
   
   
@@ -3624,149 +3551,141 @@
   
 
 
-<h1 id="method-binding">Method Binding<a class="headerlink" href="#method-binding" title="Permanent link">&para;</a></h1>
-<p>Method binding connects C++ functions and methods to Ruby. This is handled by the <code>Native</code> class hierarchy.</p>
-<h2 id="native-hierarchy">Native Hierarchy<a class="headerlink" href="#native-hierarchy" title="Permanent link">&para;</a></h2>
-<p>The <code>Native</code> base class defines the interface for all bound callables:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Native (abstract base)
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>+-- NativeFunction      - Module/class functions (define_function)
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>+-- NativeMethod        - Instance methods (define_method)
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+-- NativeIterator      - Iterator methods (define_iterator)
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>+-- NativeAttributeGet  - Attribute readers (define_attr)
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>+-- NativeAttributeSet  - Attribute writers (define_attr)
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>+-- NativeProc          - Ruby blocks as C++ callables
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>+-- NativeCallback      - C-style function pointer callbacks
+<h1 id="stdunique_ptr">std::unique_ptr<a class="headerlink" href="#stdunique_ptr" title="Permanent link">&para;</a></h1>
+<p>Rice provides full support for <code>std::unique_ptr</code>, allowing C++ unique pointers to be used seamlessly from Ruby.</p>
+<h2 id="ruby-api">Ruby API<a class="headerlink" href="#ruby-api" title="Permanent link">&para;</a></h2>
+<p>When Rice wraps a <code>std::unique_ptr&lt;T&gt;</code>, it creates a Ruby class under the <code>Std</code> module. The class exposes the following methods:</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>empty?</code></td>
+<td>Returns true if the unique pointer is null</td>
+</tr>
+<tr>
+<td><code>get</code></td>
+<td>Returns the managed object</td>
+</tr>
+<tr>
+<td><code>release</code></td>
+<td>Releases ownership and returns the managed object</td>
+</tr>
+<tr>
+<td><code>reset</code></td>
+<td>Replaces the managed object</td>
+</tr>
+<tr>
+<td><code>swap</code></td>
+<td>Swaps the managed object with another unique_ptr</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, for non-fundamental and non-void types, Rice sets up forwarding so that methods and attributes defined on <code>T</code> can be called directly on the unique pointer wrapper.</p>
+<p>Note: Methods or attributes that have the same name on both the smart pointer wrapper and the managed type (e.g., <code>swap</code>, <code>reset</code>) are not forwarded. To call the managed object's version, use <code>ptr.get.method_name</code>.</p>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyClass</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="nf">setFlag</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="nf">getFlag</span><span class="p">()</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="p">};</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="k">class</span><span class="w"> </span><span class="nc">Factory</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="p">{</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">transfer</span><span class="p">()</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a><span class="p">};</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setupRice</span><span class="p">()</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a><span class="p">{</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;MyClass&quot;</span><span class="p">).</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;flag=&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">setFlag</span><span class="p">).</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;flag&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">getFlag</span><span class="p">);</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">Factory</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Factory&quot;</span><span class="p">).</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a><span class="w">    </span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Factory</span><span class="o">&gt;</span><span class="p">()).</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;transfer&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Factory</span><span class="o">::</span><span class="n">transfer</span><span class="p">);</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a><span class="p">}</span>
 </code></pre></div>
-<h3 id="native-base-class">Native Base Class<a class="headerlink" href="#native-base-class" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Native</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="c1">// Find the best matching overload and invoke it</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="k">static</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="n">resolve</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="o">*</span><span class="w"> </span><span class="n">argv</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="n">self</span><span class="p">);</span>
+<p>In Ruby:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Factory</span><span class="o">.</span><span class="n">new</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">my_instance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="o">.</span><span class="n">transfer</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Check the unique pointer</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">empty?</span><span class="w">  </span><span class="c1"># =&gt; false</span>
 <a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
-<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="c1">// Check if this native matches the given arguments</span>
-<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">Resolved</span><span class="w"> </span><span class="nf">matches</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">values</span><span class="p">);</span>
-<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
-<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">  </span><span class="c1">// Invoke the C++ callable</span>
-<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">  </span><span class="k">virtual</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="nf">operator</span><span class="p">()(</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="n">self</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="k">protected</span><span class="o">:</span>
-<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name_</span><span class="p">;</span>
-<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">Return</span><span class="o">&gt;</span><span class="w"> </span><span class="n">returnInfo_</span><span class="p">;</span>
-<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">ParameterAbstract</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">parameters_</span><span class="p">;</span>
-<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="p">};</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Methods are forwarded to the managed object</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="n">my_instance</span><span class="o">.</span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">flag</span><span class="w">    </span><span class="c1"># =&gt; 5</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="c1"># Can also access via get</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">flag</span><span class="w">  </span><span class="c1"># =&gt; 5</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="c1"># Release ownership (returns the raw pointer, unique_ptr becomes empty)</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="n">raw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">release</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_instance</span><span class="o">.</span><span class="n">empty?</span><span class="w">  </span><span class="c1"># =&gt; true</span>
 </code></pre></div>
-<p>Each <code>Native</code> subclass:</p>
-<ol>
-<li>Stores the C++ callable (function pointer, method pointer, or lambda)</li>
-<li>Stores parameter metadata (names, types, defaults)</li>
-<li>Implements <code>matches()</code> for overload resolution</li>
-<li>Implements <code>operator()</code> to invoke the C++ code</li>
-</ol>
-<h2 id="method-resolution">Method Resolution<a class="headerlink" href="#method-resolution" title="Permanent link">&para;</a></h2>
-<p>When Ruby calls a wrapped method, <code>Native::resolve()</code> finds and invokes the correct C++ overload:</p>
-<ol>
-<li>
-<p><strong>Lookup</strong>: Retrieve all <code>Native</code> instances registered for this method name from <code>NativeRegistry</code></p>
-</li>
-<li>
-<p><strong>Match</strong>: For each candidate, call <code>matches()</code> to check argument compatibility</p>
-</li>
-<li>
-<p><strong>Rank</strong>: Score matches by conversion quality using <code>Convertible</code> enum</p>
-</li>
-<li>
-<p><strong>Select</strong>: Pick the candidate with the highest score</p>
-</li>
-<li>
-<p><strong>Invoke</strong>: Call the winner's <code>operator()</code></p>
-</li>
-</ol>
-<h3 id="overload-resolution-example">Overload Resolution Example<a class="headerlink" href="#overload-resolution-example" title="Permanent link">&para;</a></h3>
-<p>Given these overloads:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">           </span><span class="c1">// Overload 1</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="kt">double</span><span class="w"> </span><span class="n">x</span><span class="p">);</span><span class="w">        </span><span class="c1">// Overload 2</span>
-<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">void</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">s</span><span class="p">);</span><span class="w"> </span><span class="c1">// Overload 3</span>
+<h2 id="ownership">Ownership<a class="headerlink" href="#ownership" title="Permanent link">&para;</a></h2>
+<p>When a native method returns a <code>std::unique_ptr</code> by value, Rice moves it into Ruby's control. Ruby then owns the unique pointer and its underlying object.</p>
+<p>When the Ruby object is garbage collected, it destroys the <code>std::unique_ptr</code>, which in turn frees the managed C++ object.</p>
+<p>If a method returns a <code>std::unique_ptr</code> by reference or pointer (which would be unusual), Rice's usual reference/pointer semantics apply instead.</p>
+<p>Rice supports transferring ownership of a <code>std::unique_ptr</code> back to C++ by passing it by value to a C++ method:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Sink</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">takeOwnership</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ptr</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ptr</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">};</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="kt">void</span><span class="w"> </span><span class="nf">setupRice</span><span class="p">()</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="p">{</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">  </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">Sink</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Sink&quot;</span><span class="p">).</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">    </span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Sink</span><span class="o">&gt;</span><span class="p">()).</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">    </span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;take_ownership&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Sink</span><span class="o">::</span><span class="n">takeOwnership</span><span class="p">);</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="p">}</span>
 </code></pre></div>
-<p>When Ruby calls <code>process(42)</code>:</p>
-<ul>
-<li>Overload 1: <code>Exact</code> match (Ruby Integer -&gt; C++ int)</li>
-<li>Overload 2: <code>Narrow</code> match (Ruby Integer -&gt; C++ double)</li>
-<li>Overload 3: <code>None</code> (Ruby Integer cannot convert to string)</li>
-</ul>
-<p>Overload 1 wins with the <code>Exact</code> match.</p>
-<h2 id="invocation-flow">Invocation Flow<a class="headerlink" href="#invocation-flow" title="Permanent link">&para;</a></h2>
-<p>When a <code>Native</code> is invoked:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">NativeMethod</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Func</span><span class="o">&gt;::</span><span class="k">operator</span><span class="p">()(</span><span class="n">std</span><span class="o">::</span><span class="n">map</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="n">self</span><span class="p">)</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="p">{</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="c1">// 1. Get the C++ receiver object</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">T</span><span class="o">*</span><span class="w"> </span><span class="n">receiver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">From_Ruby</span><span class="o">&lt;</span><span class="n">T</span><span class="o">*&gt;</span><span class="p">().</span><span class="n">convert</span><span class="p">(</span><span class="n">self</span><span class="p">);</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
-<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="c1">// 2. Convert Ruby arguments to C++ types</span>
-<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">args</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">convertArguments</span><span class="p">(</span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">);</span>
-<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="c1">// 3. Call the C++ method</span>
-<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">apply</span><span class="p">(</span>
-<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="k">auto</span><span class="o">&amp;&amp;</span><span class="p">...</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">receiver</span><span class="o">-&gt;*</span><span class="n">method_</span><span class="p">)(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="k">decltype</span><span class="p">(</span><span class="n">args</span><span class="p">)</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
-<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">    </span><span class="p">},</span>
-<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="n">args</span>
-<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="p">);</span>
-<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span><span class="c1">// 4. Convert result to Ruby</span>
-<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">To_Ruby</span><span class="o">&lt;</span><span class="n">ReturnType</span><span class="o">&gt;</span><span class="p">().</span><span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
-<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="p">}</span>
+<p>In Ruby:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">factory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Factory</span><span class="o">.</span><span class="n">new</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">my_class</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">factory</span><span class="o">.</span><span class="n">transfer</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="n">my_class</span><span class="o">.</span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">sink</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Sink</span><span class="o">.</span><span class="n">new</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">sink</span><span class="o">.</span><span class="n">take_ownership</span><span class="p">(</span><span class="n">my_class</span><span class="p">)</span><span class="w">  </span><span class="c1"># Ownership transferred to C++</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="nb">puts</span><span class="w"> </span><span class="n">my_class</span><span class="o">.</span><span class="n">empty?</span><span class="w">  </span><span class="c1"># =&gt; true (unique_ptr is now empty)</span>
 </code></pre></div>
-<h2 id="parameter-handling">Parameter Handling<a class="headerlink" href="#parameter-handling" title="Permanent link">&para;</a></h2>
-<p>Each parameter is described by a <code>Parameter</code> object containing:</p>
-<ul>
-<li><strong>Type information</strong>: Used for conversion and overload resolution</li>
-<li><strong>Arg metadata</strong>: Name, default value, whether it's optional</li>
-</ul>
-<h3 id="default-arguments">Default Arguments<a class="headerlink" href="#default-arguments" title="Permanent link">&para;</a></h3>
-<p>Default arguments are stored in <code>Arg</code> objects:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;greet&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Person</span><span class="o">::</span><span class="n">greet</span><span class="p">,</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;name&quot;</span><span class="p">),</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;greeting&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// Default value</span>
+<p>You can also pass a reference to allow C++ code to access the managed object without transferring ownership:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">extractFlag</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">unique_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;&amp;</span><span class="w"> </span><span class="n">myClass</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">myClass</span><span class="o">-&gt;</span><span class="n">flag</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="p">}</span>
 </code></pre></div>
-<p>When Ruby omits an argument, Rice uses the stored default.</p>
-<h3 id="keyword-arguments">Keyword Arguments<a class="headerlink" href="#keyword-arguments" title="Permanent link">&para;</a></h3>
-<p>Rice supports Ruby keyword arguments:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;configure&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Config</span><span class="o">::</span><span class="n">set</span><span class="p">,</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;timeout&quot;</span><span class="p">).</span><span class="n">setKeyword</span><span class="p">(),</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;retries&quot;</span><span class="p">).</span><span class="n">setKeyword</span><span class="p">()</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<p>Passing a reference does <em>not</em> transfer ownership.</p>
+<h2 id="type-registration">Type Registration<a class="headerlink" href="#type-registration" title="Permanent link">&para;</a></h2>
+<p>Rice automatically registers <code>std::unique_ptr&lt;T&gt;</code> types when they are used. You can also explicitly register them:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Rice</span><span class="o">::</span><span class="n">define_unique_ptr</span><span class="o">&lt;</span><span class="n">MyClass</span><span class="o">&gt;</span><span class="p">();</span>
 </code></pre></div>
-<p>Ruby can then call:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">obj</span><span class="o">.</span><span class="n">configure</span><span class="p">(</span><span class="ss">timeout</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="ss">retries</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="registration">Registration<a class="headerlink" href="#registration" title="Permanent link">&para;</a></h2>
-<p>When you call <code>define_method</code>, Rice:</p>
-<ol>
-<li>Creates a <code>NativeMethod</code> instance storing the method pointer</li>
-<li>Registers it in <code>NativeRegistry</code> under the method name</li>
-<li>Defines a Ruby method that calls <code>Native::resolve</code></li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Method_T</span><span class="o">&gt;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="kt">void</span><span class="w"> </span><span class="n">define_method</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">Method_T</span><span class="w"> </span><span class="n">method</span><span class="p">)</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="p">{</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">  </span><span class="c1">// Create native wrapper</span>
-<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">native</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">make_unique</span><span class="o">&lt;</span><span class="n">NativeMethod</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Method_T</span><span class="o">&gt;&gt;</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">method</span><span class="p">);</span>
-<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>
-<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">  </span><span class="c1">// Register in NativeRegistry</span>
-<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">  </span><span class="n">detail</span><span class="o">::</span><span class="n">Registries</span><span class="o">::</span><span class="n">instance</span><span class="p">().</span><span class="n">natives</span><span class="p">().</span><span class="n">add</span><span class="p">(</span><span class="n">klass_</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">native</span><span class="p">));</span>
-<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>
-<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">  </span><span class="c1">// Define Ruby method pointing to resolve()</span>
-<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">  </span><span class="n">rb_define_method</span><span class="p">(</span><span class="n">klass_</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Native</span><span class="o">::</span><span class="n">resolve</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">);</span>
-<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="p">}</span>
-</code></pre></div>
-<p>The <code>-1</code> arity tells Ruby to pass all arguments to <code>resolve()</code>, which then handles overload resolution.</p>
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
-<ul>
-<li><a href="../../types/overview/">Types Overview</a> - How arguments are converted</li>
-<li><a href="../registries/">Registries</a> - Where natives are stored</li>
-<li><a href="../../bindings/methods/">Methods</a> - User guide for defining methods</li>
-<li><a href="../../bindings/overloaded_methods/">Overloaded Methods</a> - User guide for overloading</li>
-</ul>
+<p>To learn how to implement support for a custom smart pointer type, see <a href="../../architecture/smart_pointers/">Smart Pointer Architecture</a>.</p>
 
 
 

@@ -737,10 +737,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#480-2025-11-28" class="md-nav__link">
+  <a href="#480-2025-12-29" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.8.0 (2025-11-28)
+        4.8.0 (2025-12-29)
       
     </span>
   </a>
@@ -2396,14 +2396,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../stl/smart_pointers/" class="md-nav__link">
+      <a href="../stl/shared_ptr/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Smart Pointers
+    std::shared_ptr
   
 
     
@@ -2544,6 +2544,34 @@
     
   
     std::type_info
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stl/unique_ptr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    std::unique_ptr
   
 
     
@@ -3765,6 +3793,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/smart_pointers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Smart Pointers
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3793,15 +3849,32 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<h2 id="480-2025-11-28">4.8.0 (2025-11-28)<a class="headerlink" href="#480-2025-11-28" title="Permanent link">&para;</a></h2>
-<p>The release focuses on compilation times and library sizes. Compilation times are approximately 2x faster than version 4.7 and a bit faster than 4.6. Library sizes are about 30% smaller.</p>
-<p>However, these updates required some breaking changes, which include:</p>
+<h2 id="480-2025-12-29">4.8.0 (2025-12-29)<a class="headerlink" href="#480-2025-12-29" title="Permanent link">&para;</a></h2>
+<p>This release focuses on making Rice easier to use:</p>
+<ul>
+<li>Compilation times are approximately 2x faster than version 4.7</li>
+<li>Compiled library sizes are about 30% smaller</li>
+<li>Improved keyword argument support</li>
+<li>Improved method override support</li>
+<li>Improved CMake support</li>
+<li>Improved rbs generation support</li>
+<li>Improved api documentation generation support</li>
+<li>Expanded and improved documentation</li>
+<li>Enum values can now be compared against their underlying type (e.g., <code>Season::Red == 0</code>)</li>
+<li>STL containers now support <code>==</code> and <code>eql?</code> for equality comparison</li>
+<li>Automatic creation of <code>std::shared_ptr&lt;T&gt;</code> Ruby classes</li>
+<li>Support for C++ references in callbacks</li>
+<li>Array class now supports random iterators</li>
+<li>Fixed Ruby detection for Homebrew installations on macOS</li>
+<li>Added support for references to fundamental types</li>
+</ul>
+<p>However, these changes did require some breaking changes, which include:</p>
 <ul>
 <li><code>Return().isBuffer()</code> is replaced by <code>ReturnBuffer()</code></li>
 <li><code>Arg("").isBuffer()</code> is replaced by <code>ArgBuffer("")</code></li>
 <li><code>Function().noGVL()</code> is replaced by <code>NoGvL()</code></li>
+<li><code>is_convertible</code> methods must now return a <code>double</code> instead of a <code>Convertible</code> enum</li>
 </ul>
-<p>See the pointer documentation for information on how to use them.</p>
 <h2 id="471-2025-10-28">4.7.1 (2025-10-28)<a class="headerlink" href="#471-2025-10-28" title="Permanent link">&para;</a></h2>
 <p>Updates:
 * Update overload resolution to take into account function arguments that are tagged as buffers via Arg("").setBuffer().
