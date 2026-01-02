@@ -737,6 +737,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#490-2025-12-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.0 (2025-12-31
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#480-2025-12-29" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3849,6 +3860,10 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="490-2025-12-31">4.9.0 (2025-12-31<a class="headerlink" href="#490-2025-12-31" title="Permanent link">&para;</a></h2>
+<p>This release revamps smart pointer support for <code>std::shared_ptr</code> and <code>std::unique_ptr</code>.</p>
+<p>Rice now always creates wrapper classes for smart pointers under the <code>Std</code> module (e.g., <code>Std::SharedPtr≺MyClass≻</code>, <code>Std::UniquePtr≺MyClass≻</code>). These wrapper classes expose methods like <code>empty?</code>, <code>get</code>, <code>swap</code>, and for shared_ptr, <code>use_count</code>. Methods defined on the managed type are automatically forwarded to the wrapper class using Ruby's <code>Forwardable</code> module.</p>
+<p>This change is backwards compatible for Ruby code but not C++ code. If you implemented your own Smart Pointer wrapper then please read the Smart Pointer documentation for more information.</p>
 <h2 id="480-2025-12-29">4.8.0 (2025-12-29)<a class="headerlink" href="#480-2025-12-29" title="Permanent link">&para;</a></h2>
 <p>This release focuses on making Rice easier to use:</p>
 <ul>
