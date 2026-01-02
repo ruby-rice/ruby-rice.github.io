@@ -593,6 +593,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../ecosystem/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ecosystem
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../projects/" class="md-nav__link">
         
   
@@ -3889,6 +3917,7 @@
 <li><code>Arg("").isBuffer()</code> is replaced by <code>ArgBuffer("")</code></li>
 <li><code>Function().noGVL()</code> is replaced by <code>NoGvL()</code></li>
 <li><code>is_convertible</code> methods must now return a <code>double</code> instead of a <code>Convertible</code> enum</li>
+<li>All function/method parameter default values are verified. You may see errors like "ArgumentError: Type is not registered with Rice" or "Invalid AnyCast". In either case, make sure to check that specified default values are correct.</li>
 </ul>
 <h2 id="471-2025-10-28">4.7.1 (2025-10-28)<a class="headerlink" href="#471-2025-10-28" title="Permanent link">&para;</a></h2>
 <p>Updates:
