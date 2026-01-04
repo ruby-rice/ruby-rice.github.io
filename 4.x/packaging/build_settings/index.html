@@ -3245,6 +3245,56 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#link-time-optimization-lto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Link Time Optimization (LTO)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Link Time Optimization (LTO)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#why-lto-matters-for-rice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why LTO Matters for Rice
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-size-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Build Size Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-symbol-splitting-gccclang" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Symbol Splitting (GCC/Clang)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3683,6 +3733,62 @@
 <p>This instructs the linker to ignore all unresolved symbols during linking. The symbols will be resolved when the Ruby interpreter loads the shared library.</p>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
 <p>On Windows, no special linker flags are required. The extension links directly against the Ruby library (e.g., <code>x64-vcruntime140-ruby320.lib</code>), which provides the necessary symbols at link time.</p>
+<h2 id="link-time-optimization-lto">Link Time Optimization (LTO)<a class="headerlink" href="#link-time-optimization-lto" title="Permanent link">&para;</a></h2>
+<p>Link Time Optimization is <strong>highly recommended</strong> for Rice extensions, especially for release builds. Rice makes extensive use of C++ templates, which can result in significant code duplication across translation units. LTO allows the linker to deduplicate template instantiations and perform whole-program optimizations.</p>
+<h3 id="why-lto-matters-for-rice">Why LTO Matters for Rice<a class="headerlink" href="#why-lto-matters-for-rice" title="Permanent link">&para;</a></h3>
+<p>Rice's template-heavy design means that each <code>.cpp</code> file that uses Rice generates its own copies of template instantiations. Without LTO, these duplicate instantiations remain in the final binary, dramatically increasing its size. LTO enables the linker to:</p>
+<ul>
+<li>Deduplicate identical template instantiations across object files</li>
+<li>Inline functions across translation unit boundaries</li>
+<li>Remove dead code more effectively</li>
+</ul>
+<h3 id="build-size-comparison">Build Size Comparison<a class="headerlink" href="#build-size-comparison" title="Permanent link">&para;</a></h3>
+<p>The following table shows the impact of LTO on a real-world Rice extension (opencv-ruby bindings):</p>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Debug</th>
+<th>Release (with LTO)</th>
+<th>Size Reduction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MSVC</td>
+<td>140 MB</td>
+<td>70 MB</td>
+<td>50%</td>
+</tr>
+<tr>
+<td>macOS</td>
+<td>324 MB</td>
+<td>164 MB</td>
+<td>50%</td>
+</tr>
+<tr>
+<td>MinGW</td>
+<td>1.4 GB</td>
+<td>200 MB</td>
+<td>86%</td>
+</tr>
+</tbody>
+</table>
+<p>As shown, LTO provides substantial size reductions across all platforms, with MinGW benefiting the most dramatically.</p>
+<p>Rice's <code>CMakePreset.json</code> automatically enables LTO by setting <code>CMAKE_INTERPROCEDURAL_OPTIMIZATION</code> to <code>ON</code>.</p>
+<p>If you are using <code>extconf.rb (Mkmf)</code> then:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="vg">$CXXFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; -flto&quot;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="vg">$LDFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; -flto&quot;</span>
+</code></pre></div>
+<p>For MSVC:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="vg">$CXXFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; /GL&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="vg">$LDFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; /LTCG&quot;</span>
+</code></pre></div>
+<h3 id="debug-symbol-splitting-gccclang">Debug Symbol Splitting (GCC/Clang)<a class="headerlink" href="#debug-symbol-splitting-gccclang" title="Permanent link">&para;</a></h3>
+<p>For debug builds with GCC or Clang, consider using <code>-gsplit-dwarf</code> to separate debug information into <code>.dwo</code> files. This keeps the main binary smaller while preserving full debug capability:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_FLAGS_DEBUG</span><span class="w"> </span><span class="s2">&quot;-g -gsplit-dwarf&quot;</span><span class="p">)</span>
+</code></pre></div>
+<p>This is particularly useful for g++ where debug builds can exceed 1 GB without it.</p>
 
 
 
