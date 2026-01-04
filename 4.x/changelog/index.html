@@ -765,6 +765,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#491-unreleased" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.9.1 (unreleased)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#490-2026-01-01" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3888,6 +3899,19 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="491-unreleased">4.9.1 (unreleased)<a class="headerlink" href="#491-unreleased" title="Permanent link">&para;</a></h2>
+<p>This release focuses on improving memory management for STL containers and attribute setters.</p>
+<p>Enhancements:
+* Support <code>takeOwnership</code> and <code>keepAlive</code> when setting attributes via <code>Arg("value").takeOwnership()</code> and <code>Arg("value").keepAlive()</code>
+* Add <code>Arg</code> parameter names to all STL container methods for keyword argument support
+* Add <code>keepAlive</code> support for STL container operations (vector push/insert, set insert, map/multimap store)
+* Add <code>keepAlive</code> for map/unordered_map/multimap keys to prevent GC of pointer-type keys</p>
+<p>Bug Fixes:
+* Fix error when multiple overloaded methods take different types of vectors
+* Fix type unknown errors when using <code>std::shared_ptr</code> with g++
+* Fix CMake <code>_Ruby_DLEXT</code> variable type (string, not path)
+* Fix crash caused by static variable in keepAlive implementation
+* Fix incorrect attribute overloading behavior</p>
 <h2 id="490-2026-01-01">4.9.0 (2026-01-01)<a class="headerlink" href="#490-2026-01-01" title="Permanent link">&para;</a></h2>
 <p>This release revamps smart pointer support for <code>std::shared_ptr</code> and <code>std::unique_ptr</code>.</p>
 <p>Rice now always creates wrapper classes for smart pointers under the <code>Std</code> module (e.g., <code>Std::SharedPtr≺MyClass≻</code>, <code>Std::UniquePtr≺MyClass≻</code>). These wrapper classes expose methods like <code>empty?</code>, <code>get</code>, <code>swap</code>, and for shared_ptr, <code>use_count</code>. Methods defined on the managed type are automatically forwarded to the wrapper class using Ruby's <code>Forwardable</code> module.</p>
