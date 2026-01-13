@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://ruby-rice.github.io/rice/architecture/overview/">
+        <link rel="canonical" href="https://ruby-rice.github.io/rice/architecture/incomplete_types/">
       
       
-        <link rel="prev" href="../../packaging/documentation/">
-      
-      
-        <link rel="next" href="../type_binding/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>Overview - Rice - Ruby Interface for C++</title>
+        <title>Incomplete Types - Rice - Ruby Interface for C++</title>
       
     
     
@@ -78,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#incomplete-types" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Incomplete Types
             
           </span>
         </div>
@@ -376,13 +372,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -3203,29 +3197,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -3243,7 +3232,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3258,37 +3247,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -3304,70 +3266,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#core-design-principles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Design Principles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#call-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Call Flow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Components
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#thread-safety" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Thread Safety
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3568,73 +3466,192 @@
   
 
 
-<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<p>Rice is a header-only C++ library that bridges Ruby and C++ using template metaprogramming. This section explains the key architectural concepts that make Rice work.</p>
-<h2 id="core-design-principles">Core Design Principles<a class="headerlink" href="#core-design-principles" title="Permanent link">&para;</a></h2>
-<p><strong>Header-Only</strong>
-  Rice requires no compilation—just include the headers. All implementation is in <code>.hpp</code> and <code>.ipp</code> files.</p>
-<p><strong>Template Metaprogramming</strong>
-  Rice uses C++ templates to automatically deduce types at compile time, eliminating boilerplate code.</p>
-<p><strong>Type Safety</strong>
-  The C++ type system catches errors at compile time rather than runtime.</p>
-<p><strong>Minimal Ruby C API Exposure</strong>
-  Rice wraps Ruby's C API (VALUE, rb_* functions) so users rarely interact with it directly.</p>
-<h2 id="call-flow">Call Flow<a class="headerlink" href="#call-flow" title="Permanent link">&para;</a></h2>
-<p>The diagram below shows how Rice's components interact when a Ruby method calls into C++:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Ruby Code
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    |
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    v
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+------------------+
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>|   Ruby VM        |  Calls registered RUBY_METHOD_FUNC
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>+--------+---------+
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>         |
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         v
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>+------------------+
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>| Native::resolve  |  Finds matching overload from NativeRegistry
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>+--------+---------+
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>         |
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>         v
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>+------------------+
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>|   From_Ruby&lt;T&gt;   |  Converts Ruby VALUEs to C++ types
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>+--------+---------+
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>         |
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>         v
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>+------------------+
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>|   C++ Method     |  Your actual C++ code executes
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>+--------+---------+
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>         |
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>         v
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>+------------------+
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>|   To_Ruby&lt;T&gt;     |  Converts C++ return value to Ruby VALUE
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>+--------+---------+
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>         |
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>         v
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>Ruby Code (receives result)
+<h1 id="incomplete-types">Incomplete Types<a class="headerlink" href="#incomplete-types" title="Permanent link">&para;</a></h1>
+<p>Rice supports working with incomplete (forward-declared) types. This is essential for wrapping C++ libraries that use the <a href="https://en.cppreference.com/w/cpp/language/pimpl.html">PIMPL</a> idiom or <a href="https://en.wikipedia.org/wiki/Opaque_pointer">opaque</a> handle patterns, where implementation details are hidden behind forward declarations.</p>
+<h2 id="what-are-incomplete-types">What Are Incomplete Types?<a class="headerlink" href="#what-are-incomplete-types" title="Permanent link">&para;</a></h2>
+<p>An incomplete type is a type that has been declared but not defined. The compiler knows the type exists but doesn't know its size or layout:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// Forward declaration - incomplete type</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">WidgetImpl</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="c1">// Returns pointer to incomplete type</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="n">WidgetImpl</span><span class="o">*</span><span class="w"> </span><span class="n">getImpl</span><span class="p">();</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">    </span><span class="c1">// Returns reference to incomplete type</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">    </span><span class="n">WidgetImpl</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">getImplRef</span><span class="p">();</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">    </span><span class="n">WidgetImpl</span><span class="o">*</span><span class="w"> </span><span class="n">pImpl_</span><span class="p">;</span><span class="w">  </span><span class="c1">// PIMPL idiom</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="p">};</span>
 </code></pre></div>
-<h2 id="key-components">Key Components<a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h2>
-<p>Rice is organized into several subsystems:</p>
-<p><a href="../type_binding/">Type Binding</a>
-  <code>Data_Type&lt;T&gt;</code> and <code>Wrapper&lt;T&gt;</code> - Binding C++ types to Ruby classes and managing object storage.</p>
-<p><a href="../method_binding/">Method Binding</a>
-  <code>Native</code> hierarchy - Binding C++ functions and methods to Ruby.</p>
-<p><a href="../overload_resolution/">Overload Resolution</a>
-  How Rice selects the correct C++ overload based on Ruby arguments using precision-based scoring.</p>
-<p><a href="../../types/overview/">Types Overview</a>
-  <code>From_Ruby&lt;T&gt;</code> and <code>To_Ruby&lt;T&gt;</code> - Converting values between languages.</p>
-<p><a href="../registries/">Registries</a>
-  Runtime tracking of types, methods, and instances.</p>
-<p><a href="../enumerators/">Enumerators</a>
-  Implementing Ruby-style iteration for C++ containers.</p>
-<p><a href="../procs_and_blocks/">Procs and Blocks</a>
-  Bridging Ruby procs/blocks and C++ function pointers.</p>
-<p><a href="../incomplete_types/">Incomplete Types</a>
-  Support for forward-declared types (PIMPL idiom, opaque handles).</p>
-<h2 id="thread-safety">Thread Safety<a class="headerlink" href="#thread-safety" title="Permanent link">&para;</a></h2>
-<p>Rice itself is thread-safe for reading (method invocation). However:</p>
+<h2 id="common-patterns">Common Patterns<a class="headerlink" href="#common-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="pimpl-idiom">PIMPL Idiom<a class="headerlink" href="#pimpl-idiom" title="Permanent link">&para;</a></h3>
+<p>The Private Implementation (PIMPL) idiom hides implementation details:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// widget.hpp - public header</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">WidgetImpl</span><span class="p">;</span><span class="w">  </span><span class="c1">// Forward declaration only</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="n">Widget</span><span class="p">();</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">    </span><span class="o">~</span><span class="n">Widget</span><span class="p">();</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">doSomething</span><span class="p">();</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">WidgetImpl</span><span class="o">*</span><span class="w"> </span><span class="nf">getImpl</span><span class="p">();</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="n">WidgetImpl</span><span class="o">*</span><span class="w"> </span><span class="n">pImpl_</span><span class="p">;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="p">};</span>
+<a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>
+<a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="c1">// widget.cpp - implementation (not exposed to users)</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a><span class="k">class</span><span class="w"> </span><span class="nc">WidgetImpl</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">42</span><span class="p">;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a><span class="w">    </span><span class="c1">// ... implementation details</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a><span class="p">};</span>
+</code></pre></div>
+<h3 id="opaque-handles">Opaque Handles<a class="headerlink" href="#opaque-handles" title="Permanent link">&para;</a></h3>
+<p>Common in C libraries where handles are passed around without exposing internals:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1">// Forward declaration only - never defined in headers</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">struct</span><span class="w"> </span><span class="nc">OpaqueHandle</span><span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="n">OpaqueHandle</span><span class="o">*</span><span class="w"> </span><span class="nf">createHandle</span><span class="p">();</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kt">void</span><span class="w"> </span><span class="nf">destroyHandle</span><span class="p">(</span><span class="n">OpaqueHandle</span><span class="o">*</span><span class="w"> </span><span class="n">handle</span><span class="p">);</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="kt">int</span><span class="w"> </span><span class="nf">getHandleData</span><span class="p">(</span><span class="n">OpaqueHandle</span><span class="o">*</span><span class="w"> </span><span class="n">handle</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="wrapping-incomplete-types">Wrapping Incomplete Types<a class="headerlink" href="#wrapping-incomplete-types" title="Permanent link">&para;</a></h2>
+<p>To wrap functions that use incomplete types, you must register the incomplete type with Rice using <code>define_class</code>. Rice doesn't need to know the type's size or layout - it just needs to know the type exists:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rice/rice.hpp&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="c1">// Forward declaration - WidgetImpl is never defined here</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">WidgetImpl</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="n">WidgetImpl</span><span class="o">*</span><span class="w"> </span><span class="n">getImpl</span><span class="p">();</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="n">WidgetImpl</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">getImplRef</span><span class="p">();</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">};</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Init_widget</span><span class="p">()</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="p">{</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="p">;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a><span class="w">    </span><span class="c1">// Register the incomplete type - Rice just needs to know it exists</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">    </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">WidgetImpl</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;WidgetImpl&quot;</span><span class="p">);</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="c1">// Now we can wrap methods that use WidgetImpl</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">    </span><span class="n">define_class</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">(</span><span class="s">&quot;Widget&quot;</span><span class="p">)</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="w">        </span><span class="p">.</span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">Widget</span><span class="o">&gt;</span><span class="p">())</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="w">        </span><span class="p">.</span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;get_impl&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Widget</span><span class="o">::</span><span class="n">getImpl</span><span class="p">)</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a><span class="w">        </span><span class="p">.</span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;get_impl_ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Widget</span><span class="o">::</span><span class="n">getImplRef</span><span class="p">);</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="supported-operations">Supported Operations<a class="headerlink" href="#supported-operations" title="Permanent link">&para;</a></h2>
+<p>Rice supports incomplete types in the following contexts:</p>
+<table>
+<thead>
+<tr>
+<th>Operation</th>
+<th>Example</th>
+<th>Supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Return pointer</td>
+<td><code>Impl* getImpl()</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Return reference</td>
+<td><code>Impl&amp; getImplRef()</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Return const reference</td>
+<td><code>const Impl&amp; getImplRef() const</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Parameter pointer</td>
+<td><code>void setImpl(Impl* impl)</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Parameter reference</td>
+<td><code>void process(Impl&amp; impl)</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Parameter const reference</td>
+<td><code>void read(const Impl&amp; impl)</code></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<h2 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h2>
+<p>If you try to use an incomplete type without registering it, Rice will raise a Ruby exception:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1">// Without registering OpaqueHandle...</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">define_global_function</span><span class="p">(</span><span class="s">&quot;create_handle&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">createHandle</span><span class="p">);</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="c1">// Calling from Ruby will raise:</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1">// Rice::Exception: Type is not registered with Rice: OpaqueHandle</span>
+</code></pre></div>
+<p>Always register incomplete types with <code>define_class</code> before wrapping functions that use them.</p>
+<h2 id="real-world-example-opencv">Real-World Example: OpenCV<a class="headerlink" href="#real-world-example-opencv" title="Permanent link">&para;</a></h2>
+<p>OpenCV uses the PIMPL idiom extensively. For example, <code>cv::dnn::Net</code> has:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">cv</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">dnn</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">    </span><span class="k">class</span><span class="w"> </span><span class="nc">Net</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">    </span><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">        </span><span class="k">struct</span><span class="w"> </span><span class="nc">Impl</span><span class="p">;</span><span class="w">  </span><span class="c1">// Forward declaration</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">        </span><span class="n">Impl</span><span class="o">*</span><span class="w"> </span><span class="nf">getImpl</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">        </span><span class="n">Impl</span><span class="o">&amp;</span><span class="w"> </span><span class="nf">getImplRef</span><span class="p">();</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">        </span><span class="n">Ptr</span><span class="o">&lt;</span><span class="n">Impl</span><span class="o">&gt;</span><span class="w"> </span><span class="n">impl</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="p">};</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="p">}}</span>
+</code></pre></div>
+<p>To wrap this in Rice:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rice/rice.hpp&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;opencv2/dnn.hpp&gt;</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">extern</span><span class="w"> </span><span class="s">&quot;C&quot;</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="n">Init_dnn</span><span class="p">()</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="p">{</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="p">;</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">Module</span><span class="w"> </span><span class="n">rb_mCv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">define_module</span><span class="p">(</span><span class="s">&quot;Cv&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="n">Module</span><span class="w"> </span><span class="n">rb_mDnn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">define_module_under</span><span class="p">(</span><span class="n">rb_mCv</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Dnn&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">    </span><span class="c1">// Register the incomplete Impl type</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">    </span><span class="n">define_class_under</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">dnn</span><span class="o">::</span><span class="n">Net</span><span class="o">::</span><span class="n">Impl</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rb_mDnn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Impl&quot;</span><span class="p">);</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="c1">// Now wrap Net with its getImpl methods</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="n">define_class_under</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">dnn</span><span class="o">::</span><span class="n">Net</span><span class="o">&gt;</span><span class="p">(</span><span class="n">rb_mDnn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Net&quot;</span><span class="p">)</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="w">        </span><span class="p">.</span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">cv</span><span class="o">::</span><span class="n">dnn</span><span class="o">::</span><span class="n">Net</span><span class="o">&gt;</span><span class="p">())</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17" href="#__codelineno-6-17"></a><span class="w">        </span><span class="p">.</span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;get_impl&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cv</span><span class="o">::</span><span class="n">dnn</span><span class="o">::</span><span class="n">Net</span><span class="o">::</span><span class="n">getImpl</span><span class="p">)</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18" href="#__codelineno-6-18"></a><span class="w">        </span><span class="p">.</span><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;get_impl_ref&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">cv</span><span class="o">::</span><span class="n">dnn</span><span class="o">::</span><span class="n">Net</span><span class="o">::</span><span class="n">getImplRef</span><span class="p">);</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19" href="#__codelineno-6-19"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<p>Rice handles incomplete types by:</p>
+<ol>
+<li>Storing a pointer to the object without needing to know its size</li>
+<li>Using type erasure to manage the Ruby VALUE wrapper</li>
+<li>Tracking the type in Rice's type registry for proper conversion</li>
+</ol>
+<p>Since Rice only stores pointers and never copies incomplete types by value, it doesn't need the complete type definition. The actual object lifetime is managed by the C++ code that owns it.</p>
+<h2 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Type registration (<code>define_class</code>, <code>define_method</code>) should happen during extension initialization</li>
-<li>Ruby's Global VM Lock (GVL) applies to all Ruby-touching code</li>
-<li>Use <code>NoGVL</code> to release the GVL for long-running C++ operations (see <a href="../../bindings/gvl/">GVL</a>)</li>
+<li>Cannot create instances of incomplete types from Ruby (no constructor)</li>
+<li>Cannot copy incomplete types by value</li>
+<li>Cannot access members of incomplete types directly</li>
+<li>The incomplete type must be registered before any function using it is called</li>
+</ul>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../bindings/pointers/">Pointers</a> - General pointer handling in Rice</li>
+<li><a href="../../bindings/references/">References</a> - Reference handling in Rice</li>
+<li><a href="../../bindings/memory_management/">Memory Management</a> - Object lifetime management</li>
 </ul>
 
 

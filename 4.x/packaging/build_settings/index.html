@@ -3190,6 +3190,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#rtti" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RTTI
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -3719,6 +3730,13 @@
 <p>For Visual C++, the default exception <a href="https://learn.microsoft.com/en-us/cpp/build/reference/eh-exception-handling-model?view=msvc-170">model</a> setting of <code>/EHsc</code> crashes Ruby when calling longjmp with optimizations enabled (/O2). Therefore you must <code>/EHs</code> instead.</p>
 <h3 id="template-backtrace">Template Backtrace<a class="headerlink" href="#template-backtrace" title="Permanent link">&para;</a></h3>
 <p>For g++, you must set <code>-ftemplate-backtrace-limit=0</code> to avoid compilation errors.</p>
+<h3 id="rtti">RTTI<a class="headerlink" href="#rtti" title="Permanent link">&para;</a></h3>
+<p>Rice requires RTTI (Run-Time Type Information) to be enabled. RTTI is enabled by default on all major compilers, but if you have explicitly disabled it, you must re-enable it:</p>
+<ul>
+<li><strong>GCC/Clang</strong>: <code>-frtti</code> (default is enabled; do not use <code>-fno-rtti</code>)</li>
+<li><strong>MSVC</strong>: <code>/GR</code> (default is enabled; do not use <code>/GR-</code>)</li>
+</ul>
+<p>RTTI is essential for Rice's polymorphism support. When a C++ method returns a base class pointer that actually points to a derived class, Rice uses <code>typeid</code> to determine the correct Ruby class to wrap it as. Without RTTI, all objects would be wrapped as their static (declared) type rather than their actual runtime type.</p>
 <h2 id="linker-settings">Linker Settings<a class="headerlink" href="#linker-settings" title="Permanent link">&para;</a></h2>
 <p>Ruby extensions are shared libraries that the Ruby interpreter loads at runtime using <code>dlopen</code>. These extensions reference symbols from the Ruby C API (such as <code>rb_define_class</code>, <code>rb_funcall</code>, etc.) that are provided by the Ruby interpreter itself. Since these symbols are not available at link time, the linker must be told to allow unresolved symbols.</p>
 <h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>

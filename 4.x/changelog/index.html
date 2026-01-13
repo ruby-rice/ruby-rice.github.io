@@ -3914,7 +3914,9 @@
 <p>Enhancements:
 * Add support for incomplete types (PIMPL/opaque handle patterns). Rice now uses <code>typeid(T*)</code> for forward-declared types that are never fully defined.
 * Add support for <code>noexcept</code> functions, static members, and static member functions
-* Add support for <code>Buffer&lt;void*&gt;</code> and <code>Pointer&lt;void*&gt;</code></p>
+* Add support for <code>Buffer&lt;void*&gt;</code> and <code>Pointer&lt;void*&gt;</code>
+* Add support for <code>std::function</code>. Ruby procs, lambdas, and blocks can be wrapped in <code>std::function</code> objects and passed to C++ methods. C++ functions returning <code>std::function</code> are automatically wrapped.
+* Add support for <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.</p>
 <p>Internal:
 * Refactor type handling by merging <code>TypeMapper</code> into <code>TypeDetail</code> and simplifying class hierarchy</p>
 <h2 id="491-2026-01-04">4.9.1 (2026-01-04)<a class="headerlink" href="#491-2026-01-04" title="Permanent link">&para;</a></h2>

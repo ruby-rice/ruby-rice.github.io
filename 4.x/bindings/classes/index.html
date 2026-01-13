@@ -3731,6 +3731,9 @@
 <a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="p">}</span>
 </code></pre></div>
 <p>The second template parameter tells Rice about the inheritance relationship, enabling proper type conversions and polymorphic behavior.</p>
+<blockquote>
+<p><strong>Note:</strong> Rice requires RTTI to be enabled for polymorphism to work correctly. When a C++ method returns a <code>Base*</code> that actually points to a <code>Derived</code> object, Rice uses RTTI to wrap it as the correct Ruby class. See <a href="../../packaging/build_settings/#rtti">RTTI</a> for details.</p>
+</blockquote>
 <p>If you want to create Ruby classes that inherit from wrapped C++ classes and override virtual methods, see the <a href="../directors/">Directors</a> section.</p>
 <h2 id="method-chaining">Method Chaining<a class="headerlink" href="#method-chaining" title="Permanent link">&para;</a></h2>
 <p>Most methods on <code>Class</code> and <code>Data_Type</code> return a reference to self, allowing you to chain method calls:</p>

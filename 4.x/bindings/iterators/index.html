@@ -1337,6 +1337,45 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#iterator-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Iterator Requirements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Iterator Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-iterator-traits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing Iterator Traits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-iterator-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Iterator Categories
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#enumerator-support-external-iterators" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3598,21 +3637,78 @@
 <a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="k">end</span>
 </code></pre></div>
 <p>Where the result will be <code>[6, 4, 2]</code>.</p>
+<h2 id="iterator-requirements">Iterator Requirements<a class="headerlink" href="#iterator-requirements" title="Permanent link">&para;</a></h2>
+<p>Rice uses <code>std::iterator_traits</code> to determine the value type, reference type, and other properties of iterators. This means your iterator must either:</p>
+<ol>
+<li>Define the standard iterator typedefs (<code>value_type</code>, <code>reference</code>, <code>pointer</code>, <code>difference_type</code>, <code>iterator_category</code>), or</li>
+<li>Have a specialization of <code>std::iterator_traits</code> defined for it</li>
+</ol>
+<p>Most STL iterators and well-designed C++ iterators already satisfy these requirements. However, some libraries define iterators that lack these typedefs.</p>
+<h3 id="missing-iterator-traits">Missing Iterator Traits<a class="headerlink" href="#missing-iterator-traits" title="Permanent link">&para;</a></h3>
+<p>If you encounter a compiler error like:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>error C2039: &#39;value_type&#39;: is not a member of &#39;std::iterator_traits&lt;MyIterator&gt;&#39;
+</code></pre></div>
+<p>You need to provide a <code>std::iterator_traits</code> specialization for that iterator. For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iterator&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="c1">// Specialization for an iterator that lacks proper traits</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="p">{</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="k">template</span><span class="o">&lt;&gt;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="k">struct</span><span class="w"> </span><span class="nc">iterator_traits</span><span class="o">&lt;</span><span class="n">MyNamespace</span><span class="o">::</span><span class="n">MyIterator</span><span class="o">&gt;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">iterator_category</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">forward_iterator_tag</span><span class="p">;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">value_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyValueType</span><span class="p">;</span>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">difference_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kt">ptrdiff_t</span><span class="p">;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyValueType</span><span class="o">*</span><span class="p">;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="k">using</span><span class="w"> </span><span class="n">reference</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">MyValueType</span><span class="o">&amp;</span><span class="p">;</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="p">};</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="p">}</span>
+</code></pre></div>
+<p>Place this specialization before your Rice bindings code, typically right after the includes.</p>
+<h3 id="common-iterator-categories">Common Iterator Categories<a class="headerlink" href="#common-iterator-categories" title="Permanent link">&para;</a></h3>
+<p>Choose the appropriate <code>iterator_category</code> based on your iterator's capabilities:</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Operations Supported</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>input_iterator_tag</code></td>
+<td>Read-only, single-pass (<code>++</code>, <code>*</code>, <code>==</code>)</td>
+</tr>
+<tr>
+<td><code>forward_iterator_tag</code></td>
+<td>Read/write, multi-pass (<code>++</code>, <code>*</code>, <code>==</code>)</td>
+</tr>
+<tr>
+<td><code>bidirectional_iterator_tag</code></td>
+<td>Forward + backward (<code>++</code>, <code>--</code>, <code>*</code>, <code>==</code>)</td>
+</tr>
+<tr>
+<td><code>random_access_iterator_tag</code></td>
+<td>Bidirectional + random access (<code>+</code>, <code>-</code>, <code>[]</code>, <code>&lt;</code>)</td>
+</tr>
+</tbody>
+</table>
 <h2 id="enumerator-support-external-iterators">Enumerator Support (External Iterators)<a class="headerlink" href="#enumerator-support-external-iterators" title="Permanent link">&para;</a></h2>
 <p>Ruby supports external iterators via the <a href="https://ruby-doc.org/3.2.2/Enumerator.html">Enumerator</a> class. The <code>define_iterator</code> method automatically adds support for Enumerators.</p>
 <p>Enumerators can be created by calling an iterator method without a block, in the same way you can call <code>Array#each</code> or other methods without a block. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">intVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">IntVector</span><span class="o">.</span><span class="n">new</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>
-<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># Get an enumerator</span>
-<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">enumerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intVector</span><span class="o">.</span><span class="n">each</span>
-<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>
-<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># Now  use it</span>
-<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="n">enumerator</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
-<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
-<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="k">end</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">intVector</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">IntVector</span><span class="o">.</span><span class="n">new</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="n">intVector</span><span class="o">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="c1"># Get an enumerator</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="n">enumerator</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">intVector</span><span class="o">.</span><span class="n">each</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="c1"># Now  use it</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="n">enumerator</span><span class="o">.</span><span class="n">map</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">  </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="k">end</span>
 </code></pre></div>
 
 

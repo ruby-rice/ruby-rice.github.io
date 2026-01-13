@@ -45,6 +45,10 @@
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
+         <loc>https://ruby-rice.github.io/rice/architecture/incomplete_types/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
          <loc>https://ruby-rice.github.io/rice/architecture/method_binding/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
@@ -269,6 +273,10 @@
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
+         <loc>https://ruby-rice.github.io/rice/stl/function/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
          <loc>https://ruby-rice.github.io/rice/stl/map/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
@@ -278,6 +286,10 @@
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/optional/</loc>
+         <lastmod>2026-01-13</lastmod>
+    </url>
+    <url>
+         <loc>https://ruby-rice.github.io/rice/stl/ostream/</loc>
          <lastmod>2026-01-13</lastmod>
     </url>
     <url>
