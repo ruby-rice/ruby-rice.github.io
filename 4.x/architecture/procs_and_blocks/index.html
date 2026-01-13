@@ -10,13 +10,9 @@
       
       
       
-        <link rel="canonical" href="https://ruby-rice.github.io/rice/architecture/overview/">
+        <link rel="canonical" href="https://ruby-rice.github.io/rice/architecture/procs_and_blocks/">
       
       
-        <link rel="prev" href="../../packaging/documentation/">
-      
-      
-        <link rel="next" href="../type_binding/">
       
       
         
@@ -27,7 +23,7 @@
     
     
       
-        <title>Overview - Rice - Ruby Interface for C++</title>
+        <title>Procs and Blocks - Rice - Ruby Interface for C++</title>
       
     
     
@@ -78,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#overview" class="md-skip">
+        <a href="#procs-and-blocks" class="md-skip">
           Skip to content
         </a>
       
@@ -114,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Overview
+              Procs and Blocks
             
           </span>
         </div>
@@ -376,13 +372,11 @@
   
   
   
-    
-  
   
     
     
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+      <li class="md-tabs__item">
+        <a href="../overview/" class="md-tabs__link">
           
   
   
@@ -3203,29 +3197,24 @@
       
   
   
-    
   
   
-  
     
     
     
     
       
-        
-        
-      
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -3243,7 +3232,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
@@ -3258,37 +3247,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Overview
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
         
   
   
@@ -3304,70 +3266,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#core-design-principles" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Core Design Principles
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#call-flow" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Call Flow
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#key-components" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Key Components
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#thread-safety" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Thread Safety
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -3568,71 +3466,99 @@
   
 
 
-<h1 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h1>
-<p>Rice is a header-only C++ library that bridges Ruby and C++ using template metaprogramming. This section explains the key architectural concepts that make Rice work.</p>
-<h2 id="core-design-principles">Core Design Principles<a class="headerlink" href="#core-design-principles" title="Permanent link">&para;</a></h2>
-<p><strong>Header-Only</strong>
-  Rice requires no compilation—just include the headers. All implementation is in <code>.hpp</code> and <code>.ipp</code> files.</p>
-<p><strong>Template Metaprogramming</strong>
-  Rice uses C++ templates to automatically deduce types at compile time, eliminating boilerplate code.</p>
-<p><strong>Type Safety</strong>
-  The C++ type system catches errors at compile time rather than runtime.</p>
-<p><strong>Minimal Ruby C API Exposure</strong>
-  Rice wraps Ruby's C API (VALUE, rb_* functions) so users rarely interact with it directly.</p>
-<h2 id="call-flow">Call Flow<a class="headerlink" href="#call-flow" title="Permanent link">&para;</a></h2>
-<p>The diagram below shows how Rice's components interact when a Ruby method calls into C++:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Ruby Code
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    |
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    v
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>+------------------+
-<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>|   Ruby VM        |  Calls registered RUBY_METHOD_FUNC
-<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>+--------+---------+
-<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>         |
-<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>         v
-<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>+------------------+
-<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>| Native::resolve  |  Finds matching overload from NativeRegistry
-<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>+--------+---------+
-<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>         |
-<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>         v
-<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>+------------------+
-<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>|   From_Ruby&lt;T&gt;   |  Converts Ruby VALUEs to C++ types
-<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>+--------+---------+
-<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>         |
-<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>         v
-<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>+------------------+
-<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>|   C++ Method     |  Your actual C++ code executes
-<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>+--------+---------+
-<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>         |
-<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>         v
-<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>+------------------+
-<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>|   To_Ruby&lt;T&gt;     |  Converts C++ return value to Ruby VALUE
-<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>+--------+---------+
-<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>         |
-<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>         v
-<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>Ruby Code (receives result)
+<h1 id="procs-and-blocks">Procs and Blocks<a class="headerlink" href="#procs-and-blocks" title="Permanent link">&para;</a></h1>
+<p>Rice provides bidirectional support for Ruby procs/blocks and C++ function pointers. This enables two key use cases:</p>
+<ol>
+<li><strong>C++ to Ruby</strong>: Wrapping C++ function pointers as Ruby procs</li>
+<li><strong>Ruby to C++</strong>: Passing Ruby blocks/procs to C++ code</li>
+</ol>
+<h2 id="c-function-pointers-to-ruby-procs">C++ Function Pointers to Ruby Procs<a class="headerlink" href="#c-function-pointers-to-ruby-procs" title="Permanent link">&para;</a></h2>
+<p>When a C++ function returns a function pointer, Rice automatically wraps it as a Ruby <code>Proc</code>.</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">square</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">)</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="p">{</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">}</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="k">auto</span><span class="w"> </span><span class="n">getSquareFunction</span><span class="p">()</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="p">{</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">square</span><span class="p">;</span><span class="w">  </span><span class="c1">// Returns function pointer</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="c1">// Expose to Ruby</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a><span class="n">define_module_function</span><span class="p">(</span><span class="s">&quot;square_proc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">getSquareFunction</span><span class="p">);</span>
 </code></pre></div>
-<h2 id="key-components">Key Components<a class="headerlink" href="#key-components" title="Permanent link">&para;</a></h2>
-<p>Rice is organized into several subsystems:</p>
-<p><a href="../type_binding/">Type Binding</a>
-  <code>Data_Type&lt;T&gt;</code> and <code>Wrapper&lt;T&gt;</code> - Binding C++ types to Ruby classes and managing object storage.</p>
-<p><a href="../method_binding/">Method Binding</a>
-  <code>Native</code> hierarchy - Binding C++ functions and methods to Ruby.</p>
-<p><a href="../overload_resolution/">Overload Resolution</a>
-  How Rice selects the correct C++ overload based on Ruby arguments using precision-based scoring.</p>
-<p><a href="../../types/overview/">Types Overview</a>
-  <code>From_Ruby&lt;T&gt;</code> and <code>To_Ruby&lt;T&gt;</code> - Converting values between languages.</p>
-<p><a href="../registries/">Registries</a>
-  Runtime tracking of types, methods, and instances.</p>
-<p><a href="../enumerators/">Enumerators</a>
-  Implementing Ruby-style iteration for C++ containers.</p>
-<p><a href="../procs_and_blocks/">Procs and Blocks</a>
-  Bridging Ruby procs/blocks and C++ function pointers.</p>
-<h2 id="thread-safety">Thread Safety<a class="headerlink" href="#thread-safety" title="Permanent link">&para;</a></h2>
-<p>Rice itself is thread-safe for reading (method invocation). However:</p>
+<p>Ruby code can then call:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">proc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">square_proc</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">proc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="w">  </span><span class="c1"># =&gt; 81</span>
+</code></pre></div>
+<h3 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h3>
+<p>The <code>To_Ruby</code> specialization for function pointers uses <code>NativeProc</code> to create the wrapper:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">Return_T</span><span class="p">,</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="p">...</span><span class="n">Parameter_Ts</span><span class="o">&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">class</span><span class="w"> </span><span class="nc">To_Ruby</span><span class="o">&lt;</span><span class="n">Return_T</span><span class="p">(</span><span class="o">*</span><span class="p">)(</span><span class="n">Parameter_Ts</span><span class="p">...)</span><span class="o">&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">{</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="n">VALUE</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">Proc_T</span><span class="w"> </span><span class="n">proc</span><span class="p">)</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">{</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">NativeProc</span><span class="o">&lt;</span><span class="n">Proc_T</span><span class="o">&gt;::</span><span class="n">createRubyProc</span><span class="p">(</span><span class="n">proc</span><span class="p">);</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="p">};</span>
+</code></pre></div>
+<p><code>NativeProc::createRubyProc</code>:</p>
+<ol>
+<li>Creates a <code>NativeProc</code> instance storing the C++ function pointer</li>
+<li>Wraps it in a Ruby proc via <code>rb_proc_new</code></li>
+<li>Attaches a finalizer to clean up the <code>NativeProc</code> when the Ruby proc is garbage collected</li>
+</ol>
+<p>When Ruby invokes the proc, <code>NativeProc::resolve</code> is called which:</p>
+<ol>
+<li>Converts Ruby arguments to C++ types</li>
+<li>Calls the stored function pointer</li>
+<li>Converts the return value back to Ruby</li>
+</ol>
+<h2 id="ruby-blocks-and-procs-to-c">Ruby Blocks and Procs to C++<a class="headerlink" href="#ruby-blocks-and-procs-to-c" title="Permanent link">&para;</a></h2>
+<p>Rice <em>always</em> converts Ruby blocks to procs. When Ruby passes a block to a method, Rice captures it via <code>rb_block_proc</code> and passes it as the last argument:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// In Native.ipp</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">protect</span><span class="p">(</span><span class="n">rb_block_given_p</span><span class="p">))</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;arg_&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">to_string</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="n">result</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">protect</span><span class="p">(</span><span class="n">rb_block_proc</span><span class="p">);</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>To receive a block in your C++ method, you must:</p>
+<ol>
+<li>Include a <code>VALUE</code> parameter at the end of your function signature</li>
+<li>Mark that parameter with <code>Arg("name").setValue()</code></li>
+</ol>
+<p>If you omit <code>setValue()</code>, Rice will attempt to convert the proc using <code>From_Ruby</code>, resulting in an error like "Proc cannot be converted to Integer".</p>
+<h3 id="invoking-procs-in-c">Invoking Procs in C++<a class="headerlink" href="#invoking-procs-in-c" title="Permanent link">&para;</a></h3>
+<p>Use Rice's <code>Object</code> class to invoke the proc. This works uniformly whether Ruby passed a block or an explicit proc:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">squareWithProc</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="n">proc</span><span class="p">)</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Object</span><span class="p">(</span><span class="n">proc</span><span class="p">).</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;call&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">From_Ruby</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">().</span><span class="n">convert</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="p">}</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="n">define_module_function</span><span class="p">(</span><span class="s">&quot;square_with_proc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">squareWithProc</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;i&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;proc&quot;</span><span class="p">).</span><span class="n">setValue</span><span class="p">());</span>
+</code></pre></div>
+<p>This can be called from Ruby with a block:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">square_with_proc</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">}</span><span class="w">  </span><span class="c1"># =&gt; 49</span>
+</code></pre></div>
+<p>Or with an explicit proc:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">proc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="o">|</span><span class="n">i</span><span class="o">|</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">square_with_proc</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="nb">proc</span><span class="p">)</span><span class="w">  </span><span class="c1"># =&gt; 16</span>
+</code></pre></div>
+<h2 id="callbacks">Callbacks<a class="headerlink" href="#callbacks" title="Permanent link">&para;</a></h2>
+<p>For more complex callback scenarios where C++ code stores and later invokes Ruby procs (such as event handlers or async callbacks), see the <a href="../../bindings/callbacks/">Callbacks</a> documentation. This covers:</p>
 <ul>
-<li>Type registration (<code>define_class</code>, <code>define_method</code>) should happen during extension initialization</li>
-<li>Ruby's Global VM Lock (GVL) applies to all Ruby-touching code</li>
-<li>Use <code>NoGVL</code> to release the GVL for long-running C++ operations (see <a href="../../bindings/gvl/">GVL</a>)</li>
+<li>C-style callback registration</li>
+<li>LibFFI closures for multiple callbacks of the same type</li>
+<li>Passing user data through callbacks</li>
+</ul>
+<h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../../bindings/callbacks/">Callbacks</a> - C-style callback support</li>
+<li><a href="../method_binding/">Method Binding</a> - Native hierarchy including NativeProc and NativeCallback</li>
 </ul>
 
 
