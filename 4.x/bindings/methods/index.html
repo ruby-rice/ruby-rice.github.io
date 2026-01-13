@@ -3635,6 +3635,7 @@
 <a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="p">);</span>
 </code></pre></div>
 <p>These <code>Rice::Arg</code> objects must be in the correct positional order. Thus if the second argument has a default value, then there must be two Arg objects.</p>
+<p>Note that Rice stores a copy of default values internally, so the type must be copyable. Types with deleted or private copy constructors cannot be used as default arguments. This includes types that inherit from non-copyable base classes. If you need to wrap a function with a non-copyable default parameter, you'll need to omit the default value and require Ruby callers to always provide that argument explicitly.</p>
 <p>Now, Ruby will now know about the default arguments, and this wrapper can be used as expected:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Test</span><span class="o">.</span><span class="n">new</span>
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">t</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;hello&quot;</span><span class="p">)</span>
