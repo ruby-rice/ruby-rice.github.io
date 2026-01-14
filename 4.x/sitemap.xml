@@ -2,378 +2,378 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ruby-rice.github.io/rice/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/changelog/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ecosystem/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/fuzzing_plan/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/history/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/installation/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/migration/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/projects/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/tutorial/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/why_rice/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/enumerators/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/incomplete_types/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/method_binding/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/overload_resolution/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/overview/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/procs_and_blocks/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/registries/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/smart_pointers/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/architecture/type_binding/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/attributes/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/buffers/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/callbacks/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/class_templates/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/classes/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/constants/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/constructors/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/directors/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/enums/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/exceptions/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/gvl/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/instance_registry/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/iterators/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/memory_management/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/methods/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/operators/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/overloaded_methods/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/overview/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/pointers/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/bindings/references/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/array/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/class/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/hash/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/identifier/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/module/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/object/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/overview/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/string/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/struct/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/cpp_api/symbol/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/packaging/build_settings/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/packaging/cmake/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/packaging/documentation/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/packaging/extconf.rb/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/packaging/packaging/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/packaging/rbs/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/arg/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/buffer/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/native/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/native_registry/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/overview/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/parameter/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/pointer/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/reference/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/registries/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/ruby_api/type_registry/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/complex/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/exception/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/exception_ptr/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/function/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/map/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/multimap/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/optional/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/ostream/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/pair/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/reference_wrapper/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/set/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/shared_ptr/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/stl/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/string/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/string_view/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/tuple/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/type_index/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/type_info/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/unique_ptr/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/unordered_map/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/variant/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/stl/vector/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/types/conversion/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/types/converters/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/types/naming/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/types/overview/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/types/strings/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/types/verification/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
     <url>
          <loc>https://ruby-rice.github.io/rice/types/wrapping/</loc>
-         <lastmod>2026-01-13</lastmod>
+         <lastmod>2026-01-14</lastmod>
     </url>
 </urlset>
