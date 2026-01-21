@@ -3919,6 +3919,13 @@
 * Add support for <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.</p>
 <p>Internal:
 * Refactor type handling by merging <code>TypeMapper</code> into <code>TypeDetail</code> and simplifying class hierarchy</p>
+<p>Incomptatible Changes:
+* Rice converts Ruby blocks to procs. Thus if you have a method that expects a block, you must add
+  a VALUE parameter and tell Rice it is a value. For example:</p>
+<p>define_method("my_method", <a href="VALUE self, VALUE proc"></a>
+  {
+  }, Arg("proc").setValue())</p>
+<p>Think of this as similar to how you would capture a block in Ruby using the &amp;block syntax.</p>
 <h2 id="491-2026-01-04">4.9.1 (2026-01-04)<a class="headerlink" href="#491-2026-01-04" title="Permanent link">&para;</a></h2>
 <p>This release focuses on improving memory management for STL containers and attribute setters.</p>
 <p>Enhancements:
