@@ -1487,6 +1487,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#memory-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Memory Management
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3640,6 +3651,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">abort</span><span class="w"> </span><span class="s2">&quot;libffi not found&quot;</span><span class="w"> </span><span class="k">unless</span><span class="w"> </span><span class="n">have_libffi</span>
 </code></pre></div>
 <p>If you are using CMake, you will need to add a C++ preprocessor define called <code>HAVE_LIBFFI</code> and link to libffi.</p>
+<h2 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h2>
+<p>Callback wrappers (NativeCallback instances) are intentionally never freed. This is because:</p>
+<ol>
+<li>C code may call the callback at any time, even after the Ruby code that registered it has finished executing</li>
+<li>Ruby users commonly pass blocks to C callbacks, which Rice converts to Procs internally. Without special handling, these Procs would be garbage collected and the callback would crash when invoked</li>
+</ol>
+<p>Rice uses <code>Pin</code> internally to prevent the Ruby Proc from being garbage collected, ensuring the callback remains valid for the lifetime of the program.</p>
+<p>In practice, this means each unique callback registration consumes a small amount of memory that is never reclaimed. For most applications this is not a concern, as callbacks are typically registered once during initialization.</p>
 
 
 
