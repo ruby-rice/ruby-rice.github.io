@@ -765,10 +765,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#492-unreleased" class="md-nav__link">
+  <a href="#4100-2026-02-05" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.9.2 (unreleased)
+        4.10.0 (2026-02-05)
       
     </span>
   </a>
@@ -3910,15 +3910,18 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<h2 id="492-unreleased">4.9.2 (unreleased)<a class="headerlink" href="#492-unreleased" title="Permanent link">&para;</a></h2>
+<h2 id="4100-2026-02-05">4.10.0 (2026-02-05)<a class="headerlink" href="#4100-2026-02-05" title="Permanent link">&para;</a></h2>
 <p>Enhancements:
 * Add support for incomplete types (PIMPL/opaque handle patterns). Rice now uses <code>typeid(T*)</code> for forward-declared types that are never fully defined.
 * Add support for <code>noexcept</code> functions, static members, and static member functions
 * Add support for <code>Buffer&lt;void*&gt;</code> and <code>Pointer&lt;void*&gt;</code>
 * Add support for <code>std::function</code>. Ruby procs, lambdas, and blocks can be wrapped in <code>std::function</code> objects and passed to C++ methods. C++ functions returning <code>std::function</code> are automatically wrapped.
-* Add support for <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.</p>
+* Add support for <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.
+* Add support for verifying arrays of non-fundamental types (e.g., <code>MyClass[2]</code>)
+* Delegate method calls for smart pointers to their wrapped objects via method_missing?</p>
 <p>Internal:
-* Refactor type handling by merging <code>TypeMapper</code> into <code>TypeDetail</code> and simplifying class hierarchy</p>
+* Refactor type handling by merging <code>TypeMapper</code> into <code>TypeDetail</code> and simplifying class hierarchy
+* Greatly simplify define_attr</p>
 <p>Incompatible Changes:
 * <code>Address_Registration_Guard</code> has been replaced by <code>Pin</code>. If you are using <code>Address_Registration_Guard</code>
   to protect Ruby VALUEs from garbage collection, update your code to use <code>Pin</code> instead:</p>
@@ -3937,10 +3940,14 @@
 <li>Rice converts Ruby blocks to procs. Thus if you have a method that expects a block, you must add
   a VALUE parameter and tell Rice it is a value. For example:</li>
 </ul>
-<p>define_method("my_method", <a href="VALUE self, VALUE proc"></a>
-  {
-  }, Arg("proc").setValue())</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;my_method&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">VALUE</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="n">proc</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">},</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;proc&quot;</span><span class="p">).</span><span class="n">setValue</span><span class="p">())</span>
+</code></pre></div>
 <p>Think of this as similar to how you would capture a block in Ruby using the &amp;block syntax.</p>
+<ul>
+<li>The <code>Data_Type&lt;T&gt;::define()</code> method has been removed. See the <a href="../bindings/class_templates/">Class Templates</a> documentation for the recommended approach.</li>
+</ul>
 <h2 id="491-2026-01-04">4.9.1 (2026-01-04)<a class="headerlink" href="#491-2026-01-04" title="Permanent link">&para;</a></h2>
 <p>This release focuses on improving memory management for STL containers and attribute setters.</p>
 <p>Enhancements:

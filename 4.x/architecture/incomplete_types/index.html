@@ -3647,8 +3647,69 @@
 <li>Cannot access members of incomplete types directly</li>
 <li>The incomplete type must be registered before any function using it is called</li>
 </ul>
+<h2 id="smart-pointers-to-incomplete-types">Smart Pointers to Incomplete Types<a class="headerlink" href="#smart-pointers-to-incomplete-types" title="Permanent link">&para;</a></h2>
+<p>While Rice supports raw pointers and references to incomplete types, <strong>smart pointers</strong> (<code>std::shared_ptr</code>, <code>std::unique_ptr</code>, etc.) require special handling.</p>
+<h3 id="the-problem">The Problem<a class="headerlink" href="#the-problem" title="Permanent link">&para;</a></h3>
+<p>Smart pointers need to instantiate their deleter at compile time. When you create a <code>std::shared_ptr&lt;T&gt;</code> from a raw <code>T*</code>, the template must generate code to <code>delete</code> the pointer - which requires <code>T</code> to be a complete type:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Impl</span><span class="p">;</span><span class="w">  </span><span class="c1">// Forward declaration - incomplete</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="c1">// This will cause a compiler warning/error:</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1">// &quot;deletion of pointer to incomplete type; no destructor called&quot;</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Impl</span><span class="o">&gt;</span><span class="w"> </span><span class="n">ptr</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Impl</span><span class="p">);</span><span class="w">  </span><span class="c1">// Can&#39;t instantiate deleter!</span>
+</code></pre></div>
+<h3 id="rices-solution">Rice's Solution<a class="headerlink" href="#rices-solution" title="Permanent link">&para;</a></h3>
+<p>Rice's <code>define_shared_ptr&lt;T&gt;()</code> function uses <code>is_complete_v&lt;T&gt;</code> to detect incomplete types and skip registering constructors that would require the complete type:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1">// From rice/stl/shared_ptr.ipp</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n">detail</span><span class="o">::</span><span class="n">is_complete_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_void_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="p">{</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="n">result</span><span class="p">.</span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">SharedPtr_T</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">*&gt;</span><span class="p">(),</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">        </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;value&quot;</span><span class="p">).</span><span class="n">takeOwnership</span><span class="p">());</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="p">}</span>
+</code></pre></div>
+<p>This means:
+- <strong>Complete types</strong>: Full smart pointer support including construction from raw pointers
+- <strong>Incomplete types</strong>: Smart pointer type is registered, but constructors taking <code>T*</code> are skipped</p>
+<h3 id="passing-existing-smart-pointers">Passing Existing Smart Pointers<a class="headerlink" href="#passing-existing-smart-pointers" title="Permanent link">&para;</a></h3>
+<p>Even without the <code>T*</code> constructor, you can still pass around existing smart pointers that were created on the C++ side (where the complete type is available):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Widget</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="k">struct</span><span class="w"> </span><span class="nc">Impl</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Impl</span><span class="o">&gt;</span><span class="w"> </span><span class="n">getImpl</span><span class="p">();</span><span class="w">  </span><span class="c1">// Returns existing shared_ptr - OK!</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">setImpl</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Impl</span><span class="o">&gt;</span><span class="w"> </span><span class="n">impl</span><span class="p">);</span><span class="w">  </span><span class="c1">// Accepts existing shared_ptr - OK!</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="k">private</span><span class="o">:</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">shared_ptr</span><span class="o">&lt;</span><span class="n">Impl</span><span class="o">&gt;</span><span class="w"> </span><span class="n">pImpl_</span><span class="p">;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="p">};</span>
+</code></pre></div>
+<h3 id="custom-smart-pointer-types">Custom Smart Pointer Types<a class="headerlink" href="#custom-smart-pointer-types" title="Permanent link">&para;</a></h3>
+<p>If you're wrapping a library with its own smart pointer type (like OpenCV's <code>cv::Ptr</code>), apply the same pattern:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">T</span><span class="o">&gt;</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">Data_Type</span><span class="o">&lt;</span><span class="n">CustomPtr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">define_custom_ptr</span><span class="p">()</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">    </span><span class="c1">// ... setup ...</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">    </span><span class="c1">// Only define T* constructor for complete types</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="k">constexpr</span><span class="w"> </span><span class="p">(</span><span class="n">detail</span><span class="o">::</span><span class="n">is_complete_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_void_v</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">)</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="p">{</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="w">        </span><span class="n">result</span><span class="p">.</span><span class="n">define_constructor</span><span class="p">(</span><span class="n">Constructor</span><span class="o">&lt;</span><span class="n">CustomPtr</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="o">*&gt;</span><span class="p">(),</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a><span class="w">            </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;ptr&quot;</span><span class="p">).</span><span class="n">takeOwnership</span><span class="p">());</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">result</span><span class="p">;</span>
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="using-is_complete_v">Using is_complete_v<a class="headerlink" href="#using-is_complete_v" title="Permanent link">&para;</a></h3>
+<p>Rice provides the <code>detail::is_complete_v&lt;T&gt;</code> trait for detecting incomplete types:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rice/rice.hpp&gt;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">Complete</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">;</span><span class="w"> </span><span class="p">};</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">Incomplete</span><span class="p">;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">Rice</span><span class="o">::</span><span class="n">detail</span><span class="o">::</span><span class="n">is_complete_v</span><span class="o">&lt;</span><span class="n">Complete</span><span class="o">&gt;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">true</span><span class="p">);</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="k">static_assert</span><span class="p">(</span><span class="n">Rice</span><span class="o">::</span><span class="n">detail</span><span class="o">::</span><span class="n">is_complete_v</span><span class="o">&lt;</span><span class="n">Incomplete</span><span class="o">&gt;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="p">);</span>
+</code></pre></div>
 <h2 id="see-also">See Also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
+<li><a href="../smart_pointers/">Smart Pointers</a> - Implementing support for custom smart pointer types</li>
 <li><a href="../../bindings/pointers/">Pointers</a> - General pointer handling in Rice</li>
 <li><a href="../../bindings/references/">References</a> - Reference handling in Rice</li>
 <li><a href="../../bindings/memory_management/">Memory Management</a> - Object lifetime management</li>

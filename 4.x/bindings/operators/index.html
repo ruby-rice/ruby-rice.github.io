@@ -1393,6 +1393,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#unary-operators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unary Operators
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#assignment-operators" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3652,6 +3663,54 @@
 </tr>
 </tbody>
 </table>
+<h2 id="unary-operators">Unary Operators<a class="headerlink" href="#unary-operators" title="Permanent link">&para;</a></h2>
+<p>C++ supports unary versions of <code>+</code>, <code>-</code>, <code>~</code>, and <code>!</code>. Ruby uses special method names for unary <code>+</code> and <code>-</code> to distinguish them from their binary counterparts.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">C++</th>
+<th style="text-align: center;">Ruby</th>
+<th style="text-align: left;">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">+a</td>
+<td style="text-align: center;">+@</td>
+<td style="text-align: left;">Unary plus</td>
+</tr>
+<tr>
+<td style="text-align: center;">-a</td>
+<td style="text-align: center;">-@</td>
+<td style="text-align: left;">Unary minus (negation)</td>
+</tr>
+<tr>
+<td style="text-align: center;">~a</td>
+<td style="text-align: center;">~</td>
+<td style="text-align: left;">Bitwise NOT</td>
+</tr>
+<tr>
+<td style="text-align: center;">!a</td>
+<td style="text-align: center;">!</td>
+<td style="text-align: left;">Logical NOT</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Vector</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">Vector</span><span class="w"> </span><span class="k">operator</span><span class="o">-</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">  </span><span class="c1">// Unary minus</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="n">Vector</span><span class="w"> </span><span class="k">operator</span><span class="o">+</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span><span class="w">  </span><span class="c1">// Unary plus</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">};</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;-@&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Vector</span><span class="o">::</span><span class="k">operator</span><span class="o">-</span><span class="p">);</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;+@&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Vector</span><span class="o">::</span><span class="k">operator</span><span class="o">+</span><span class="p">);</span>
+</code></pre></div>
+<p>In Ruby:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Vector</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">negated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">v</span><span class="w">  </span><span class="c1"># Calls -@</span>
+</code></pre></div>
 <h2 id="assignment-operators">Assignment Operators<a class="headerlink" href="#assignment-operators" title="Permanent link">&para;</a></h2>
 <p>C++ supports overriding assignment operators while Ruby does not. Thus these operators must be mapped to Ruby methods.</p>
 <table>
@@ -3691,7 +3750,7 @@
 <tr>
 <td style="text-align: center;">%=</td>
 <td style="text-align: center;">Not overridable</td>
-<td style="text-align: left;">assign_plus</td>
+<td style="text-align: left;">assign_modulus</td>
 </tr>
 </tbody>
 </table>
@@ -3747,11 +3806,11 @@
 </tr>
 <tr>
 <td style="text-align: center;">&gt;</td>
-<td style="text-align: center;">&lt;</td>
+<td style="text-align: center;">&gt;</td>
 </tr>
 <tr>
 <td style="text-align: center;">&lt;</td>
-<td style="text-align: center;">&gt;</td>
+<td style="text-align: center;">&lt;</td>
 </tr>
 <tr>
 <td style="text-align: center;">&gt;=</td>
@@ -3787,7 +3846,7 @@
 <tr>
 <td style="text-align: center;">!</td>
 <td style="text-align: center;">!</td>
-<td style="text-align: left;">decrement_pre</td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
@@ -3805,22 +3864,22 @@
 <tr>
 <td style="text-align: center;">++a</td>
 <td style="text-align: center;">Not overridable</td>
-<td style="text-align: left;">increment_pre</td>
+<td style="text-align: left;">increment</td>
 </tr>
 <tr>
 <td style="text-align: center;">a++</td>
 <td style="text-align: center;">Not overridable</td>
-<td style="text-align: left;">increment</td>
+<td style="text-align: left;">increment_post</td>
 </tr>
 <tr>
 <td style="text-align: center;">--a</td>
 <td style="text-align: center;">Not overridable</td>
-<td style="text-align: left;">decrement_pre</td>
+<td style="text-align: left;">decrement</td>
 </tr>
 <tr>
 <td style="text-align: center;">a--</td>
 <td style="text-align: center;">Not overridable</td>
-<td style="text-align: left;">decrement</td>
+<td style="text-align: left;">decrement_post</td>
 </tr>
 </tbody>
 </table>
@@ -3876,12 +3935,12 @@
 <p>C++ classes that support the <code>()</code> operator are known as functors. Ruby supports overriding the <code>.()</code> operator by defining a <code>call</code> function. Note this isn't quite the same as C++ because it is invoked via <code>.()</code> and not <code>()</code> -- notice the <code>.</code> before the <code>()</code>.</p>
 <h2 id="conversion-operators">Conversion Operators<a class="headerlink" href="#conversion-operators" title="Permanent link">&para;</a></h2>
 <p>C++ allows users to define explicit and implicit conversion operators or functions. These are used to convert a class to a different types. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Money</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="p">{</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">public</span><span class="o">:</span>
-<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="n">Money</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
-<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">    </span><span class="k">operator</span><span class="w"> </span><span class="kt">float</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
-<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="p">};</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">class</span><span class="w"> </span><span class="nc">Money</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="p">{</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">    </span><span class="n">Money</span><span class="p">(</span><span class="kt">float</span><span class="w"> </span><span class="n">amount</span><span class="p">);</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">    </span><span class="k">operator</span><span class="w"> </span><span class="kt">float</span><span class="p">()</span><span class="w"> </span><span class="k">const</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">};</span>
 </code></pre></div>
 <p>The <code>operator double() const;</code> is a user defined conversion function that converts a <code>Money</code> instance to a double. Following Ruby conventions, these conversion functions should be exposed as <code>to_</code> method, in this case <code>to_f</code>.</p>
 
