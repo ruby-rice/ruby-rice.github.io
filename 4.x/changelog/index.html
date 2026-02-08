@@ -765,10 +765,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#4100-2026-02-05" class="md-nav__link">
+  <a href="#4100-2026-02-07" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4.10.0 (2026-02-05)
+        4.10.0 (2026-02-07)
       
     </span>
   </a>
@@ -3910,14 +3910,15 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<h2 id="4100-2026-02-05">4.10.0 (2026-02-05)<a class="headerlink" href="#4100-2026-02-05" title="Permanent link">&para;</a></h2>
+<h2 id="4100-2026-02-07">4.10.0 (2026-02-07)<a class="headerlink" href="#4100-2026-02-07" title="Permanent link">&para;</a></h2>
 <p>Enhancements:
-* Add support for incomplete types (PIMPL/opaque handle patterns). Rice now uses <code>typeid(T*)</code> for forward-declared types that are never fully defined.
-* Add support for <code>noexcept</code> functions, static members, and static member functions
-* Add support for <code>Buffer&lt;void*&gt;</code> and <code>Pointer&lt;void*&gt;</code>
-* Add support for <code>std::function</code>. Ruby procs, lambdas, and blocks can be wrapped in <code>std::function</code> objects and passed to C++ methods. C++ functions returning <code>std::function</code> are automatically wrapped.
-* Add support for <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.
-* Add support for verifying arrays of non-fundamental types (e.g., <code>MyClass[2]</code>)
+* Ruby 4.0 support
+* Support incomplete types (PIMPL/opaque handle patterns). Rice now uses <code>typeid(T*)</code> for forward-declared types that are never fully defined.
+* Support <code>noexcept</code> functions, static members, and static member functions
+* Support for <code>Buffer&lt;void*&gt;</code> and <code>Pointer&lt;void*&gt;</code>
+* Add <code>std::function</code>. Ruby procs, lambdas, and blocks can be wrapped in <code>std::function</code> objects and passed to C++ methods. C++ functions returning <code>std::function</code> are automatically wrapped.
+* Add <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.
+* Support verifying arrays of non-fundamental types (e.g., <code>MyClass[2]</code>)
 * Delegate method calls for smart pointers to their wrapped objects via method_missing?</p>
 <p>Internal:
 * Refactor type handling by merging <code>TypeMapper</code> into <code>TypeDetail</code> and simplifying class hierarchy
