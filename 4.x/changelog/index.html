@@ -741,6 +741,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4.11.0 (2026-02-17)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaking Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -752,6 +780,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4.10.0 (2026-02-07)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaking Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -762,6 +818,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4.9.1 (2026-01-04)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fixes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -785,6 +869,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4.8.0 (2025-12-29)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaking Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -796,6 +908,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="4.7.1 (2025-10-28)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -806,6 +935,34 @@
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="4.7.0 (2025-10-22)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enhancements_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breaking-changes_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breaking Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -4000,35 +4157,42 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
 <h2 id="4110-2026-02-17">4.11.0 (2026-02-17)<a class="headerlink" href="#4110-2026-02-17" title="Permanent link">&para;</a></h2>
-<p>Enhancements:
-This release focuses on improving memory management:
-* C++ API is now GC safe
-* C++ API wrappers no longer default to rb_cObject, avoiding unintended Object changes
-* Enable Instance Registry for Ruby owned C++ objects to avoid double frees </p>
-<p>Incompatible Changes:
-* <code>InstanceRegistry.isEnabled</code> (boolean) has been replaced by an <code>InstanceRegistry.isEnabled</code> which is an enum (<code>Off</code>, <code>Owned</code>, <code>All</code>).
-* <code>InstanceRegistry</code> now defaults to <code>Owned</code> - previously it was disabled. The goal of this change is to ensure C++ objects owned by Ruby are only wrapped once to avoid double free errors.
-* <code>Object()</code> now defaults to <code>Qnil</code> instead of <code>rb_cObject</code>. This avoids accidentally manipulating <code>rb_cObject</code> when a wrapper is not explicitly initialized. Calling methods on wrappers that point to <code>Qnil</code> will generally raise an exception. Use <code>object.is_nil()</code> to check for <code>nil</code> before using a wrapper as a receiver.
-* C++ API wrappers now store their Ruby <code>VALUE</code> in a <code>Pin</code> instead of a raw <code>VALUE</code> field. Previously, wrappers were not GC-safe and Ruby could reclaim wrapped objects while C++ still referenced them. This is now fixed, and wrappers such as <code>Object</code> can be stored safely in containers like <code>std::vector</code>.
-* The global <code>Object</code> constants (<code>Rice::Nil</code>, <code>Rice::True</code>, <code>Rice::False</code>, <code>Rice::Undef</code>) have been removed.
-* <code>Object::test()</code> has been removed. Use <code>operator bool()</code> or <code>is_nil()</code> depending on the desired semantics.
-* Remove <code>Builtin_Object</code> since it didn't serve a useful purpose</p>
+<p>This release focuses on improving memory management.</p>
+<h3 id="enhancements">Enhancements<a class="headerlink" href="#enhancements" title="Permanent link">&para;</a></h3>
+<ul>
+<li>C++ API is now GC safe</li>
+<li>C++ API wrappers no longer default to rb_cObject, avoiding unintended Object changes</li>
+<li>Enable Instance Registry for Ruby owned C++ objects to avoid double frees</li>
+</ul>
+<h3 id="breaking-changes">Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>InstanceRegistry.isEnabled</code> (boolean) has been replaced by an <code>InstanceRegistry.isEnabled</code> which is an enum (<code>Off</code>, <code>Owned</code>, <code>All</code>).</li>
+<li><code>InstanceRegistry</code> now defaults to <code>Owned</code> - previously it was disabled. The goal of this change is to ensure C++ objects owned by Ruby are only wrapped once to avoid double free errors.</li>
+<li><code>Object()</code> now defaults to <code>Qnil</code> instead of <code>rb_cObject</code>. This avoids accidentally manipulating <code>rb_cObject</code> when a wrapper is not explicitly initialized. Calling methods on wrappers that point to <code>Qnil</code> will generally raise an exception. Use <code>object.is_nil()</code> to check for <code>nil</code> before using a wrapper as a receiver.</li>
+<li>C++ API wrappers now store their Ruby <code>VALUE</code> in a <code>Pin</code> instead of a raw <code>VALUE</code> field. Previously, wrappers were not GC-safe and Ruby could reclaim wrapped objects while C++ still referenced them. This is now fixed, and wrappers such as <code>Object</code> can be stored safely in containers like <code>std::vector</code>.</li>
+<li>The global <code>Object</code> constants (<code>Rice::Nil</code>, <code>Rice::True</code>, <code>Rice::False</code>, <code>Rice::Undef</code>) have been removed.</li>
+<li><code>Object::test()</code> has been removed. Use <code>operator bool()</code> or <code>is_nil()</code> depending on the desired semantics.</li>
+<li>Remove <code>Builtin_Object</code> since it didn't serve a useful purpose</li>
+</ul>
 <h2 id="4100-2026-02-07">4.10.0 (2026-02-07)<a class="headerlink" href="#4100-2026-02-07" title="Permanent link">&para;</a></h2>
-<p>Enhancements:
-* Ruby 4.0 support
-* Support incomplete types (PIMPL/opaque handle patterns). Rice now uses <code>typeid(T*)</code> for forward-declared types that are never fully defined.
-* Support <code>noexcept</code> functions, static members, and static member functions
-* Support for <code>Buffer&lt;void*&gt;</code> and <code>Pointer&lt;void*&gt;</code>
-* Add <code>std::function</code>. Ruby procs, lambdas, and blocks can be wrapped in <code>std::function</code> objects and passed to C++ methods. C++ functions returning <code>std::function</code> are automatically wrapped.
-* Add <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.
-* Support verifying arrays of non-fundamental types (e.g., <code>MyClass[2]</code>)
-* Delegate method calls for smart pointers to their wrapped objects via method_missing?</p>
-<p>Internal:
-* Refactor type handling by merging <code>TypeMapper</code> into <code>TypeDetail</code> and simplifying class hierarchy
-* Greatly simplify define_attr</p>
-<p>Incompatible Changes:
-* <code>Address_Registration_Guard</code> has been replaced by <code>Pin</code>. If you are using <code>Address_Registration_Guard</code>
-  to protect Ruby VALUEs from garbage collection, update your code to use <code>Pin</code> instead:</p>
+<h3 id="enhancements_1">Enhancements<a class="headerlink" href="#enhancements_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Ruby 4.0 support</li>
+<li>Support incomplete types (PIMPL/opaque handle patterns). Rice now uses <code>typeid(T*)</code> for forward-declared types that are never fully defined.</li>
+<li>Support <code>noexcept</code> functions, static members, and static member functions</li>
+<li>Support for <code>Buffer&lt;void*&gt;</code> and <code>Pointer&lt;void*&gt;</code></li>
+<li>Add <code>std::function</code>. Ruby procs, lambdas, and blocks can be wrapped in <code>std::function</code> objects and passed to C++ methods. C++ functions returning <code>std::function</code> are automatically wrapped.</li>
+<li>Add <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.</li>
+<li>Support verifying arrays of non-fundamental types (e.g., <code>MyClass[2]</code>)</li>
+<li>Delegate method calls for smart pointers to their wrapped objects via method_missing?</li>
+<li>Refactor type handling by merging <code>TypeMapper</code> into <code>TypeDetail</code> and simplifying class hierarchy</li>
+<li>Greatly simplify define_attr</li>
+</ul>
+<h3 id="breaking-changes_1">Breaking Changes<a class="headerlink" href="#breaking-changes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>Address_Registration_Guard</code> has been replaced by <code>Pin</code>. If you are using <code>Address_Registration_Guard</code>
+  to protect Ruby VALUEs from garbage collection, update your code to use <code>Pin</code> instead:</li>
+</ul>
 <p>Before:
   <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">Address_Registration_Guard</span><span class="w"> </span><span class="n">guard_</span><span class="p">;</span>
@@ -4054,23 +4218,28 @@ This release focuses on improving memory management:
 </ul>
 <h2 id="491-2026-01-04">4.9.1 (2026-01-04)<a class="headerlink" href="#491-2026-01-04" title="Permanent link">&para;</a></h2>
 <p>This release focuses on improving memory management for STL containers and attribute setters.</p>
-<p>Enhancements:
-* Support <code>takeOwnership</code> and <code>keepAlive</code> when setting attributes via <code>Arg("value").takeOwnership()</code> and <code>Arg("value").keepAlive()</code>
-* Add <code>Arg</code> parameter names to all STL container methods for keyword argument support
-* Add <code>keepAlive</code> support for STL container operations (vector push/insert, set insert, map/multimap store)
-* Add <code>keepAlive</code> for map/unordered_map/multimap keys to prevent GC of pointer-type keys</p>
-<p>Bug Fixes:
-* Fix error when multiple overloaded methods take different types of vectors
-* Fix type unknown errors when using <code>std::shared_ptr</code> with g++
-* Fix CMake <code>_Ruby_DLEXT</code> variable type (string, not path)
-* Fix crash caused by static variable in keepAlive implementation
-* Fix incorrect attribute overloading behavior</p>
+<h3 id="enhancements_2">Enhancements<a class="headerlink" href="#enhancements_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support <code>takeOwnership</code> and <code>keepAlive</code> when setting attributes via <code>Arg("value").takeOwnership()</code> and <code>Arg("value").keepAlive()</code></li>
+<li>Add <code>Arg</code> parameter names to all STL container methods for keyword argument support</li>
+<li>Add <code>keepAlive</code> support for STL container operations (vector push/insert, set insert, map/multimap store)</li>
+<li>Add <code>keepAlive</code> for map/unordered_map/multimap keys to prevent GC of pointer-type keys</li>
+</ul>
+<h3 id="fixes">Fixes<a class="headerlink" href="#fixes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix error when multiple overloaded methods take different types of vectors</li>
+<li>Fix type unknown errors when using <code>std::shared_ptr</code> with g++</li>
+<li>Fix CMake <code>_Ruby_DLEXT</code> variable type (string, not path)</li>
+<li>Fix crash caused by static variable in keepAlive implementation</li>
+<li>Fix incorrect attribute overloading behavior</li>
+</ul>
 <h2 id="490-2026-01-01">4.9.0 (2026-01-01)<a class="headerlink" href="#490-2026-01-01" title="Permanent link">&para;</a></h2>
 <p>This release revamps smart pointer support for <code>std::shared_ptr</code> and <code>std::unique_ptr</code>.</p>
 <p>Rice now always creates wrapper classes for smart pointers under the <code>Std</code> module (e.g., <code>Std::SharedPtr≺MyClass≻</code>, <code>Std::UniquePtr≺MyClass≻</code>). These wrapper classes expose methods like <code>empty?</code>, <code>get</code>, <code>swap</code>, and for shared_ptr, <code>use_count</code>. Methods defined on the managed type are automatically forwarded to the wrapper class using Ruby's <code>Forwardable</code> module.</p>
 <p>This change is backwards compatible for Ruby code but not C++ code. If you have implemented your own Smart Pointer wrapper then please read the Smart Pointer documentation for more information on how to update it.</p>
 <h2 id="480-2025-12-29">4.8.0 (2025-12-29)<a class="headerlink" href="#480-2025-12-29" title="Permanent link">&para;</a></h2>
-<p>This release focuses on making Rice easier to use:</p>
+<p>This release focuses on making Rice easier to use.</p>
+<h3 id="enhancements_3">Enhancements<a class="headerlink" href="#enhancements_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Compilation times are approximately 2x faster than version 4.7</li>
 <li>Compiled library sizes are about 30% smaller</li>
@@ -4088,7 +4257,7 @@ This release focuses on improving memory management:
 <li>Fixed Ruby detection for Homebrew installations on macOS</li>
 <li>Added support for references to fundamental types</li>
 </ul>
-<p>However, these changes did require some breaking changes, which include:</p>
+<h3 id="breaking-changes_2">Breaking Changes<a class="headerlink" href="#breaking-changes_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>Return().isBuffer()</code> is replaced by <code>ReturnBuffer()</code></li>
 <li><code>Arg("").isBuffer()</code> is replaced by <code>ArgBuffer("")</code></li>
@@ -4097,36 +4266,44 @@ This release focuses on improving memory management:
 <li>All function/method parameter default values are verified. You may see errors like "ArgumentError: Type is not registered with Rice" or "Invalid AnyCast". In either case, make sure to check that specified default values are correct.</li>
 </ul>
 <h2 id="471-2025-10-28">4.7.1 (2025-10-28)<a class="headerlink" href="#471-2025-10-28" title="Permanent link">&para;</a></h2>
-<p>Updates:
-* Update overload resolution to take into account function arguments that are tagged as buffers via Arg("").setBuffer().
-* Make second parameter optional for Array#push and update docs
-* Remove ostruct runtime dependency</p>
+<h3 id="enhancements_4">Enhancements<a class="headerlink" href="#enhancements_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update overload resolution to take into account function arguments that are tagged as buffers via Arg("").setBuffer().</li>
+<li>Make second parameter optional for Array#push and update docs</li>
+<li>Remove ostruct runtime dependency</li>
+</ul>
 <h2 id="470-2025-10-22">4.7.0 (2025-10-22)<a class="headerlink" href="#470-2025-10-22" title="Permanent link">&para;</a></h2>
-<p>Updates:
-* Refactor Native wrappers - functions, methods, attributes and procs - to enable introspection API
-* Introduce Pointer<T> class to wrap pointers to fundamental types and arrays.
-* Add new methods Arg#setBuffer and Return#setBuffer to indicate that a C++ pointer references an array of objects versus a single object
-* Add a new Introspection API that exposes Rice internals to Ruby
-* Using the Introspection API, add support for generating RBS files for extensions. See bin/rice-rbs.rb
-* Using the Introspection API, add support for generating Markdown documentation for extensions. See bin/rice-doc.rb
-* Don't create attribute writers for const attributes
-* Support attribute setters for Enums
-* Support wrapping std::vector<std::unique_ptr\<T>>
-* Update Array#push to not always copy C++ instances. This lays the foundation for extracting references and pointers from tuples, variants and optionals.
-* Add very basic support for creating std::filesystem::path instances
-* Remove toy samples and test libraries. These will be replaced by a new gem that wraps the BitMapPlusPlus library (https://github.com/baderouaich/BitmapPlusPlus)
-* Add support for std::runtime_error since some libraries use that as a base exception class (thus when Rice wraps custom exceptions it also needs to wrap the base class)
-* Improve std::vector indexing to more closely match Ruby for negative index values
-* Correctly encode UTF8 Ruby class names in exception messages
-* Add support for disabling Ruby's global interpreter lock (GIL) when calling native functions</p>
-<p>Breaking Changes:
-* Custom implementations of From_Ruby must include a custom constructor:
-    <code>explicit From_Ruby(Arg* arg)</code>
-* Custom implementations of To_Ruby must include a custom constructor:
-    <code>explicit To_Ruby(Return* returnInfo)</code>
-* You can no longer pass a Buffer<T> to an API that takes a pointer. Instead use Buffer<T>#data or Buffer<T>::release
-* The Rice_Init method has been removed.
-* Array#push requires a second argument.</p>
+<h3 id="enhancements_5">Enhancements<a class="headerlink" href="#enhancements_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Refactor Native wrappers - functions, methods, attributes and procs - to enable introspection API</li>
+<li>Introduce Pointer<T> class to wrap pointers to fundamental types and arrays.</li>
+<li>Add new methods Arg#setBuffer and Return#setBuffer to indicate that a C++ pointer references an array of objects versus a single object</li>
+<li>Add a new Introspection API that exposes Rice internals to Ruby</li>
+<li>Using the Introspection API, add support for generating RBS files for extensions. See bin/rice-rbs.rb</li>
+<li>Using the Introspection API, add support for generating Markdown documentation for extensions. See bin/rice-doc.rb</li>
+<li>Don't create attribute writers for const attributes</li>
+<li>Support attribute setters for Enums</li>
+<li>Support wrapping std::vector<std::unique_ptr\<T>></li>
+<li>Update Array#push to not always copy C++ instances. This lays the foundation for extracting references and pointers from tuples, variants and optionals.</li>
+<li>Add very basic support for creating std::filesystem::path instances</li>
+<li>Remove toy samples and test libraries. These will be replaced by a new gem that wraps the BitMapPlusPlus library (https://github.com/baderouaich/BitmapPlusPlus)</li>
+<li>Add support for std::runtime_error since some libraries use that as a base exception class (thus when Rice wraps custom exceptions it also needs to wrap the base class)</li>
+<li>Improve std::vector indexing to more closely match Ruby for negative index values</li>
+<li>Correctly encode UTF8 Ruby class names in exception messages</li>
+<li>Add support for disabling Ruby's global interpreter lock (GIL) when calling native functions</li>
+</ul>
+<h3 id="breaking-changes_3">Breaking Changes<a class="headerlink" href="#breaking-changes_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Custom implementations of From_Ruby must include a custom constructor:
+    <code>cpp
+    explicit From_Ruby(Arg* arg)</code></li>
+<li>Custom implementations of To_Ruby must include a custom constructor:
+    <code>cpp
+    explicit To_Ruby(Return* returnInfo)</code></li>
+<li>You can no longer pass a Buffer<T> to an API that takes a pointer. Instead use Buffer<T>#data or Buffer<T>::release</li>
+<li>The Rice_Init method has been removed.</li>
+<li>Array#push requires a second argument.</li>
+</ul>
 <h2 id="461-2025-06-25">4.6.1 (2025-06-25)<a class="headerlink" href="#461-2025-06-25" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Improve attribute handling. Correctly deal with non-copyable/assignable attributes and return references instead of copies of objects</li>
@@ -4171,7 +4348,7 @@ This release focuses on improving memory management:
 <li>Support rvalues</li>
 <li>Support using keyword arguments in Ruby to call C++ methods</li>
 <li>Support C style callbacks, including adding a new define_callback method</li>
-<li>Support wrapping C/C++ functions as Ruby procs </li>
+<li>Support wrapping C/C++ functions as Ruby procs</li>
 <li>Support calling methods that take pointers</li>
 <li>Add Data_Type#define method to more easily support C++ template classes</li>
 <li>Adds #define_constant method</li>
@@ -4235,7 +4412,7 @@ This release focuses on improving memory management:
 <ul>
 <li>Exception handlers are now registered globally versus per module. This requires updating code that calls Class#add_handler to use register_handler instead.</li>
 <li>Rename Arg#isValue to Arg#setValue and then Arg#getIsValue to Arg#isValue</li>
-<li>Rename Return#isValue to Return#setValue and Return#getIsValue to Return#isValue </li>
+<li>Rename Return#isValue to Return#setValue and Return#getIsValue to Return#isValue</li>
 </ul>
 <p>New or improved functionality includes:</p>
 <ul>
@@ -4299,10 +4476,10 @@ delivered as a combined header file.</p>
 </ul>
 <h2 id="210-2016-1-1">2.1.0 (2016-1-1)<a class="headerlink" href="#210-2016-1-1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Fix compliation issues related to g++ and Ruby 2.3.0
+<li>Fix compliation issues related to g++ and Ruby 2.3.0.
   To do this, I had to remove Array::to_c_array which was exposing the internals of a
-    Ruby RArray type to the system. This is not something that we should support going forward
-    as these internals are going to change.</li>
+  Ruby RArray type to the system. This is not something that we should support going forward
+  as these internals are going to change.</li>
 </ul>
 <h2 id="200-2015-11-27">2.0.0 (2015-11-27)<a class="headerlink" href="#200-2015-11-27" title="Permanent link">&para;</a></h2>
 <ul>
@@ -4319,7 +4496,7 @@ delivered as a combined header file.</p>
 </ul>
 <h2 id="170-2015-1-6">1.7.0 (2015-1-6)<a class="headerlink" href="#170-2015-1-6" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Ruby 2.2 support
+<li>Ruby 2.2 support.
   Potential breaking changes. Ruby 2.2 removed RHash as a public accessible struct
   and as such I changed all of the Builtin_Objects to work directly off of RObject
   instead of the specifics (RArray, RStruct, RString, etc). If you've been using these
