@@ -3957,7 +3957,7 @@
 <li><code>define_singleton_method</code> - Add class methods</li>
 <li><code>create</code> - Create instances</li>
 </ul>
-<p>Struct::Instance inherits from <code>Builtin_Object&lt;T_STRUCT&gt;</code>, providing access to <a href="../object/">Object</a> methods.</p>
+<p>Struct::Instance inherits from <a href="../object/">Object</a> and validates that wrapped values are Ruby structs (<code>T_STRUCT</code>).</p>
 <hr />
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rice/rice.hpp&gt;</span>
