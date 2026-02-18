@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://ruby-rice.github.io/rice/migration/">
+        <link rel="canonical" href="https://ruby-rice.github.io/rice/changelog/">
       
       
-        <link rel="prev" href="../history/">
+        <link rel="prev" href="../migration/">
       
       
-        <link rel="next" href="../changelog/">
+        <link rel="next" href="../tutorial/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Migration - Rice - Ruby Interface for C++</title>
+        <title>Changelog - Rice - Ruby Interface for C++</title>
       
     
     
@@ -83,7 +83,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#migration" class="md-skip">
+        <a href="#changelog" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Migration
+              Changelog
             
           </span>
         </div>
@@ -641,6 +641,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../migration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Migration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -660,7 +688,7 @@
   <span class="md-ellipsis">
     
   
-    Migration
+    Changelog
   
 
     
@@ -678,7 +706,7 @@
   <span class="md-ellipsis">
     
   
-    Migration
+    Changelog
   
 
     
@@ -705,176 +733,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#version-410-to-411" class="md-nav__link">
+  <a href="#4110-2026-02-17" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version 4.10 to 4.11
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version 4.10 to 4.11">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#instanceregistry-setting-changed-from-boolean-to-mode-enum" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        InstanceRegistry setting changed from boolean to mode enum
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#object-now-defaults-to-qnil-not-rb_cobject" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Object() now defaults to Qnil (not rb_cObject)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#objecttest-removed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Object::test() removed
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#global-object-constants-removed" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Global Object constants removed
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-api-wrappers-now-use-pin-internally" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        C++ API wrappers now use Pin internally
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-47-to-410" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version 4.7 to 4.10
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version 4.7 to 4.10">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#buffergvl-api-renames-48" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Buffer/GVL API renames (4.8)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#is_convertible-return-type-changed-48" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        is_convertible return type changed (4.8)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#methoddefault-argument-verification-is-stricter-48" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Method/default argument verification is stricter (4.8)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#smart-pointer-wrapper-internals-changed-49" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Smart pointer wrapper internals changed (4.9)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#address_registration_guard-replaced-by-pin-410" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Address_Registration_Guard replaced by Pin (4.10)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#blocks-are-converted-to-procs-in-c-bindings-410" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Blocks are converted to Procs in C++ bindings (4.10)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#data_typetdefine-removed-410" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Data_Type&lt;T&gt;::define() removed (4.10)
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#version-46-to-47" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Version 4.6 to 4.7
+        4.11.0 (2026-02-17)
       
     </span>
   </a>
@@ -882,10 +744,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-45-to-46" class="md-nav__link">
+  <a href="#4100-2026-02-07" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version 4.5 to 4.6
+        4.10.0 (2026-02-07)
       
     </span>
   </a>
@@ -893,10 +755,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-4-to-45" class="md-nav__link">
+  <a href="#491-2026-01-04" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version 4.* to 4.5
+        4.9.1 (2026-01-04)
       
     </span>
   </a>
@@ -904,74 +766,365 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#version-3-to-4" class="md-nav__link">
+  <a href="#490-2026-01-01" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Version 3 to 4
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Version 3 to 4">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#include" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        #include
+        4.9.0 (2026-01-01)
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#to_ruby-from_ruby" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#480-2025-12-29" class="md-nav__link">
     <span class="md-ellipsis">
       
-        to_ruby / from_ruby
+        4.8.0 (2025-12-29)
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#functions-vs-methods" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#471-2025-10-28" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Functions vs Methods
+        4.7.1 (2025-10-28)
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#default-arguments" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#470-2025-10-22" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Default Arguments
+        4.7.0 (2025-10-22)
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#memory-management" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#461-2025-06-25" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Memory Management
+        4.6.1 (2025-06-25)
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#460-2025-06-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.6.0 (2025-06-09)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#45-2025-02-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 (2025-02-09)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#433-2024-10-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.3 (2024-10-19)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#432-2024-10-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.2 (2024-10-18)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#431-2024-3-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3.1 (2024-3-16)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#43-2024-2-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 (2024-2-25)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#421-2024-1-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2.1 (2024-1-20)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#42-2024-1-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 (2024-1-10)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#41-2023-4-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 (2023-4-21)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#40-2021-4-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.0 (2021-4-8)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#30-2021-1-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.0 (2021-1-8)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#220-2020-1-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2.0 (2020-1-10)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#213-2019-2-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.3 (2019-2-28)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#212-2017-11-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.2 (2017-11-20)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#211-2020-1-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.1 (2020-1-10)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#210-2016-1-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1.0 (2016-1-1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#200-2015-11-27" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.0.0 (2015-11-27)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#170-2015-1-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.7.0 (2015-1-6)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#163-2014-12-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6.3 (2014-12-18)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#162-2014-5-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6.2 (2014-5-5)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#161-2014-5-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6.1 (2014-5-5)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#160-2014-2-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6.0 (2014-2-3)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#153-2013-10-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5.3 (2013-10-14)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#152-2013-10-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5.2 (2013-10-5)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#151-2013-5-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5.1 (2013-5-2)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#150-2013-5-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5.0 (2013-5-1)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#143-2011-10-9" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.3 (2011-10-9)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#140-2010-8-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.0 (2010-8-30)
+      
+    </span>
+  </a>
   
 </li>
       
@@ -979,34 +1132,6 @@
   
 </nav>
       
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../changelog/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Changelog
-  
-
-    
-  </span>
-  
-  
-
-      </a>
     </li>
   
 
@@ -3873,222 +3998,384 @@
   
 
 
-<h1 id="migration">Migration<a class="headerlink" href="#migration" title="Permanent link">&para;</a></h1>
-<h2 id="version-410-to-411">Version 4.10 to 4.11<a class="headerlink" href="#version-410-to-411" title="Permanent link">&para;</a></h2>
-<p>Version 4.11 introduces several breaking changes in instance tracking and the C++ API wrappers.</p>
-<h3 id="instanceregistry-setting-changed-from-boolean-to-mode-enum">InstanceRegistry setting changed from boolean to mode enum<a class="headerlink" href="#instanceregistry-setting-changed-from-boolean-to-mode-enum" title="Permanent link">&para;</a></h3>
-<p><code>InstanceRegistry.isEnabled</code> no longer takes/returns a boolean-style state. It now uses a mode enum:
-<code>Off</code>, <code>Owned</code>, <code>All</code>.</p>
-<p>Before:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="no">Rice</span><span class="o">::</span><span class="no">InstanceRegistry</span><span class="o">.</span><span class="n">isEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">true</span>
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="no">Rice</span><span class="o">::</span><span class="no">InstanceRegistry</span><span class="o">.</span><span class="n">isEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kp">false</span>
+<h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
+<h2 id="4110-2026-02-17">4.11.0 (2026-02-17)<a class="headerlink" href="#4110-2026-02-17" title="Permanent link">&para;</a></h2>
+<p>Enhancements:
+This release focuses on improving memory management:
+* C++ API is now GC safe
+* C++ API wrappers no longer default to rb_cObject, avoiding unintended Object changes
+* Enable Instance Registry for Ruby owned C++ objects to avoid double frees </p>
+<p>Incompatible Changes:
+* <code>InstanceRegistry.isEnabled</code> (boolean) has been replaced by an <code>InstanceRegistry.isEnabled</code> which is an enum (<code>Off</code>, <code>Owned</code>, <code>All</code>).
+* <code>InstanceRegistry</code> now defaults to <code>Owned</code> - previously it was disabled. The goal of this change is to ensure C++ objects owned by Ruby are only wrapped once to avoid double free errors.
+* <code>Object()</code> now defaults to <code>Qnil</code> instead of <code>rb_cObject</code>. This avoids accidentally manipulating <code>rb_cObject</code> when a wrapper is not explicitly initialized. Calling methods on wrappers that point to <code>Qnil</code> will generally raise an exception. Use <code>object.is_nil()</code> to check for <code>nil</code> before using a wrapper as a receiver.
+* C++ API wrappers now store their Ruby <code>VALUE</code> in a <code>Pin</code> instead of a raw <code>VALUE</code> field. Previously, wrappers were not GC-safe and Ruby could reclaim wrapped objects while C++ still referenced them. This is now fixed, and wrappers such as <code>Object</code> can be stored safely in containers like <code>std::vector</code>.
+* The global <code>Object</code> constants (<code>Rice::Nil</code>, <code>Rice::True</code>, <code>Rice::False</code>, <code>Rice::Undef</code>) have been removed.
+* <code>Object::test()</code> has been removed. Use <code>operator bool()</code> or <code>is_nil()</code> depending on the desired semantics.
+* Remove <code>Builtin_Object</code> since it didn't serve a useful purpose</p>
+<h2 id="4100-2026-02-07">4.10.0 (2026-02-07)<a class="headerlink" href="#4100-2026-02-07" title="Permanent link">&para;</a></h2>
+<p>Enhancements:
+* Ruby 4.0 support
+* Support incomplete types (PIMPL/opaque handle patterns). Rice now uses <code>typeid(T*)</code> for forward-declared types that are never fully defined.
+* Support <code>noexcept</code> functions, static members, and static member functions
+* Support for <code>Buffer&lt;void*&gt;</code> and <code>Pointer&lt;void*&gt;</code>
+* Add <code>std::function</code>. Ruby procs, lambdas, and blocks can be wrapped in <code>std::function</code> objects and passed to C++ methods. C++ functions returning <code>std::function</code> are automatically wrapped.
+* Add <code>std::ostream</code>, <code>std::ostringstream</code>, and <code>std::ofstream</code>. Ruby can write to C++ streams and pass them to C++ functions. Standard streams are exposed as <code>Std::COUT</code> and <code>Std::CERR</code>.
+* Support verifying arrays of non-fundamental types (e.g., <code>MyClass[2]</code>)
+* Delegate method calls for smart pointers to their wrapped objects via method_missing?</p>
+<p>Internal:
+* Refactor type handling by merging <code>TypeMapper</code> into <code>TypeDetail</code> and simplifying class hierarchy
+* Greatly simplify define_attr</p>
+<p>Incompatible Changes:
+* <code>Address_Registration_Guard</code> has been replaced by <code>Pin</code>. If you are using <code>Address_Registration_Guard</code>
+  to protect Ruby VALUEs from garbage collection, update your code to use <code>Pin</code> instead:</p>
+<p>Before:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">Address_Registration_Guard</span><span class="w"> </span><span class="n">guard_</span><span class="p">;</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">MyClass</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">value_</span><span class="p">(</span><span class="n">rb_str_new2</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">guard_</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value_</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+</code></pre></div></p>
+<p>After:
+  <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Pin</span><span class="w"> </span><span class="n">pin_</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">MyClass</span><span class="p">()</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">pin_</span><span class="p">(</span><span class="n">rb_str_new2</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">getValue</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">pin_</span><span class="p">.</span><span class="n">get</span><span class="p">();</span><span class="w"> </span><span class="p">}</span>
+</code></pre></div></p>
+<p><code>Pin</code> is self-contained and provides <code>get()</code> and <code>set()</code> methods to access the pinned VALUE.</p>
+<ul>
+<li>Rice converts Ruby blocks to procs. Thus if you have a method that expects a block, you must add
+  a VALUE parameter and tell Rice it is a value. For example:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;my_method&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">VALUE</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="n">proc</span><span class="p">)</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="p">},</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;proc&quot;</span><span class="p">).</span><span class="n">setValue</span><span class="p">())</span>
 </code></pre></div>
-<p>After:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="no">Rice</span><span class="o">::</span><span class="no">InstanceRegistry</span><span class="o">.</span><span class="n">isEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Rice</span><span class="o">::</span><span class="no">InstanceRegistry</span><span class="o">::</span><span class="no">Owned</span>
-<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="no">Rice</span><span class="o">::</span><span class="no">InstanceRegistry</span><span class="o">.</span><span class="n">isEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Rice</span><span class="o">::</span><span class="no">InstanceRegistry</span><span class="o">::</span><span class="no">Off</span>
-<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="no">Rice</span><span class="o">::</span><span class="no">InstanceRegistry</span><span class="o">.</span><span class="n">isEnabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="no">Rice</span><span class="o">::</span><span class="no">InstanceRegistry</span><span class="o">::</span><span class="no">All</span>
-</code></pre></div>
-<p>Also note the default changed from disabled to <code>Owned</code>. If your code depended on registry-off behavior, set it explicitly to <code>Off</code>.</p>
-<h3 id="object-now-defaults-to-qnil-not-rb_cobject"><code>Object()</code> now defaults to <code>Qnil</code> (not <code>rb_cObject</code>)<a class="headerlink" href="#object-now-defaults-to-qnil-not-rb_cobject" title="Permanent link">&para;</a></h3>
-<p>Default-constructed wrappers are now nil wrappers.</p>
-<p>Before:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
-<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">obj</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;some_method&quot;</span><span class="p">);</span><span class="w"> </span><span class="c1">// could accidentally target rb_cObject</span>
-</code></pre></div>
-<p>After:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
-<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">obj</span><span class="p">.</span><span class="n">is_nil</span><span class="p">())</span>
-<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="p">{</span>
-<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">obj</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;some_method&quot;</span><span class="p">);</span>
-<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
-</code></pre></div>
-<p>Or initialize explicitly:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">rb_cObject</span><span class="p">);</span>
-<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">obj</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;some_method&quot;</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="objecttest-removed"><code>Object::test()</code> removed<a class="headerlink" href="#objecttest-removed" title="Permanent link">&para;</a></h3>
-<p>Replace calls to <code>test()</code> with either <code>operator bool()</code> or <code>is_nil()</code>, depending on intent.</p>
-<p>Before:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">test</span><span class="p">())</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="c1">// truthy</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
-</code></pre></div>
-<p>After:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="c1">// truthy</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
-</code></pre></div>
-<p>Or, if you specifically need nil checks:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">is_nil</span><span class="p">())</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="c1">// nil</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="global-object-constants-removed">Global <code>Object</code> constants removed<a class="headerlink" href="#global-object-constants-removed" title="Permanent link">&para;</a></h3>
-<p>The convenience globals were removed:
-<code>Rice::Nil</code>, <code>Rice::True</code>, <code>Rice::False</code>, <code>Rice::Undef</code>.</p>
-<p>Before:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rice</span><span class="o">::</span><span class="n">Nil</span><span class="p">;</span>
-</code></pre></div>
-<p>After:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">value</span><span class="p">(</span><span class="n">Qnil</span><span class="p">);</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">Object</span><span class="w"> </span><span class="nf">truthy</span><span class="p">(</span><span class="n">Qtrue</span><span class="p">);</span>
-<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="n">Object</span><span class="w"> </span><span class="nf">falsy</span><span class="p">(</span><span class="n">Qfalse</span><span class="p">);</span>
-<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="n">Object</span><span class="w"> </span><span class="nf">undef_value</span><span class="p">(</span><span class="n">Qundef</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="c-api-wrappers-now-use-pin-internally">C++ API wrappers now use <code>Pin</code> internally<a class="headerlink" href="#c-api-wrappers-now-use-pin-internally" title="Permanent link">&para;</a></h3>
-<p>Wrapper classes (such as <code>Object</code>) now pin their wrapped Ruby value internally for GC safety.</p>
-<p>Most users do not need code changes for this update. The primary behavior change is improved safety for long-lived wrappers, including wrappers stored in containers:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">Object</span><span class="o">&gt;</span><span class="w"> </span><span class="n">values</span><span class="p">;</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">values</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">Object</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)));</span>
-</code></pre></div>
-<p>If you previously added ad-hoc GC guards only to protect wrapper objects, those guards may no longer be necessary for the wrappers themselves.</p>
-<h2 id="version-47-to-410">Version 4.7 to 4.10<a class="headerlink" href="#version-47-to-410" title="Permanent link">&para;</a></h2>
-<p>Versions 4.8, 4.9, and 4.10 introduced several incompatible C++ API changes.</p>
-<h3 id="buffergvl-api-renames-48">Buffer/GVL API renames (4.8)<a class="headerlink" href="#buffergvl-api-renames-48" title="Permanent link">&para;</a></h3>
-<p>Before:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">read</span><span class="p">,</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;buffer&quot;</span><span class="p">).</span><span class="n">isBuffer</span><span class="p">());</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;write&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">write</span><span class="p">,</span><span class="w"> </span><span class="n">Return</span><span class="p">().</span><span class="n">isBuffer</span><span class="p">());</span>
-<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">Function</span><span class="p">().</span><span class="n">noGVL</span><span class="p">());</span>
-</code></pre></div>
-<p>After:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;read&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">read</span><span class="p">,</span><span class="w"> </span><span class="n">ArgBuffer</span><span class="p">(</span><span class="s">&quot;buffer&quot;</span><span class="p">));</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;write&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">write</span><span class="p">,</span><span class="w"> </span><span class="n">ReturnBuffer</span><span class="p">());</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;compute&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">MyClass</span><span class="o">::</span><span class="n">compute</span><span class="p">,</span><span class="w"> </span><span class="n">NoGvL</span><span class="p">());</span>
-</code></pre></div>
-<h3 id="is_convertible-return-type-changed-48"><code>is_convertible</code> return type changed (4.8)<a class="headerlink" href="#is_convertible-return-type-changed-48" title="Permanent link">&para;</a></h3>
-<p><code>From_Ruby&lt;T&gt;::is_convertible</code> must return <code>double</code> instead of <code>Convertible</code>.</p>
-<p>Before:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Convertible</span><span class="w"> </span><span class="nf">is_convertible</span><span class="p">(</span><span class="n">VALUE</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="p">{</span>
-<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">Convertible</span><span class="o">::</span><span class="n">Exact</span><span class="p">;</span>
-<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">}</span>
-</code></pre></div>
-<p>After:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">is_convertible</span><span class="p">(</span><span class="n">VALUE</span><span class="w"> </span><span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">Convertible</span><span class="o">::</span><span class="n">Exact</span><span class="p">;</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="methoddefault-argument-verification-is-stricter-48">Method/default argument verification is stricter (4.8)<a class="headerlink" href="#methoddefault-argument-verification-is-stricter-48" title="Permanent link">&para;</a></h3>
-<p>Rice now validates default arguments and type registrations more aggressively. Code that previously compiled but had mismatched/default argument types may now raise errors during binding setup.</p>
-<p>Migration step:
-1. Ensure every default argument value matches the bound C++ parameter type.
-2. Ensure all custom/opaque types are registered before using them in defaults.</p>
-<h3 id="smart-pointer-wrapper-internals-changed-49">Smart pointer wrapper internals changed (4.9)<a class="headerlink" href="#smart-pointer-wrapper-internals-changed-49" title="Permanent link">&para;</a></h3>
-<p>If you implemented custom Rice-side smart pointer wrappers, update them to the current <code>Std::SharedPtr&lt;T&gt;</code> / <code>Std::UniquePtr&lt;T&gt;</code> model and forwarding behavior.</p>
-<p>Most users who only consume smart pointers through <code>define_method</code>/<code>define_constructor</code> do not need code changes.</p>
-<h3 id="address_registration_guard-replaced-by-pin-410"><code>Address_Registration_Guard</code> replaced by <code>Pin</code> (4.10)<a class="headerlink" href="#address_registration_guard-replaced-by-pin-410" title="Permanent link">&para;</a></h3>
-<p>Before:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">value_</span><span class="p">;</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">Address_Registration_Guard</span><span class="w"> </span><span class="n">guard_</span><span class="p">;</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">MyClass</span><span class="p">()</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">value_</span><span class="p">(</span><span class="n">rb_str_new2</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)),</span><span class="w"> </span><span class="n">guard_</span><span class="p">(</span><span class="o">&amp;</span><span class="n">value_</span><span class="p">)</span>
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="p">{</span>
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="p">}</span>
-</code></pre></div>
-<p>After:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">Pin</span><span class="w"> </span><span class="n">pin_</span><span class="p">;</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="n">MyClass</span><span class="p">()</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span><span class="o">:</span><span class="w"> </span><span class="n">pin_</span><span class="p">(</span><span class="n">rb_str_new2</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">))</span>
-<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="p">{</span>
-<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="p">}</span>
-<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>
-<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">value</span><span class="p">()</span><span class="w"> </span><span class="k">const</span>
-<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="p">{</span>
-<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">pin_</span><span class="p">.</span><span class="n">value</span><span class="p">();</span>
-<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="p">}</span>
-</code></pre></div>
-<h3 id="blocks-are-converted-to-procs-in-c-bindings-410">Blocks are converted to Procs in C++ bindings (4.10)<a class="headerlink" href="#blocks-are-converted-to-procs-in-c-bindings-410" title="Permanent link">&para;</a></h3>
-<p>If your C++ method expects a Ruby block, explicitly receive it as a <code>VALUE</code>/<code>Object</code> parameter and mark it as a value arg.</p>
-<p>Before:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;run_with_block&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">VALUE</span><span class="w"> </span><span class="n">self</span><span class="p">)</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="p">{</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">  </span><span class="c1">// expected implicit block handling</span>
-<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="p">});</span>
-</code></pre></div>
-<p>After:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;run_with_block&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="n">VALUE</span><span class="w"> </span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">VALUE</span><span class="w"> </span><span class="n">proc</span><span class="p">)</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="p">{</span>
-<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="w">  </span><span class="c1">// proc is the Ruby block converted to Proc</span>
-<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="p">},</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;proc&quot;</span><span class="p">).</span><span class="n">setValue</span><span class="p">());</span>
-</code></pre></div>
-<h3 id="data_typetdefine-removed-410"><code>Data_Type&lt;T&gt;::define()</code> removed (4.10)<a class="headerlink" href="#data_typetdefine-removed-410" title="Permanent link">&para;</a></h3>
-<p>Use class template binding helpers / explicit factory functions instead of <code>Data_Type&lt;T&gt;::define()</code>.</p>
-<p>Migration step:
-1. Remove <code>Data_Type&lt;T&gt;::define()</code> calls.
-2. Replace with <code>define_class</code>/<code>define_class_under</code> flows documented in <a href="../bindings/class_templates/">Class Templates</a>.</p>
-<h2 id="version-46-to-47">Version 4.6 to 4.7<a class="headerlink" href="#version-46-to-47" title="Permanent link">&para;</a></h2>
-<p>Version 4.7 has a couple of breaking changes.</p>
-<p>The <code>Rice_Init</code> method has been removed.</p>
-<p><code>Buffer&lt;T&gt;</code> classes can no longer be passed to C++ apis that take references or pointers. Instead use <code>Buffer&lt;T&gt;::data</code> or <code>Buffer&lt;T&gt;::release</code>.</p>
-<h2 id="version-45-to-46">Version 4.5 to 4.6<a class="headerlink" href="#version-45-to-46" title="Permanent link">&para;</a></h2>
-<p>Version 4.6 has a couple of breaking changes.</p>
-<p>First, all C++ STL classes are now defined in the <code>Std</code> module. Therefore the following methods were removed - <code>define_vector_under</code>, <code>define_map_under</code> and <code>define_unordered_map_under</code>.</p>
-<p>Second, Rice used to automatically convert Ruby Arrays of fundamental types to std::vectors (and similarly Hashes to std::map). Now you must use <a href="../bindings/buffers/">Buffers</a> instead.</p>
-<h2 id="version-4-to-45">Version 4.* to 4.5<a class="headerlink" href="#version-4-to-45" title="Permanent link">&para;</a></h2>
-<p>Version 4.5 is significantly more powerful that previous Rice versions. For the most part it is backwards compatible. The exception is if you defined a custom <code>From_Ruby</code> instantiation. In that case, you will need to add a <code>convertible</code> method. See the <a href="../types/converters/#step-3-specialize-from_ruby">From_Ruby specialization</a> documentation for an example.</p>
-<h2 id="version-3-to-4">Version 3 to 4<a class="headerlink" href="#version-3-to-4" title="Permanent link">&para;</a></h2>
-<p>Version 3 and earlier required compiling code on <code>gem install</code>. This made it difficult to use Rice on some platforms, such as Heroku or Github Actions, where the appropriate shared libraries and/or build systems are not allowed or available.</p>
-<p>Rice 4 transitions to being a header only library, making it much easier for libraries using Rice to provide binary builds. However, this work was substantial and required making a few backwards-incompatible changes This page documents the major changes that any one using Rice 3 will need to apply to their libraries to work with Rice 4 or newer.</p>
-<h3 id="include">#include <rice/rice.hpp><a class="headerlink" href="#include" title="Permanent link">&para;</a></h3>
-<p>The first change is that Rice is now published as a single, combined header file, so all includes can be changed to just this one. There is one other header file that contains STL wrapper definitions, you can get that with <code>#include &lt;rice/stl.hpp&gt;</code>. For more information see the <a href="../stl/stl/">STL</a> section.</p>
-<h3 id="to_ruby-from_ruby">to_ruby / from_ruby<a class="headerlink" href="#to_ruby-from_ruby" title="Permanent link">&para;</a></h3>
-<p>The most notable backwards-incompatible change is how you define Ruby &lt;=&gt; C++ type conversions.</p>
-<p>In Rice 3, you defined the methods <code>to_ruby</code> and <code>from_ruby</code> like this:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="k">template</span><span class="o">&lt;&gt;</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">Foo</span><span class="w"> </span><span class="n">from_ruby</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Rice</span><span class="o">::</span><span class="n">Object</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="p">{</span>
-<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">  </span><span class="c1">// ...</span>
-<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="p">}</span>
-<a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a>
-<a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a><span class="k">template</span><span class="o">&lt;&gt;</span>
-<a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="n">Rice</span><span class="o">::</span><span class="n">Object</span><span class="w"> </span><span class="n">to_ruby</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span><span class="p">(</span><span class="n">Foo</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="p">{</span>
-<a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">  </span><span class="c1">// ...</span>
-<a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a><span class="p">}</span>
-</code></pre></div>
-<p>In Rice 4, the structure of these functions has changed significantly. You now define these methods
-as a <code>convert</code> function in a struct, and they need to live in the <code>Rice::detail</code> namespace:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">Rice</span><span class="o">::</span><span class="nn">detail</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="p">{</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="w">  </span><span class="k">template</span><span class="o">&lt;&gt;</span>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">From_Ruby</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a><span class="w">    </span><span class="n">Foo</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">VALUE</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">      </span><span class="c1">// ...</span>
-<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">  </span><span class="p">};</span>
-<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>
-<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">  </span><span class="k">template</span><span class="o">&lt;&gt;</span>
-<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a><span class="w">  </span><span class="k">class</span><span class="w"> </span><span class="nc">To_Ruby</span><span class="o">&lt;</span><span class="n">Foo</span><span class="o">&gt;</span>
-<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">  </span><span class="p">{</span>
-<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">    </span><span class="n">VALUE</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="n">Foo</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">    </span><span class="p">{</span>
-<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">      </span><span class="c1">// ...</span>
-<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a><span class="w">    </span><span class="p">}</span>
-<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="w">  </span><span class="p">};</span>
-<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a><span class="p">}</span>
-</code></pre></div>
-<p>In addition, they work with Ruby's VALUE type as opposed to Rice's Object type. This switch was made to avoid making extra copies of objects when translating between C++ and Ruby. For more information, please refer to the <a href="../types/conversion/">type conversion</a> section.</p>
-<h3 id="functions-vs-methods">Functions vs Methods<a class="headerlink" href="#functions-vs-methods" title="Permanent link">&para;</a></h3>
-<p>Rice now has different <code>define_</code> methods depending on if you are defining a method on an object or
-a normal function. If you need <code>self</code>, use <code>define_method</code> or <code>define_singleton_method</code>. Otherwise
-you should use <code>define_function</code> and <code>define_singleton_function</code>. You can read more in <a href="../tutorial/#defining-methods">the tutorial</a>.</p>
-<h3 id="default-arguments">Default Arguments<a class="headerlink" href="#default-arguments" title="Permanent link">&para;</a></h3>
-<p>They way Rice defines C++ <a href="../bindings/methods/#default-arguments">default arguments</a> has subtly changed - this is an easy one to miss and can introduce bugs (default values will not be set correctly). Previously Rice relied on C++'s comma operator to combine arguments together:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Test</span><span class="o">::</span><span class="n">hello</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;world&quot;</span><span class="p">));</span>
-</code></pre></div>
-<p>Notice that the two <code>Args</code> are surrounded by parentheses. Rice <em>no</em> longer support this style. Instead, just pass the <code>Args</code> in a more natural way without the parentheses:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">define_method</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">Test</span><span class="o">::</span><span class="n">hello</span><span class="p">,</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">Arg</span><span class="p">(</span><span class="s">&quot;second&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;world&quot;</span><span class="p">);</span>
-</code></pre></div>
-<h3 id="memory-management">Memory Management<a class="headerlink" href="#memory-management" title="Permanent link">&para;</a></h3>
-<p>Rice 4 also requires and provides more tools for explicitly defining which objects should and should not be managed by the Ruby garbage collector. Read more in <a href="../bindings/memory_management/">memory management</a>.</p>
+<p>Think of this as similar to how you would capture a block in Ruby using the &amp;block syntax.</p>
+<ul>
+<li>The <code>Data_Type&lt;T&gt;::define()</code> method has been removed. See the <a href="../bindings/class_templates/">Class Templates</a> documentation for the recommended approach.</li>
+</ul>
+<h2 id="491-2026-01-04">4.9.1 (2026-01-04)<a class="headerlink" href="#491-2026-01-04" title="Permanent link">&para;</a></h2>
+<p>This release focuses on improving memory management for STL containers and attribute setters.</p>
+<p>Enhancements:
+* Support <code>takeOwnership</code> and <code>keepAlive</code> when setting attributes via <code>Arg("value").takeOwnership()</code> and <code>Arg("value").keepAlive()</code>
+* Add <code>Arg</code> parameter names to all STL container methods for keyword argument support
+* Add <code>keepAlive</code> support for STL container operations (vector push/insert, set insert, map/multimap store)
+* Add <code>keepAlive</code> for map/unordered_map/multimap keys to prevent GC of pointer-type keys</p>
+<p>Bug Fixes:
+* Fix error when multiple overloaded methods take different types of vectors
+* Fix type unknown errors when using <code>std::shared_ptr</code> with g++
+* Fix CMake <code>_Ruby_DLEXT</code> variable type (string, not path)
+* Fix crash caused by static variable in keepAlive implementation
+* Fix incorrect attribute overloading behavior</p>
+<h2 id="490-2026-01-01">4.9.0 (2026-01-01)<a class="headerlink" href="#490-2026-01-01" title="Permanent link">&para;</a></h2>
+<p>This release revamps smart pointer support for <code>std::shared_ptr</code> and <code>std::unique_ptr</code>.</p>
+<p>Rice now always creates wrapper classes for smart pointers under the <code>Std</code> module (e.g., <code>Std::SharedPtr≺MyClass≻</code>, <code>Std::UniquePtr≺MyClass≻</code>). These wrapper classes expose methods like <code>empty?</code>, <code>get</code>, <code>swap</code>, and for shared_ptr, <code>use_count</code>. Methods defined on the managed type are automatically forwarded to the wrapper class using Ruby's <code>Forwardable</code> module.</p>
+<p>This change is backwards compatible for Ruby code but not C++ code. If you have implemented your own Smart Pointer wrapper then please read the Smart Pointer documentation for more information on how to update it.</p>
+<h2 id="480-2025-12-29">4.8.0 (2025-12-29)<a class="headerlink" href="#480-2025-12-29" title="Permanent link">&para;</a></h2>
+<p>This release focuses on making Rice easier to use:</p>
+<ul>
+<li>Compilation times are approximately 2x faster than version 4.7</li>
+<li>Compiled library sizes are about 30% smaller</li>
+<li>Improved keyword argument support</li>
+<li>Improved method override support</li>
+<li>Improved CMake support</li>
+<li>Improved rbs generation support</li>
+<li>Improved api documentation generation support</li>
+<li>Expanded and improved documentation</li>
+<li>Enum values can now be compared against their underlying type (e.g., <code>Season::Red == 0</code>)</li>
+<li>STL containers now support <code>==</code> and <code>eql?</code> for equality comparison</li>
+<li>Automatic creation of <code>std::shared_ptr&lt;T&gt;</code> Ruby classes</li>
+<li>Support for C++ references in callbacks</li>
+<li>Array class now supports random iterators</li>
+<li>Fixed Ruby detection for Homebrew installations on macOS</li>
+<li>Added support for references to fundamental types</li>
+</ul>
+<p>However, these changes did require some breaking changes, which include:</p>
+<ul>
+<li><code>Return().isBuffer()</code> is replaced by <code>ReturnBuffer()</code></li>
+<li><code>Arg("").isBuffer()</code> is replaced by <code>ArgBuffer("")</code></li>
+<li><code>Function().noGVL()</code> is replaced by <code>NoGvL()</code></li>
+<li><code>is_convertible</code> methods must now return a <code>double</code> instead of a <code>Convertible</code> enum</li>
+<li>All function/method parameter default values are verified. You may see errors like "ArgumentError: Type is not registered with Rice" or "Invalid AnyCast". In either case, make sure to check that specified default values are correct.</li>
+</ul>
+<h2 id="471-2025-10-28">4.7.1 (2025-10-28)<a class="headerlink" href="#471-2025-10-28" title="Permanent link">&para;</a></h2>
+<p>Updates:
+* Update overload resolution to take into account function arguments that are tagged as buffers via Arg("").setBuffer().
+* Make second parameter optional for Array#push and update docs
+* Remove ostruct runtime dependency</p>
+<h2 id="470-2025-10-22">4.7.0 (2025-10-22)<a class="headerlink" href="#470-2025-10-22" title="Permanent link">&para;</a></h2>
+<p>Updates:
+* Refactor Native wrappers - functions, methods, attributes and procs - to enable introspection API
+* Introduce Pointer<T> class to wrap pointers to fundamental types and arrays.
+* Add new methods Arg#setBuffer and Return#setBuffer to indicate that a C++ pointer references an array of objects versus a single object
+* Add a new Introspection API that exposes Rice internals to Ruby
+* Using the Introspection API, add support for generating RBS files for extensions. See bin/rice-rbs.rb
+* Using the Introspection API, add support for generating Markdown documentation for extensions. See bin/rice-doc.rb
+* Don't create attribute writers for const attributes
+* Support attribute setters for Enums
+* Support wrapping std::vector<std::unique_ptr\<T>>
+* Update Array#push to not always copy C++ instances. This lays the foundation for extracting references and pointers from tuples, variants and optionals.
+* Add very basic support for creating std::filesystem::path instances
+* Remove toy samples and test libraries. These will be replaced by a new gem that wraps the BitMapPlusPlus library (https://github.com/baderouaich/BitmapPlusPlus)
+* Add support for std::runtime_error since some libraries use that as a base exception class (thus when Rice wraps custom exceptions it also needs to wrap the base class)
+* Improve std::vector indexing to more closely match Ruby for negative index values
+* Correctly encode UTF8 Ruby class names in exception messages
+* Add support for disabling Ruby's global interpreter lock (GIL) when calling native functions</p>
+<p>Breaking Changes:
+* Custom implementations of From_Ruby must include a custom constructor:
+    <code>explicit From_Ruby(Arg* arg)</code>
+* Custom implementations of To_Ruby must include a custom constructor:
+    <code>explicit To_Ruby(Return* returnInfo)</code>
+* You can no longer pass a Buffer<T> to an API that takes a pointer. Instead use Buffer<T>#data or Buffer<T>::release
+* The Rice_Init method has been removed.
+* Array#push requires a second argument.</p>
+<h2 id="461-2025-06-25">4.6.1 (2025-06-25)<a class="headerlink" href="#461-2025-06-25" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Improve attribute handling. Correctly deal with non-copyable/assignable attributes and return references instead of copies of objects</li>
+<li>Improve Buffer implementation to deal with 4 cases:<ul>
+<li>array of fundamental types (int*)</li>
+<li>array of pointers fundamental types (char**)</li>
+<li>array of objects (someInstance*)</li>
+<li>array of pointers of objects (someInstance**)</li>
+</ul>
+</li>
+<li>Implement Buffer#to_s</li>
+<li>Fix header check on Ubuntu 22.04</li>
+</ul>
+<h2 id="460-2025-06-09">4.6.0 (2025-06-09)<a class="headerlink" href="#460-2025-06-09" title="Permanent link">&para;</a></h2>
+<p>Rice 4.6 is a major release that adds significant new functionality based on wrapping the OpenCV library, including:</p>
+<ul>
+<li>Add a new Buffer class to provide Ruby API support for pointers sent to or returned by C++</li>
+<li>Support C style out parameters</li>
+<li>Support C style arrays</li>
+<li>Rewrite keyword arguments</li>
+<li>Rewrite default value handling allowing the removal of a lot of boilerplate</li>
+<li>Add support for std::multimap</li>
+<li>Add support for std::set</li>
+<li>Add support for std::tuple</li>
+<li>Add support for smart pointers (shared_ptr, unique_ptr) to fundamental types (void, int, etc)</li>
+<li>Improve std::variant support</li>
+<li>Update is_convertible documentation</li>
+<li>Fix missing version.rb file in gemspec</li>
+<li>Add C++ preprocessor defines for Rice version</li>
+<li>Include Rice::VERSION in published gem</li>
+<li>Moved auto-generated C++ STL classes (std::vector, std::map, etc.) from the module Rice::Std module to Std module</li>
+<li>Make Rice const aware to improve overload method support</li>
+<li>Improve error messages when Rice cannot determine what overloaded method to call</li>
+<li>Improve handling of unbound Data_Type instances to avoid crashes when initializing global static variables of type Data_Type<T></li>
+<li>Make Enums more useful by adding coerce method to enable stringing together bitwise operators - for example Season::Winter | Season::Spring | Season::Summer.</li>
+</ul>
+<h2 id="45-2025-02-09">4.5 (2025-02-09)<a class="headerlink" href="#45-2025-02-09" title="Permanent link">&para;</a></h2>
+<p>Rice 4.5 is a major release that adds significant new functionality, including:</p>
+<ul>
+<li>Support method overloading</li>
+<li>Support constructor overloading</li>
+<li>Support rvalues</li>
+<li>Support using keyword arguments in Ruby to call C++ methods</li>
+<li>Support C style callbacks, including adding a new define_callback method</li>
+<li>Support wrapping C/C++ functions as Ruby procs </li>
+<li>Support calling methods that take pointers</li>
+<li>Add Data_Type#define method to more easily support C++ template classes</li>
+<li>Adds #define_constant method</li>
+<li>Be more flexible on type verification by not throwing errors until all classes/methods have been defined and also allow a error message to be printed instead of thrown</li>
+<li>Add ability to transfer ownership of Ruby created objects to C++ (useful for sending wrapped pointers to APIs that take smart pointers)</li>
+<li>Add support for *char</li>
+<li>Add support for **char</li>
+<li>Improve C++ exception handling when called from Ruby</li>
+<li>Improve handling of Ruby exceptions</li>
+<li>Update std::variant to support references</li>
+<li>Split NativeAttribute support to NativeAttributeGet and NativeAttributeSet</li>
+<li>Create base class for Native classes (NativeFunction, NativeIterator, NativeAttributeGet, NativeAttributeSet - make the type registry easier to deal with (thus using type erasure like the Wrapper classes do).</li>
+<li>Support Ruby 3.4</li>
+<li>Lots of documentation additions and updates</li>
+<li>Updated FindRuby to support rbenv (this change is also merged upstream to CMake)</li>
+</ul>
+<p>This release also improves STL support by adding:</p>
+<ul>
+<li>std::exception</li>
+<li>std::exception_ptr</li>
+<li>std::monostage</li>
+<li>std::shared_ptr<void></li>
+<li>std::type_index</li>
+<li>std::type_info</li>
+<li>std::vector<bool></li>
+</ul>
+<p>Please see the migration guide for updating your bindings for version 4.5</p>
+<h2 id="433-2024-10-19">4.3.3 (2024-10-19)<a class="headerlink" href="#433-2024-10-19" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix complication issue on Ubuntu 20.04 and GCC 9.</li>
+</ul>
+<h2 id="432-2024-10-18">4.3.2 (2024-10-18)<a class="headerlink" href="#432-2024-10-18" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Improve NativeRegistry to reduce possible hash collisions and weird "bad any cast" errors.</li>
+</ul>
+<h2 id="431-2024-3-16">4.3.1 (2024-3-16)<a class="headerlink" href="#431-2024-3-16" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Update links and related references to the new repo and docs location: ruby-rice.github.io.</li>
+</ul>
+<h2 id="43-2024-2-25">4.3 (2024-2-25)<a class="headerlink" href="#43-2024-2-25" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Add support for STL containers that contain pointers</li>
+<li>Add support for std::string_view</li>
+<li>Fix handling of std::shared_ptr that resulted in moving them instead of copying them</li>
+<li>Fix container iteration so elements are passed by reference and not copied</li>
+<li>Avoid unnecessary copies when creating Rice::Identifiers and Rice::Symbols</li>
+</ul>
+<h2 id="421-2024-1-20">4.2.1 (2024-1-20)<a class="headerlink" href="#421-2024-1-20" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Support systems who use <code>#include &lt;experimental/filesystem&gt;</code> over <code>#include&lt;filesystem&gt;</code>. See <a href="https://github.com/jasonroelofs/rice/issues/197">#197</a> and <a href="https://github.com/jasonroelofs/rice/pull/201">#201</a></li>
+</ul>
+<h2 id="42-2024-1-10">4.2 (2024-1-10)<a class="headerlink" href="#42-2024-1-10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Support Ruby 3.3.0.</li>
+<li>Split Object.call to an explicit Object.call_kw for calling methods expecting keyword arguments.</li>
+<li>Previously, if a wrapper used <code>keepAlive</code> on an argument or return value that was itself a Rice type, calling said method would segfault. We've now added an explicit exception to be thrown in this case, prevending the segfault and providing guidance on what was wrong and how to fix it. See <a href="https://github.com/jasonroelofs/rice/pull/193">#193</a> and <a href="https://github.com/jasonroelofs/rice/pull/194">#194</a></li>
+<li>Fix wrapping of std::shared_ptr to properly take default arguments into account.</li>
+</ul>
+<h2 id="41-2023-4-21">4.1 (2023-4-21)<a class="headerlink" href="#41-2023-4-21" title="Permanent link">&para;</a></h2>
+<p>Rice 4.1 builds on the 4.0 release and has a number of improvements that both polish Rice and extend its functionality. However, there are three incompatibilities to know about:</p>
+<ul>
+<li>Exception handlers are now registered globally versus per module. This requires updating code that calls Class#add_handler to use register_handler instead.</li>
+<li>Rename Arg#isValue to Arg#setValue and then Arg#getIsValue to Arg#isValue</li>
+<li>Rename Return#isValue to Return#setValue and Return#getIsValue to Return#isValue </li>
+</ul>
+<p>New or improved functionality includes:</p>
+<ul>
+<li>Add support for std::map, std::unordered_map, std::variant, std::monostate and std::reference_wrapper</li>
+<li>Enable calling of C++ member functions that are defined in ancestor classes</li>
+<li>Make it easy to wrap C++ iterators like std::vector begin and end</li>
+<li>Enable creating enumerators for C++ collections like std::vector and std::map</li>
+<li>Enable calling more Ruby API methods including those with a variable number of parameters such as rb_yield_values</li>
+<li>Add additional C++ to Ruby exception mappings (for example, std::system_error to SystemCallError)</li>
+<li>Updated documentation, including new pages for instance tracking, iterators, exceptions and newly supported STL classes</li>
+<li>Add support for calling Ruby methods with keywords from Rice::Object and its descendants</li>
+<li>Automatically translate C++ character arrays that start with colons to symbols (ie, ":mysymbol") when sending them to Ruby</li>
+<li>Add a constructor for Rice::Module that takes a name, to enable code like Module("Kernel")</li>
+<li>Fix comparison methods in Rice::Object, such as Object#is_equal, to return the correct result</li>
+<li>Fix various compiler warnings</li>
+<li>Remove deprecated APIs</li>
+<li>Remove support for Ruby 2.5 and 2.6 which are officially out of support</li>
+<li>Add support for building tests with CMake</li>
+<li>And lots of other fixes and code improvements</li>
+</ul>
+<p>Rice also includes experimental support for instance tracking so that Rice maps the same C++ instance to the same Ruby instance each time it is passed to Ruby. See the documentation for more information.</p>
+<h2 id="40-2021-4-8">4.0 (2021-4-8)<a class="headerlink" href="#40-2021-4-8" title="Permanent link">&para;</a></h2>
+<p>Rice 4.0 is a significant change from 3.0 and has multiple backwards-incompatible
+changes. Rice 4.0 no longer requires pre-compilation and is now a header-only library,
+delivered as a combined header file.</p>
+<p>For migrating from 3 to 4, see <a href="https://ruby-rice.github.io/4.x/migration.html">the migration guide</a>.</p>
+<p>There are a ton of changes, but some of the most important ones:</p>
+<ul>
+<li>Header only! <code>#include &lt;rice/rice.hpp&gt;</code></li>
+<li>Requires C++17 or later</li>
+<li>Brand new, expanded documentation</li>
+<li><a href="https://ruby-rice.github.io/4.x/stl/stl.html">Built-in STL support</a></li>
+<li>And so much more. See the documentation for more details.</li>
+</ul>
+<h2 id="30-2021-1-8">3.0 (2021-1-8)<a class="headerlink" href="#30-2021-1-8" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Now requires a compiler supporting for C++14 or later</li>
+<li>Drop support for Ruby 2.4. Supported versions are now 2.5 through 3.0.</li>
+<li>Fix build issue on macOS Big Sur</li>
+<li>Fix a data corruption issue with <code>Rice::Exception::what</code>.</li>
+<li>Move CI from Travis to GitHub Actions. Now also able to verify Windows builds!</li>
+</ul>
+<h2 id="220-2020-1-10">2.2.0 (2020-1-10)<a class="headerlink" href="#220-2020-1-10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Deprecate support for Rubies older than 2.4</li>
+<li>Provide a few more built-in to_ruby/from_ruby conversions</li>
+<li>Fix compilation error when building under Ruby 2.7.0</li>
+</ul>
+<h2 id="213-2019-2-28">2.1.3 (2019-2-28)<a class="headerlink" href="#213-2019-2-28" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Don't lock down HAVE_CXX11 on the Rice build itself.</li>
+</ul>
+<h2 id="212-2017-11-20">2.1.2 (2017-11-20)<a class="headerlink" href="#212-2017-11-20" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix defining custom <code>begin</code> and <code>end</code> methods on an <code>Iterator</code></li>
+</ul>
+<h2 id="211-2020-1-10">2.1.1 (2020-1-10)<a class="headerlink" href="#211-2020-1-10" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Support Ruby 2.4</li>
+<li>Re-enable Rice::Enum#hash to support putting Enums in Hashes</li>
+</ul>
+<h2 id="210-2016-1-1">2.1.0 (2016-1-1)<a class="headerlink" href="#210-2016-1-1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix compliation issues related to g++ and Ruby 2.3.0
+  To do this, I had to remove Array::to_c_array which was exposing the internals of a
+    Ruby RArray type to the system. This is not something that we should support going forward
+    as these internals are going to change.</li>
+</ul>
+<h2 id="200-2015-11-27">2.0.0 (2015-11-27)<a class="headerlink" href="#200-2015-11-27" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Deprecated all versions of Ruby &lt; 2.0</li>
+<li>Removed Rice::VM.
+  Unsure if this class is even used anywhere and it felt strange to be
+  able to load up a Ruby interpreter inside of Ruby. If you need it, it's
+  two files that I can easily make available in a gist.</li>
+<li>Improve build process across architectures and future changes.
+  Included some extra warnings for XCode updates on Mac OS X.</li>
+<li>Confirmed that Rice definitely does not work on static Ruby builds,
+  but that seems to be more because newer Ruby versions don't have good static builds.
+  Thanks to @Kagetsuki for his help tracking down what's going on here.</li>
+</ul>
+<h2 id="170-2015-1-6">1.7.0 (2015-1-6)<a class="headerlink" href="#170-2015-1-6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ruby 2.2 support
+  Potential breaking changes. Ruby 2.2 removed RHash as a public accessible struct
+  and as such I changed all of the Builtin_Objects to work directly off of RObject
+  instead of the specifics (RArray, RStruct, RString, etc). If you've been using these
+  objects directly I recommend using either the Rice API or Ruby's CAPI instead for
+  future compatibility.</li>
+</ul>
+<h2 id="163-2014-12-18">1.6.3 (2014-12-18)<a class="headerlink" href="#163-2014-12-18" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix complication issue on some 64-bit *nix systems</li>
+</ul>
+<h2 id="162-2014-5-5">1.6.2 (2014-5-5)<a class="headerlink" href="#162-2014-5-5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Oops! Missed new file in the gemspec</li>
+</ul>
+<h2 id="161-2014-5-5">1.6.1 (2014-5-5)<a class="headerlink" href="#161-2014-5-5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Support C++x11 uniqe_ptr over auto_ptr</li>
+<li>Fix some warnings</li>
+</ul>
+<h2 id="160-2014-2-3">1.6.0 (2014-2-3)<a class="headerlink" href="#160-2014-2-3" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ruby 2.1 support -- Thanks Chai Zhenhua</li>
+<li>Methods and Constructors have correct method access specifiers [#57]</li>
+<li>Clean up some 64-bit compiler warnings</li>
+</ul>
+<h2 id="153-2013-10-14">1.5.3 (2013-10-14)<a class="headerlink" href="#153-2013-10-14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix signed / unsigned compiler warning with Hash#each</li>
+<li>Fix compilation on clang 5 (Xcode 5)</li>
+</ul>
+<h2 id="152-2013-10-5">1.5.2 (2013-10-5)<a class="headerlink" href="#152-2013-10-5" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Update build system to remove deprecation warnings and allow easier building</li>
+<li>Fix String to work as a parameter in a wrapped method (#59)</li>
+<li>Update documentation a bit</li>
+</ul>
+<h2 id="151-2013-5-2">1.5.1 (2013-5-2)<a class="headerlink" href="#151-2013-5-2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Doc string fix</li>
+</ul>
+<h2 id="150-2013-5-1">1.5.0 (2013-5-1)<a class="headerlink" href="#150-2013-5-1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ruby 2.0 compatability</li>
+<li>Bug fixes</li>
+</ul>
+<h2 id="143-2011-10-9">1.4.3 (2011-10-9)<a class="headerlink" href="#143-2011-10-9" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Various build configuration fixes</li>
+</ul>
+<h2 id="140-2010-8-30">1.4.0 (2010-8-30)<a class="headerlink" href="#140-2010-8-30" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fully compatible with Ruby 1.9.2</li>
+<li>Constructor supports default arguments</li>
+<li>Ability to define implicit casting through define_implicit_cast</li>
+<li>Fixed a few memory-related issues</li>
+</ul>
 
 
 
