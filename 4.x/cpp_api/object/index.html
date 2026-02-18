@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+      <meta name="generator" content="zensical-0.0.23">
     
     
       
@@ -31,10 +31,15 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      <link rel="stylesheet" href="../../assets/stylesheets/classic/main.d9d44b50.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/classic/palette.7dc9a0ad.min.css">
       
       
 
@@ -48,12 +53,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,a=__md_scope)=>JSON.parse(t.getItem(a.pathname+"."+e)),__md_set=(e,t,a=localStorage,_=__md_scope)=>{try{a.setItem(_.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
     
       
 
@@ -127,20 +132,20 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="default" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
       <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
       </label>
     
   
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="none" data-md-color-scheme="slate" data-md-color-primary="red" data-md-color-accent="red"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
       <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
       </label>
     
   
@@ -158,53 +163,26 @@
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
 </div>
       
     
-    
-      <div class="md-header__source">
+    <div class="md-header__source">
+      
         <a href="https://github.com/ruby-rice/rice" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     ruby-rice/rice
   </div>
 </a>
-      </div>
-    
+      
+    </div>
   </nav>
   
     
@@ -224,7 +202,6 @@
         <a href="../.." class="md-tabs__link">
           
   
-  
   Home
 
         </a>
@@ -241,9 +218,6 @@
     <li class="md-tabs__item">
       <a href="../../tutorial/" class="md-tabs__link">
         
-  
-  
-    
   
   Getting Started
 
@@ -262,7 +236,6 @@
       <li class="md-tabs__item">
         <a href="../../types/overview/" class="md-tabs__link">
           
-  
   
   Type Conversion
 
@@ -283,7 +256,6 @@
         <a href="../../bindings/overview/" class="md-tabs__link">
           
   
-  
   Wrapping C++
 
         </a>
@@ -302,7 +274,6 @@
       <li class="md-tabs__item">
         <a href="../../stl/stl/" class="md-tabs__link">
           
-  
   
   STL Support
 
@@ -325,7 +296,6 @@
         <a href="../overview/" class="md-tabs__link">
           
   
-  
   Rice Classes
 
         </a>
@@ -344,7 +314,6 @@
       <li class="md-tabs__item">
         <a href="../../ruby_api/overview/" class="md-tabs__link">
           
-  
   
   Ruby Runtime
 
@@ -365,7 +334,6 @@
         <a href="../../packaging/packaging/" class="md-tabs__link">
           
   
-  
   Packaging
 
         </a>
@@ -384,7 +352,6 @@
       <li class="md-tabs__item">
         <a href="../../architecture/overview/" class="md-tabs__link">
           
-  
   
   Architecture
 
@@ -437,7 +404,7 @@
       <a href="https://github.com/ruby-rice/rice" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     ruby-rice/rice
@@ -700,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../changelog/" class="md-nav__link">
+      <a href="../../changelog.md" class="md-nav__link">
         
   
   
@@ -1852,6 +1819,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../stl/function/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    std::function
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../stl/map/" class="md-nav__link">
         
   
@@ -1916,6 +1911,34 @@
     
   
     std::optional
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../stl/ostream/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    std::ostream
   
 
     
@@ -2417,7 +2440,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="./" class="md-nav__link md-nav__link--active">
+      <a href="././" class="md-nav__link md-nav__link--active">
         
   
   
@@ -2436,7 +2459,8 @@
       
         
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
   
   
   
@@ -2445,7 +2469,7 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      On this page
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
@@ -2516,17 +2540,6 @@
     <span class="md-ellipsis">
       
         value() const → VALUE
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test-const-bool" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        test() const → bool
       
     </span>
   </a>
@@ -3979,6 +3992,62 @@
   
   
     <li class="md-nav__item">
+      <a href="../../architecture/incomplete_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Incomplete Types
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/procs_and_blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Procs and Blocks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../architecture/smart_pointers/" class="md-nav__link">
         
   
@@ -4021,8 +4090,6 @@
               <article class="md-content__inner md-typeset">
                 
                   
-
-
   
   
 
@@ -4031,12 +4098,14 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;rice/rice.hpp&gt;</span>
 </code></pre></div>
 <p><code>Rice::Object</code> is the base class for all Rice wrapper classes. It wraps a Ruby <code>VALUE</code> and provides a C++-style interface to Ruby's object system.</p>
+<p>Note: <code>Object</code> stores its wrapped Ruby value using an internal <code>Pin</code>, so wrapper instances keep their Ruby <code>VALUE</code> protected from GC while the wrapper is alive. This makes long-lived C++ wrappers (including wrappers stored in STL containers) GC-safe.</p>
 <hr />
 <h2 id="constructors">Constructors<a class="headerlink" href="#constructors" title="Permanent link">&para;</a></h2>
 <h3 id="object_1">Object()<a class="headerlink" href="#object_1" title="Permanent link">&para;</a></h3>
 <p>Construct a new Object wrapping <code>Qnil</code>.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span><span class="w">  </span><span class="c1">// wraps nil</span>
 </code></pre></div>
+<p>This is an intentionally "empty/nil" default state. It avoids accidentally targeting <code>rb_cObject</code> when a wrapper is default-constructed and later used without explicit initialization.</p>
 <hr />
 <h3 id="objectvalue-value">Object(VALUE value)<a class="headerlink" href="#objectvalue-value" title="Permanent link">&para;</a></h3>
 <p>Wrap an existing Ruby VALUE.</p>
@@ -4064,83 +4133,77 @@
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
 <a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">value</span><span class="p">();</span>
 </code></pre></div>
-<hr />
-<h3 id="test-const-bool">test() const → bool<a class="headerlink" href="#test-const-bool" title="Permanent link">&para;</a></h3>
-<p>Test if the object is truthy.</p>
-<p><strong>Returns:</strong></p>
-<p><code>false</code> if the object is <code>nil</code> or <code>false</code>; <code>true</code> otherwise.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">Qtrue</span><span class="p">);</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">test</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="c1">// ...</span>
-<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
-</code></pre></div>
+<p>If the wrapper does not contain a usable receiver, Rice will raise an exception when the value is used by APIs that require a receiver. Check <code>is_nil()</code> before calling receiver-style methods.</p>
 <hr />
 <h3 id="operator-bool-const">operator bool() const<a class="headerlink" href="#operator-bool-const" title="Permanent link">&para;</a></h3>
-<p>Implicit conversion to bool. Same as <code>test()</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="c1">// object is truthy</span>
-<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
+<p>Implicit conversion to bool.</p>
+<p><strong>Returns:</strong></p>
+<p><code>false</code> if the object is <code>nil</code> or <code>false</code>; <code>true</code> otherwise.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="c1">// object is truthy</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h3 id="is_nil-const-bool">is_nil() const → bool<a class="headerlink" href="#is_nil-const-bool" title="Permanent link">&para;</a></h3>
 <p>Check if the object is nil.</p>
 <p><strong>Returns:</strong></p>
 <p><code>true</code> if the object is nil, <code>false</code> otherwise.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
-<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">is_nil</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">  </span><span class="c1">// object is nil</span>
-<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">is_nil</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">  </span><span class="c1">// object is nil</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="p">}</span>
 </code></pre></div>
+<p>Use this to guard receiver-style operations when a wrapper may be empty/nil.</p>
 <hr />
 <h3 id="class_of-const-class">class_of() const → Class<a class="headerlink" href="#class_of-const-class" title="Permanent link">&para;</a></h3>
 <p>Get the object's class.</p>
 <p><strong>Returns:</strong></p>
 <p>The object's class as a <code>Rice::Class</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
-<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">Class</span><span class="w"> </span><span class="n">klass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">class_of</span><span class="p">();</span><span class="w">  </span><span class="c1">// String class</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="n">Class</span><span class="w"> </span><span class="n">klass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">class_of</span><span class="p">();</span><span class="w">  </span><span class="c1">// String class</span>
 </code></pre></div>
 <hr />
 <h3 id="class_name-const-string">class_name() const → String<a class="headerlink" href="#class_name-const-string" title="Permanent link">&para;</a></h3>
 <p>Get the name of the object's class.</p>
 <p><strong>Returns:</strong></p>
 <p>The class name as a <code>Rice::String</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
-<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">class_name</span><span class="p">().</span><span class="n">str</span><span class="p">();</span><span class="w">  </span><span class="c1">// &quot;String&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">class_name</span><span class="p">().</span><span class="n">str</span><span class="p">();</span><span class="w">  </span><span class="c1">// &quot;String&quot;</span>
 </code></pre></div>
 <hr />
 <h3 id="to_s-const-string">to_s() const → String<a class="headerlink" href="#to_s-const-string" title="Permanent link">&para;</a></h3>
 <p>Get a string representation of the object.</p>
 <p><strong>Returns:</strong></p>
 <p>The result of calling <code>to_s</code> on the Ruby object.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">rb_fix_new</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
-<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">to_s</span><span class="p">().</span><span class="n">str</span><span class="p">();</span><span class="w">  </span><span class="c1">// &quot;42&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">rb_fix_new</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">to_s</span><span class="p">().</span><span class="n">str</span><span class="p">();</span><span class="w">  </span><span class="c1">// &quot;42&quot;</span>
 </code></pre></div>
 <hr />
 <h3 id="inspect-const-string">inspect() const → String<a class="headerlink" href="#inspect-const-string" title="Permanent link">&para;</a></h3>
 <p>Get a detailed string representation of the object.</p>
 <p><strong>Returns:</strong></p>
 <p>The result of calling <code>inspect</code> on the Ruby object.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
-<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">inspect</span><span class="p">().</span><span class="n">str</span><span class="p">();</span><span class="w">  </span><span class="c1">// &quot;\&quot;hello\&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">str</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">inspect</span><span class="p">().</span><span class="n">str</span><span class="p">();</span><span class="w">  </span><span class="c1">// &quot;\&quot;hello\&quot;&quot;</span>
 </code></pre></div>
 <hr />
 <h3 id="rb_type-const-int">rb_type() const → int<a class="headerlink" href="#rb_type-const-int" title="Permanent link">&para;</a></h3>
 <p>Get the Ruby type of the underlying VALUE.</p>
 <p><strong>Returns:</strong></p>
 <p>One of Ruby's type constants (e.g., <code>T_STRING</code>, <code>T_ARRAY</code>, <code>T_OBJECT</code>).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
-<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">rb_type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">T_STRING</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">  </span><span class="c1">// it&#39;s a string</span>
-<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">rb_type</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">T_STRING</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="c1">// it&#39;s a string</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h3 id="object_id-const-value">object_id() const → VALUE<a class="headerlink" href="#object_id-const-value" title="Permanent link">&para;</a></h3>
 <p>Get the object's unique identifier.</p>
 <p><strong>Returns:</strong></p>
 <p>The result of calling <code>object_id</code> on the Ruby object.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
-<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">object_id</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="n">VALUE</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">object_id</span><span class="p">();</span>
 </code></pre></div>
 <hr />
 <h3 id="is_aobject-klass-const-bool">is_a(Object klass) const → bool<a class="headerlink" href="#is_aobject-klass-const-bool" title="Permanent link">&para;</a></h3>
@@ -4151,10 +4214,10 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p><code>true</code> if the object is an instance of the class or any subclass.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
-<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">is_a</span><span class="p">(</span><span class="n">rb_cString</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="c1">// obj is a String</span>
-<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">is_a</span><span class="p">(</span><span class="n">rb_cString</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span><span class="c1">// obj is a String</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h3 id="is_instance_ofobject-klass-const-bool">is_instance_of(Object klass) const → bool<a class="headerlink" href="#is_instance_ofobject-klass-const-bool" title="Permanent link">&para;</a></h3>
@@ -4165,10 +4228,10 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p><code>true</code> if the object is a direct instance of the class (not a subclass).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">is_instance_of</span><span class="p">(</span><span class="n">rb_cString</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="c1">// obj is exactly a String, not a subclass</span>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">is_instance_of</span><span class="p">(</span><span class="n">rb_cString</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="c1">// obj is exactly a String, not a subclass</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h3 id="respond_toidentifier-id-const-bool">respond_to(Identifier id) const → bool<a class="headerlink" href="#respond_toidentifier-id-const-bool" title="Permanent link">&para;</a></h3>
@@ -4179,10 +4242,10 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p><code>true</code> if the object responds to the method.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
-<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">respond_to</span><span class="p">(</span><span class="s">&quot;to_s&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span><span class="c1">// obj can be converted to string</span>
-<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj</span><span class="p">.</span><span class="n">respond_to</span><span class="p">(</span><span class="s">&quot;to_s&quot;</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span><span class="c1">// obj can be converted to string</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h3 id="is_equalconst-object-other-const-bool">is_equal(const Object&amp; other) const → bool<a class="headerlink" href="#is_equalconst-object-other-const-bool" title="Permanent link">&para;</a></h3>
@@ -4211,15 +4274,15 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p>Negative if <code>self &lt; other</code>, zero if equal, positive if <code>self &gt; other</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="n">rb_fix_new</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
-<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">Object</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="n">rb_fix_new</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
-<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// negative</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">a</span><span class="p">(</span><span class="n">rb_fix_new</span><span class="p">(</span><span class="mi">1</span><span class="p">));</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">Object</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="n">rb_fix_new</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="kt">int</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w">  </span><span class="c1">// negative</span>
 </code></pre></div>
 <hr />
 <h3 id="freeze">freeze()<a class="headerlink" href="#freeze" title="Permanent link">&para;</a></h3>
 <p>Freeze the object, preventing further modifications.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
-<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">obj</span><span class="p">.</span><span class="n">freeze</span><span class="p">();</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">obj</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="n">obj</span><span class="p">.</span><span class="n">freeze</span><span class="p">();</span>
 </code></pre></div>
 <hr />
 <h3 id="is_frozen-const-bool">is_frozen() const → bool<a class="headerlink" href="#is_frozen-const-bool" title="Permanent link">&para;</a></h3>
@@ -4235,8 +4298,8 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p>The result of evaluating the code.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
-<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">instance_eval</span><span class="p">(</span><span class="s">&quot;self.class.name&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">instance_eval</span><span class="p">(</span><span class="s">&quot;self.class.name&quot;</span><span class="p">);</span>
 </code></pre></div>
 <hr />
 <h3 id="callidentifier-id-args-const-object">call(Identifier id, args...) const → Object<a class="headerlink" href="#callidentifier-id-args-const-object" title="Permanent link">&para;</a></h3>
@@ -4248,11 +4311,11 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p>The return value of the method call.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
-<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;upcase&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// &quot;HELLO&quot;</span>
-<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>
-<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a><span class="n">Object</span><span class="w"> </span><span class="nf">arr</span><span class="p">(</span><span class="n">rb_ary_new</span><span class="p">());</span>
-<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="n">arr</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;push&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">str</span><span class="p">(</span><span class="n">rb_str_new_cstr</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">));</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">str</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;upcase&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// &quot;HELLO&quot;</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">Object</span><span class="w"> </span><span class="nf">arr</span><span class="p">(</span><span class="n">rb_ary_new</span><span class="p">());</span>
+<a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="n">arr</span><span class="p">.</span><span class="n">call</span><span class="p">(</span><span class="s">&quot;push&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
 </code></pre></div>
 <hr />
 <h3 id="call_kwidentifier-id-args-const-object">call_kw(Identifier id, args...) const → Object<a class="headerlink" href="#call_kwidentifier-id-args-const-object" title="Permanent link">&para;</a></h3>
@@ -4264,9 +4327,9 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p>The return value of the method call.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">Hash</span><span class="w"> </span><span class="n">kw</span><span class="p">;</span>
-<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">kw</span><span class="p">[</span><span class="s">&quot;encoding&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
-<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">call_kw</span><span class="p">(</span><span class="s">&quot;some_method&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kw</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="n">Hash</span><span class="w"> </span><span class="n">kw</span><span class="p">;</span>
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="n">kw</span><span class="p">[</span><span class="s">&quot;encoding&quot;</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">String</span><span class="p">(</span><span class="s">&quot;UTF-8&quot;</span><span class="p">);</span>
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="n">Object</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">call_kw</span><span class="p">(</span><span class="s">&quot;some_method&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kw</span><span class="p">);</span>
 </code></pre></div>
 <hr />
 <h3 id="vcallidentifier-id-array-args-object">vcall(Identifier id, Array args) → Object<a class="headerlink" href="#vcallidentifier-id-array-args-object" title="Permanent link">&para;</a></h3>
@@ -4287,8 +4350,8 @@
 <li><code>name</code> - The variable name (including <code>@</code>).</li>
 <li><code>value</code> - The value to set (automatically converted to Ruby).</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
-<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a><span class="n">obj</span><span class="p">.</span><span class="n">iv_set</span><span class="p">(</span><span class="s">&quot;@my_var&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">some_value</span><span class="p">);</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="n">obj</span><span class="p">.</span><span class="n">iv_set</span><span class="p">(</span><span class="s">&quot;@my_var&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">);</span>
 </code></pre></div>
 <hr />
 <h3 id="iv_getidentifier-name-const-object">iv_get(Identifier name) const → Object<a class="headerlink" href="#iv_getidentifier-name-const-object" title="Permanent link">&para;</a></h3>
@@ -4299,7 +4362,7 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p>The value of the instance variable.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">iv_get</span><span class="p">(</span><span class="s">&quot;@my_var&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="n">Object</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">obj</span><span class="p">.</span><span class="n">iv_get</span><span class="p">(</span><span class="s">&quot;@my_var&quot;</span><span class="p">);</span>
 </code></pre></div>
 <hr />
 <h3 id="attr_getidentifier-name-const-object">attr_get(Identifier name) const → Object<a class="headerlink" href="#attr_getidentifier-name-const-object" title="Permanent link">&para;</a></h3>
@@ -4320,8 +4383,8 @@
 </ul>
 <p><strong>Returns:</strong></p>
 <p>The value of the constant.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="n">Module</span><span class="w"> </span><span class="nf">kernel</span><span class="p">(</span><span class="n">rb_mKernel</span><span class="p">);</span>
-<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="n">Object</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kernel</span><span class="p">.</span><span class="n">const_get</span><span class="p">(</span><span class="s">&quot;RUBY_VERSION&quot;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">Module</span><span class="w"> </span><span class="nf">kernel</span><span class="p">(</span><span class="n">rb_mKernel</span><span class="p">);</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">Object</span><span class="w"> </span><span class="n">version</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kernel</span><span class="p">.</span><span class="n">const_get</span><span class="p">(</span><span class="s">&quot;RUBY_VERSION&quot;</span><span class="p">);</span>
 </code></pre></div>
 <hr />
 <h3 id="const_definedidentifier-name-const-bool">const_defined(Identifier name) const → bool<a class="headerlink" href="#const_definedidentifier-name-const-bool" title="Permanent link">&para;</a></h3>
@@ -4363,9 +4426,9 @@
 <h2 id="operators">Operators<a class="headerlink" href="#operators" title="Permanent link">&para;</a></h2>
 <h3 id="operatorobject-const-lhs-object-const-rhs-bool">operator==(Object const&amp; lhs, Object const&amp; rhs) → bool<a class="headerlink" href="#operatorobject-const-lhs-object-const-rhs-bool" title="Permanent link">&para;</a></h3>
 <p>Test equality using Ruby's <code>==</code> operator.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">obj2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="w">  </span><span class="c1">// objects are equal</span>
-<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">obj1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">obj2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="w">  </span><span class="c1">// objects are equal</span>
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="p">}</span>
 </code></pre></div>
 <hr />
 <h3 id="operatorobject-const-lhs-object-const-rhs-bool_1">operator!=(Object const&amp; lhs, Object const&amp; rhs) → bool<a class="headerlink" href="#operatorobject-const-lhs-object-const-rhs-bool_1" title="Permanent link">&para;</a></h3>
@@ -4379,9 +4442,11 @@
 <hr />
 <h3 id="operatorstdostream-out-object-const-obj-stdostream">operator&lt;&lt;(std::ostream&amp; out, Object const&amp; obj) → std::ostream&amp;<a class="headerlink" href="#operatorstdostream-out-object-const-obj-stdostream" title="Permanent link">&para;</a></h3>
 <p>Output the object to a stream (calls <code>to_s</code>).</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">rb_fix_new</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
-<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">  </span><span class="c1">// prints &quot;42&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="n">Object</span><span class="w"> </span><span class="nf">obj</span><span class="p">(</span><span class="n">rb_fix_new</span><span class="p">(</span><span class="mi">42</span><span class="p">));</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">obj</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w">  </span><span class="c1">// prints &quot;42&quot;</span>
 </code></pre></div>
+
+
 
 
 
@@ -4418,8 +4483,8 @@
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-      Material for MkDocs
+    <a href="https://zensical.org/" target="_blank" rel="noopener">
+      Zensical
     </a>
   
 </div>
@@ -4437,10 +4502,11 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.top", "search.highlight", "content.code.copy", "toc.integrate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      
+      <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.tabs","navigation.tabs.sticky","navigation.top","search.highlight","content.code.copy","toc.integrate"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5fcf0de6.min.js"></script>
       
     
   </body>
