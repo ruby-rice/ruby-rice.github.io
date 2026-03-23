@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.27">
+      <meta name="generator" content="zensical-0.0.28">
     
     
       
@@ -34,7 +34,7 @@
       
         
       
-      <link rel="stylesheet" href="../../assets/stylesheets/classic/main.d9d44b50.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/classic/main.5b14e6eb.min.css">
       
         
           
@@ -3215,6 +3215,17 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#array-bounds-warning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Array Bounds Warning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#template-backtrace" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3319,6 +3330,17 @@
     <span class="md-ellipsis">
       
         Build Size Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcc-15-lto-assembler-bug" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GCC 15 LTO Assembler Bug
       
     </span>
   </a>
@@ -3800,10 +3822,10 @@
 <h2 id="compiler-settings">Compiler Settings<a class="headerlink" href="#compiler-settings" title="Permanent link">&para;</a></h2>
 <p>Rice extensions requires several compiler settings to be set. These are captured in the <a href="https://github.com/ruby-rice/rice/blob/master/CMakePresets.json">CMakePresets.json</a> file for all supported platforms.</p>
 <p>For Clang and GCC:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-std<span class="o">=</span>c++17<span class="w"> </span>-Wa,-mbig-obj<span class="w"> </span>-ftemplate-backtrace-limit<span class="o">=</span><span class="m">0</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>-std<span class="o">=</span>c++17<span class="w"> </span>-Wno-array-bounds<span class="w"> </span>-Wa,-mbig-obj<span class="w"> </span>-ftemplate-backtrace-limit<span class="o">=</span><span class="m">0</span>
 </code></pre></div>
 <p>For MINGW:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-std<span class="o">=</span>c++17,<span class="w"> </span>-Wa,-mbig-obj
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>-std<span class="o">=</span>c++17<span class="w"> </span>-Wno-array-bounds<span class="w"> </span>-Wa,-mbig-obj
 </code></pre></div>
 <p>For Microsoft Visual C++ and Windows Clang:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>/std:c++17<span class="w"> </span>/EHs<span class="w"> </span>/permissive-<span class="w"> </span>/bigobj<span class="w"> </span>/utf-8<span class="w"> </span>/Zc:__cplusplus<span class="w"> </span>-D_ALLOW_KEYWORD_MACROS<span class="w"> </span>-D_CRT_SECURE_NO_DEPRECATE<span class="w"> </span>-D_CRT_NONSTDC_NO_DEPRECATE
@@ -3819,6 +3841,10 @@
 <p>By default, MSVC does not update the <code>__cplusplus</code> preprocessor macro to reflect the actual C++ standard in use — it always reports <code>199711L</code>. The <code>/Zc:__cplusplus</code> flag fixes this so that Rice's <code>#if __cplusplus</code> checks work correctly.</p>
 <h3 id="exception-handling-model">Exception Handling Model<a class="headerlink" href="#exception-handling-model" title="Permanent link">&para;</a></h3>
 <p>For Visual C++, the default exception <a href="https://learn.microsoft.com/en-us/cpp/build/reference/eh-exception-handling-model?view=msvc-170">model</a> setting of <code>/EHsc</code> crashes Ruby when calling longjmp with optimizations enabled (/O2). Therefore you must <code>/EHs</code> instead.</p>
+<h3 id="array-bounds-warning">Array Bounds Warning<a class="headerlink" href="#array-bounds-warning" title="Permanent link">&para;</a></h3>
+<p>g++ 15 produces false positive <code>-Warray-bounds</code> warnings when inlining through Ruby's <code>RSTRING</code> macro (in <code>ruby/internal/core/rstring.h</code>). This is not a bug in Rice or Ruby. The warning is harmless but becomes a build failure if <code>-Werror</code> is enabled. Rice suppresses it with:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>-Wno-array-bounds
+</code></pre></div>
 <h3 id="template-backtrace">Template Backtrace<a class="headerlink" href="#template-backtrace" title="Permanent link">&para;</a></h3>
 <p>For g++, you must set <code>-ftemplate-backtrace-limit=0</code> to avoid compilation errors.</p>
 <h3 id="rtti">RTTI<a class="headerlink" href="#rtti" title="Permanent link">&para;</a></h3>
@@ -3832,12 +3858,12 @@
 <p>Ruby extensions are shared libraries that the Ruby interpreter loads at runtime using <code>dlopen</code>. These extensions reference symbols from the Ruby C API (such as <code>rb_define_class</code>, <code>rb_funcall</code>, etc.) that are provided by the Ruby interpreter itself. Since these symbols are not available at link time, the linker must be told to allow unresolved symbols.</p>
 <h3 id="macos">macOS<a class="headerlink" href="#macos" title="Permanent link">&para;</a></h3>
 <p>On macOS, use the following linker flag:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>-Wl,-undefined,dynamic_lookup
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-Wl,-undefined,dynamic_lookup
 </code></pre></div>
 <p>This tells the linker to allow undefined symbols and resolve them dynamically at load time. When Ruby loads the extension, the symbols are resolved against the Ruby interpreter's symbol table.</p>
 <h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">&para;</a></h3>
 <p>On Linux, use the following linker flag:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>-Wl,--unresolved-symbols<span class="o">=</span>ignore-all
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>-Wl,--unresolved-symbols<span class="o">=</span>ignore-all
 </code></pre></div>
 <p>This instructs the linker to ignore all unresolved symbols during linking. The symbols will be resolved when the Ruby interpreter loads the shared library.</p>
 <h3 id="windows">Windows<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h3>
@@ -3886,16 +3912,21 @@
 <p>As shown, LTO provides substantial size reductions across all platforms, with MinGW benefiting the most dramatically.</p>
 <p>Rice's <code>CMakePreset.json</code> automatically enables LTO by setting <code>CMAKE_INTERPROCEDURAL_OPTIMIZATION</code> to <code>ON</code>.</p>
 <p>If you are using <code>extconf.rb (Mkmf)</code> then:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="vg">$CXXFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; -flto&quot;</span>
-<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="vg">$LDFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; -flto&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="vg">$CXXFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; -flto&quot;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="vg">$LDFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; -flto&quot;</span>
 </code></pre></div>
 <p>For MSVC:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="vg">$CXXFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; /GL&quot;</span>
-<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="vg">$LDFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; /LTCG&quot;</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="vg">$CXXFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; /GL&quot;</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="vg">$LDFLAGS</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s2">&quot; /LTCG&quot;</span>
 </code></pre></div>
+<h3 id="gcc-15-lto-assembler-bug">GCC 15 LTO Assembler Bug<a class="headerlink" href="#gcc-15-lto-assembler-bug" title="Permanent link">&para;</a></h3>
+<p>g++ 15.2.1 with binutils 2.45.1 (shipped in Fedora 43) can trigger an internal assembler segfault when LTO is enabled. If you hit this, disable LTO as a workaround:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="vg">$CXXFLAGS</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="s2">&quot; -fno-lto&quot;</span>
+</code></pre></div>
+<p>Or with CMake, set <code>CMAKE_INTERPROCEDURAL_OPTIMIZATION</code> to <code>OFF</code>. This only affects the specific GCC/binutils version combination and should be resolved in a future binutils release.</p>
 <h3 id="debug-symbol-splitting-gccclang">Debug Symbol Splitting (GCC/Clang)<a class="headerlink" href="#debug-symbol-splitting-gccclang" title="Permanent link">&para;</a></h3>
 <p>For debug builds with GCC or Clang, consider using <code>-gsplit-dwarf</code> to separate debug information into <code>.dwo</code> files. This keeps the main binary smaller while preserving full debug capability:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_FLAGS_DEBUG</span><span class="w"> </span><span class="s2">&quot;-g -gsplit-dwarf&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">set</span><span class="p">(</span><span class="s">CMAKE_CXX_FLAGS_DEBUG</span><span class="w"> </span><span class="s2">&quot;-g -gsplit-dwarf&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>This is particularly useful for g++ where debug builds can exceed 1 GB without it.</p>
 
@@ -3955,11 +3986,10 @@
     
       
       
-      
       <script id="__config" type="application/json">{"annotate":null,"base":"../..","features":["navigation.tabs","navigation.tabs.sticky","navigation.top","search.highlight","content.code.copy","toc.integrate"],"search":"../../assets/javascripts/workers/search.e2d2d235.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5fd3284f.min.js"></script>
+      <script src="../../assets/javascripts/bundle.c2b142ea.min.js"></script>
       
     
   </body>
