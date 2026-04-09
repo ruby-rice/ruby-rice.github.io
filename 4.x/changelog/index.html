@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="zensical-0.0.31">
+      <meta name="generator" content="zensical-0.0.32">
     
     
       
@@ -735,22 +735,61 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#next-release" class="md-nav__link">
+  <a href="#4120-2026-04-09" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Next Release
+        4.12.0 (2026-04-09)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Next Release">
+    <nav class="md-nav" aria-label="4.12.0 (2026-04-09)">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bug Fixes
+      
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#enhancements" class="md-nav__link">
     <span class="md-ellipsis">
       
         Enhancements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4115-2026-03-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.11.5 (2026-03-24)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4.11.5 (2026-03-24)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bug-fixes_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bug Fixes
       
     </span>
   </a>
@@ -775,7 +814,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bug-fixes" class="md-nav__link">
+  <a href="#bug-fixes_2" class="md-nav__link">
     <span class="md-ellipsis">
       
         Bug Fixes
@@ -803,7 +842,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#bug-fixes_1" class="md-nav__link">
+  <a href="#bug-fixes_3" class="md-nav__link">
     <span class="md-ellipsis">
       
         Bug Fixes
@@ -4309,19 +4348,37 @@
 
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h1>
-<h2 id="next-release">Next Release<a class="headerlink" href="#next-release" title="Permanent link">&para;</a></h2>
+<h2 id="4120-2026-04-09">4.12.0 (2026-04-09)<a class="headerlink" href="#4120-2026-04-09" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes">Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix undefined behavior when deleting polymorphic classes with non-virtual destructors</li>
+<li>Fix overload resolution to prefer <code>T&amp;</code> or <code>const T&amp;</code> over <code>T&amp;&amp;</code> after perfect forwarding changes</li>
+<li>Fix <code>Reference&lt;T&gt;</code> constructor overload resolution so forwarded arguments bind to the typed overload instead of falling through to <code>Reference(VALUE)</code></li>
+<li>Reject incomplete <code>std::unique_ptr</code> bindings at compile time</li>
+</ul>
 <h3 id="enhancements">Enhancements<a class="headerlink" href="#enhancements" title="Permanent link">&para;</a></h3>
 <ul>
+<li>Forward <code>Object::call</code> arguments without copying</li>
+<li>Forward Rice constructor rvalue arguments</li>
+<li>Forward <code>std::function</code> callback arguments</li>
+<li>Add support for <code>To_Ruby&lt;T&amp;&gt;</code> for types missing it</li>
 <li>Allow raw Ruby procs and lambdas to convert directly to <code>std::function</code> parameters while keeping the callable alive with <code>Pin</code></li>
 <li>Only define equality-based STL container methods when the contained type supports C++ equality comparison</li>
 </ul>
+<h2 id="4115-2026-03-24">4.11.5 (2026-03-24)<a class="headerlink" href="#4115-2026-03-24" title="Permanent link">&para;</a></h2>
+<h3 id="bug-fixes_1">Bug Fixes<a class="headerlink" href="#bug-fixes_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix Valgrind invalid reads caused by stale GC root addresses (#399)</li>
+<li>Fix <code>rb_gc_register_address()</code> triggering GC before Anchor stores heap object — use <code>RB_GC_GUARD</code> to keep VALUE alive</li>
+<li>Fix gem packaging warning</li>
+</ul>
 <h2 id="4114-2026-03-13">4.11.4 (2026-03-13)<a class="headerlink" href="#4114-2026-03-13" title="Permanent link">&para;</a></h2>
-<h3 id="bug-fixes">Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h3>
+<h3 id="bug-fixes_2">Bug Fixes<a class="headerlink" href="#bug-fixes_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fix memory leak (#397)</li>
 </ul>
 <h2 id="4113-2026-03-11">4.11.3 (2026-03-11)<a class="headerlink" href="#4113-2026-03-11" title="Permanent link">&para;</a></h2>
-<h3 id="bug-fixes_1">Bug Fixes<a class="headerlink" href="#bug-fixes_1" title="Permanent link">&para;</a></h3>
+<h3 id="bug-fixes_3">Bug Fixes<a class="headerlink" href="#bug-fixes_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fix C++20 compilation error with <code>std::ostringstream::str</code> overload (#395)</li>
 <li>Add <code>function_traits</code> specializations for ref-qualified member functions (<code>&amp;</code>, <code>const&amp;</code>)</li>
